@@ -20,14 +20,14 @@
     </div>
     <div>
       <h2>Get in touch on social media:</h2>
-      <p><a class='link' target='blank' href='https://www.facebook.com/weirdphishes'>Facebook</a></p>
-      <p><a class='link' target='blank' href='https://www.instagram.com/weirdphishes'>Instagram</a></p>
-      <p><a class='link' target='blank' href='https://www.youtube.com/weirdphishes'>YouTube</a></p>
+      <p><i class="fab fa-facebook text-blue-600 w-5"></i>&nbsp;<a class='link' target='blank' href='https://www.facebook.com/weirdphishes'>Facebook</a></p>
+      <p><i class="fab fa-instagram text-orange-500 w-5"></i>&nbsp;<a class='link' target='blank' href='https://www.instagram.com/weirdphishes'>Instagram</a></p>
+      <p><i class="fab fa-youtube text-red-600 w-5"></i>&nbsp;<a class='link' target='blank' href='https://www.youtube.com/weirdphishes'>YouTube</a></p>
     </div>
     <div>
       <h2>Follow Weird Phishes everywhere else, too.</h2>
-      <p><a class='link' href='https://www.bandsintown.com/a/14950026-weird-phishes'>Bandsintown</a></p>
-      <p><a class='link' href='https://www.jambase.com/band/weird-phishes'>Jambase</a></p>
+      <p><i class="fas fa-drum text-teal-600 w-5"></i>&nbsp;<a class='link' href='https://www.bandsintown.com/a/14950026-weird-phishes'>Bandsintown</a></p>
+      <p><i class="fas fa-guitar text-blue-500 w-5"></i>&nbsp;<a class='link' href='https://www.jambase.com/band/weird-phishes'>Jambase</a></p>
     </div>
     <p>Weird Phishes is available for all types of shows. While a typical headlining performance is a 2-set, 180+ minute performance, we are open to any and all offers including festival inquiries, opening slots, private parties, or any other events you can think of. Feel free to get in touch regardless - we look forward to hearing from you.</p>
     <div>
