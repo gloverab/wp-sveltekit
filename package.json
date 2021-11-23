@@ -9,6 +9,7 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
+    "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
     "svelte": "^3.42.6",
     "svelte-check": "^2.2.6",
