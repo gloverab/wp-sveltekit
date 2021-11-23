@@ -1,6 +1,6 @@
 <script lang='ts'>
 import { page } from "$app/stores";
-import Logo from "$src/assets/logo.svelte";
+import Logo from "$src/assets/Logo.svelte";
 import { mainRoutes } from "$src/constants";
 import PublicLibrary from "./PublicLibrary.svelte";
 

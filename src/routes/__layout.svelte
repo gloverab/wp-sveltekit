@@ -7,7 +7,7 @@
   import MenuIcon from "$components/MenuIcon.svelte";
   import Drawer from "$src/components/_common/Drawer.svelte";
   import { mainRoutes } from '$src/constants';
-import Logo from '$src/assets/logo.svelte';
+import Logo from '$src/assets/Logo.svelte';
 import BearLogo from '$src/components/BearLogo.svelte';
 
   const handleShowMobileMenu = () => {
