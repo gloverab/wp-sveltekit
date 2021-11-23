@@ -60,7 +60,7 @@ import BearLogo from '$src/components/BearLogo.svelte';
 
 <div class='hidden' />
 
-<div class:removeMarginsAndPadding={$page.path.includes('library')} class:marginsAndPadding={!$page.path.includes('library')} class='min-h-screen pb-12 bg-white shadow-lg'>
+<div class:removeMarginsAndPadding={$page.path.includes('library')} class:marginsAndPadding={!$page.path.includes('library')} class='min-h-screen pb-12 bg-gray-100 shadow-lg'>
   <slot />
   <div class='{$page.path.includes('shows') ? 'block' : 'hidden'}'>
     <h2>More shows are coming very soon!</h2>
@@ -79,6 +79,11 @@ import BearLogo from '$src/components/BearLogo.svelte';
     ></a>
   </div>
 </div>
+
+<footer class='flex items-center justify-between h-20 bg-white border-t px-4'>
+  <span class='text-xs'>COPYRIGHT © 2021  ·  WEIRD PHISHES</span>
+  <span class='text-xs'>DESIGNED & BUILT WITH ❤️ BY <a class='font-medium' href='#'>ALEX GLOVER</a></span>
+</footer>
 
 <style global>
  h2 {
