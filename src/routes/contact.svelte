@@ -2,6 +2,10 @@
   import alexjosh from '../assets/alex-josh.png'
 </script>
 
+<svelte:head>
+  <title>Weird Phishes | Contact</title>
+</svelte:head>
+
 <div class='flex md:space-x-8 flex-col md:flex-row'>
   <div class='w-full md:w-100 flex-shrink-0'>
     <img class='filter grayscale' src={alexjosh} />

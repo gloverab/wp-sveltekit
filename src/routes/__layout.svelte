@@ -21,6 +21,7 @@ import BearLogo from '$src/components/BearLogo.svelte';
 </script>
 
 <svelte:head>
+  <title>Weird Phishes | Radiohead + Phish = Something Entirely New</title>
   <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script>
 </svelte:head>
 

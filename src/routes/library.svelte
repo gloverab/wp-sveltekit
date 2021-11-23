@@ -2,6 +2,10 @@
   import * as posters from '$src/constants'
 </script>
 
+<svelte:head>
+  <title>Weird Phishes Public Library</title>
+</svelte:head>
+
 <div class='flex bg-gray-500 min-h-screen p-3 space-x-3'>
 
   <div class='flex-1 flex flex-col space-y-3'>

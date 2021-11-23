@@ -9,6 +9,10 @@ import BandMember from "$src/components/BandMember.svelte";
 
 </script>
 
+<svelte:head>
+  <title>Weird Phishes | About</title>
+</svelte:head>
+
 <div class='space-y-4 md:space-y-4'>
   <img src={banner} />
   <div class='w-full h-0.25 bg-gray-200' />

@@ -1,8 +1,10 @@
 <script lang='ts'>
-import Video from "$src/components/Video.svelte";
-import Loop from '../assets/flashy-clip.webp'
-  
+  import Video from "$src/components/Video.svelte";
 </script>
+
+<svelte:head>
+  <title>Weird Phishes | Videos</title>
+</svelte:head>
 
 <div class='relative border-l border-r'>
   <Video
