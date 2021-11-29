@@ -2,7 +2,7 @@
   export let isActive = false
 </script>
 
-<div class='menu-icon-wrapper h-17 px-4 flex justify-center items-center'>
+<div class='menu-icon-wrapper h-15 px-4 flex justify-center items-center'>
   <div id='menu-icon' class="
     menu-icon
     flex

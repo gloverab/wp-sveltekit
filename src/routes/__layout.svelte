@@ -62,23 +62,25 @@
 
 <div class='hidden' />
 
-<div class:removeMarginsAndPadding={$page.path.includes('library')} class:marginsAndPadding={!$page.path.includes('library')} class='min-h-screen pb-12 bg-gray-100 shadow-lg'>
-  <slot />
-  <div class='{$page.path.includes('shows') ? 'block' : 'hidden'}'>
-    <h2>More shows are coming very soon!</h2>
-    <a
-      class="bit-widget-initializer"
-      data-artist-name="id_14950026"
-      data-font="Helvetica"
-      data-language="en"
-      data-display-details="false"
-      data-text-color="#000000"
-      data-background-color="#ffffff"
-      data-separator-color="#DDDDDD"
-      data-popup-background-color="#ffffff"
-      data-link-color="#A2A2A2"
-      data-link-text-color="#FFFFFF"
-    ></a>
+<div class='min-h-screen pb-12 flex justify-center'>
+  <div class:removeMarginsAndPadding={$page.path.includes('library')} class:marginsAndPadding={!$page.path.includes('library')}>
+    <slot />
+    <div class='{$page.path.includes('shows') ? 'block' : 'hidden'}'>
+      <h2>More shows are coming very soon!</h2>
+      <a
+        class="bit-widget-initializer"
+        data-artist-name="id_14950026"
+        data-font="Helvetica"
+        data-language="en"
+        data-display-details="false"
+        data-text-color="#000000"
+        data-background-color="#ffffff"
+        data-separator-color="#DDDDDD"
+        data-popup-background-color="#ffffff"
+        data-link-color="#A2A2A2"
+        data-link-text-color="#FFFFFF"
+      ></a>
+    </div>
   </div>
 </div>
 
@@ -88,27 +90,31 @@
 </footer>
 
 <style global>
- h2 {
-   @apply font-semibold text-lg;
- }
+  body {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
 
- .removeMarginsAndPadding {
-   @apply m-0 p-0;
- }
+  h2 {
+    @apply font-semibold text-lg;
+  }
 
- .marginsAndPadding {
-   @apply md:mx-20 lg:mx-40 p-4 md:p-8;
- }
+  .removeMarginsAndPadding {
+    @apply m-0 p-0;
+  }
 
- a.link {
-   @apply text-blue-800 underline;
- }
+  .marginsAndPadding {
+    @apply p-4.5 md:p-0 md:w-187 lg:w-240;
+  }
 
- .btn {
-   @apply px-5 py-3 bg-blue-900 text-white rounded-lg;
- }
+  a.link {
+    @apply text-blue-800 underline;
+  }
 
- .btn.disabled {
-   @apply cursor-default opacity-70;
- }
+  .btn {
+    @apply px-5 py-3 bg-blue-900 text-white rounded-lg;
+  }
+
+  .btn.disabled {
+    @apply cursor-default opacity-70;
+  }
 </style>
