@@ -4,15 +4,29 @@
   import aeronaut from "../assets/aeronaut.png";
   import aeronautBanner from "../assets/wp-aeronaut-fb.png";
   import * as posters from '$src/constants';
+import Carousel from "$src/components/Carousel.svelte";
 </script>
 
-<div class='space-y-4 mt-6'>
-  <div class='h-30 md:h-80 overflow-hidden flex items-center'>
-    <img src={banner} />
+<div class='space-y-4 mt-0 md:mt-6'>
+  <div class='w-full pb-4'>
+    <div class='md:h-55 flex items-center space-x-2'>
+      <div class='h-25 md:w-57.5 md:h-53 flex-shrink-0'>
+        <img class='h-full' src='https://www.dropbox.com/s/pqte3wghbvsr4xz/circle-logo-texture.png?raw=1' />
+      </div>
+      <div class='h-full hidden md:block'>
+        <Carousel />
+      </div>
+      <div class='h-full flex md:hidden flex-col justify-between items-end'>
+        <div />
+        <p class='italic font-medium text-base md:text-2xl text-phish-grey-dark'>"Weird Phishes successfully fuses the work of the groundbreaking experimental indie band Radiohead with the music of Phish."</p>
+        <p class='text-phish-orange underline uppercase'><a class='' href='https://jambands.com/news/2019/03/15/new-band-weird-phishes-will-blend-phish-with-radiohead/' target='blank'>-Relix/JamBands.com</a></p>
+      </div>
+    </div>
   </div>
-  <div class='w-full h-0.25 bg-gray-200' />
+
+  <!-- <div class='w-full h-0.25 bg-gray-200' />
   <p class='italic font-medium text-lg'>"Weird Phishes successfully fuses the work of the groundbreaking experimental indie band Radiohead with the music of Phish."&nbsp;&nbsp;-<a class='link' href='https://jambands.com/news/2019/03/15/new-band-weird-phishes-will-blend-phish-with-radiohead/' target='blank'>Relix/JamBands.com</a></p>
-  <div class='w-full h-0.25 bg-gray-200' />
+  <div class='w-full h-0.25 bg-gray-200' /> -->
 
   <div class='flex space-y-4 md:space-y-0 md:space-x-4 flex-col md:flex-row'>
     <div class='w-full md:w-57.5'>

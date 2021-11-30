@@ -65,8 +65,9 @@
 <div class='min-h-[calc(100vh_-_8.75rem)] pb-12 flex justify-center'>
   <div class:removeMarginsAndPadding={$page.path.includes('library')} class:marginsAndPadding={!$page.path.includes('library')}>
     <slot />
-    <div class='{$page.path.includes('shows') ? 'block' : 'hidden'}'>
-      <h2>More shows are coming very soon!</h2>
+    <div class='{$page.path.includes('shows') ? 'block' : 'hidden'} bg-phish-purple w-full h-1' />
+    <span class='{$page.path.includes('shows') ? 'block' : 'hidden'} text-sm uppercase font-light tracking-wider mb-2'>Upcoming Shows</span>
+    <div class='{$page.path.includes('shows') ? 'block' : 'hidden'} bg-white w-full border-1 shadow-sm p-2.5'>
       <a
         class="bit-widget-initializer"
         data-artist-name="id_14950026"
