@@ -1,10 +1,9 @@
 <script lang='ts'>
   import NewsItem from "$src/components/NewsItem.svelte";
-  import banner from "../assets/wp-lucky-fb-generic.png";
   import aeronaut from "../assets/aeronaut.png";
   import aeronautBanner from "../assets/wp-aeronaut-fb.png";
   import * as posters from '$src/constants';
-import Carousel from "$src/components/Carousel.svelte";
+  import Carousel from "$src/components/Carousel.svelte";
 </script>
 
 <div class='space-y-4 mt-0 md:mt-6'>
