@@ -21,10 +21,11 @@ $:libPage = $page.path.includes('library')
 
   <div class='md:flex h-full hidden'>
     {#each mainRoutes as route}
-      <a sveltekit:prefetch class='flex h-full px-5 items-center {libPage ? 'text-white' : 'text-black'}' href={route.href}>
+      <a sveltekit:prefetch class='flex relative h-full px-5 items-center {libPage ? 'text-white' : 'text-phish-purple'} hover:text-phish-orange group' href={route.href}>
         <span>
           {route.name}
         </span>
+        <div class='absolute bottom-0 left-0 w-full bg-phish-orange h-1 transform scale-y-0 duration-200 origin-bottom group-hover:scale-y-100' />
       </a>
     {/each}
   </div>

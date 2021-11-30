@@ -85,7 +85,7 @@
       <div class='space-y-4'>
         <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
           <img src='https://www.dropbox.com/s/ii1rb7lhj4xqndy/15-step-vid.png?raw=1' />
-          <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Watch "15 Step > Golgi Apparatus > 15 Step" Live from Newburyport</h1>
+          <a href='https://www.youtube.com/watch?v=afKq4NmfHfs&feature=emb_title' target='blank' class='text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>Watch "15 Step > Golgi Apparatus > 15 Step" Live from Newburyport</a>
           <p class='text-sm text-phish-grey-light'>This 11-minute rendition of 15 Step was recorded live at Newburyport Brewing Company. Nils Carlson recorded the multitrack of this performance, and Weird Phishes' own Alex Glover mixed and mastered the track. You can watch the full performance here. Keep an eye out for a full release of this show coming soon.</p>
         </div>
 

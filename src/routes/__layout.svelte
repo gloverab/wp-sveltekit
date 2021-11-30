@@ -62,7 +62,7 @@
 
 <div class='hidden' />
 
-<div class='min-h-screen pb-12 flex justify-center'>
+<div class='min-h-[calc(100vh_-_8.75rem)] pb-12 flex justify-center'>
   <div class:removeMarginsAndPadding={$page.path.includes('library')} class:marginsAndPadding={!$page.path.includes('library')}>
     <slot />
     <div class='{$page.path.includes('shows') ? 'block' : 'hidden'}'>
