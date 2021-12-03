@@ -8,20 +8,20 @@ import PublicLibrary from "./PublicLibrary.svelte";
 $:libPage = $page.path.includes('library')
 </script>
 
-<header class='fixed top-0 flex w-screen overflow-x-scroll scrollbar-hide items-center justify-between h-15 px-4 {libPage ? 'bg-black' : 'bg-white'} shadow-md z-1000'>
+<header class='fixed top-0 flex w-screen overflow-x-scroll scrollbar-hide items-center justify-between h-15 px-4 {libPage ? 'bg-black' : 'bg-phish-purple'} shadow-md z-1000'>
   <a class='h-full flex items-center' href='/'>
     {#if libPage}
       <div class='h-3 md:h-7'>
         <PublicLibrary />
       </div>
     {:else}
-      <Logo classes='h-full' fill='black' />
+      <Logo classes='h-full' fill='fill-white' />
     {/if}
   </a>
 
   <div class='md:flex h-full hidden'>
     {#each mainRoutes as route}
-      <a sveltekit:prefetch class='flex relative h-full px-5 items-center {libPage ? 'text-white' : 'text-phish-purple'} {!$page.path.includes(route.href) ? 'hover:text-phish-orange' : ''} group' href={route.href}>
+      <a sveltekit:prefetch class='flex relative h-full px-5 items-center {libPage ? 'text-white' : 'text-white'} {!$page.path.includes(route.href) ? 'hover:text-phish-orange' : ''} group' href={route.href}>
         <span>
           {route.name}
         </span>
