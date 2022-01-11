@@ -31,7 +31,7 @@
 
 <Header />
 
-<button on:click={handleShowMobileMenu} class='fixed md:hidden h-17 flex items-center top-0 right-0 {$numDrawersOut > 0 && !$hideMenuIcon ? 'z-2000' : 'z-1000'}'>
+<button on:click={handleShowMobileMenu} class='fixed md:hidden h-15 flex items-center top-0 right-0 {$numDrawersOut > 0 && !$hideMenuIcon ? 'z-2000' : 'z-1000'}'>
   <MenuIcon
     isActive={$showMobileMenu}
   />

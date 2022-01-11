@@ -12,8 +12,8 @@
     w-7
     h-3.5
     " class:isActive>
-    <div class='menu-line h-0.75 w-full rounded menu-line-1 bg-blue-800'></div>
-    <div class='menu-line h-0.75 w-3/4 rounded menu-line-2 bg-blue-800'></div>
+    <div class='menu-line h-0.75 w-full rounded menu-line-1 bg-white'></div>
+    <div class='menu-line h-0.75 w-3/4 rounded menu-line-2 bg-white'></div>
   </div>
 </div>
 

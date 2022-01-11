@@ -8,7 +8,7 @@ import PublicLibrary from "./PublicLibrary.svelte";
 $:libPage = $page.path.includes('library')
 </script>
 
-<header class='fixed top-0 flex w-screen overflow-x-scroll scrollbar-hide items-center justify-between h-15 px-4 {libPage ? 'bg-black' : 'bg-phish-purple'} shadow-md z-1000'>
+<header class='fixed top-0 flex w-screen items-center justify-between h-15 px-4 {libPage ? 'bg-black' : 'bg-phish-purple'} shadow-md z-1000'>
   <a class='h-full flex items-center' href='/'>
     {#if libPage}
       <div class='h-3 md:h-7'>
