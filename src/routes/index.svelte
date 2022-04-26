@@ -1,6 +1,7 @@
 <script lang='ts'>
   import NewsItem from "$src/components/NewsItem.svelte";
   import aeronaut from "../assets/aeronaut.png";
+  import cabot from "../assets/cabot-poster.png";
   import aeronautBanner from "../assets/wp-aeronaut-fb.png";
   import * as posters from '$src/constants';
   import Carousel from "$src/components/Carousel.svelte";
@@ -36,6 +37,17 @@
         <div class='space-y-2 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col'>
           <NewsItem
             index={0}
+            href="https://thecabot.org/event/prince-bowie"
+            title='SHOW ANNOUNCEMENT: Weird Phishes opening for Prince/Bowie at The Cabot'
+            date="4/24/2022"
+            img={cabot}
+            subtitle="Get your tickets now →"
+            text1="Our show at the Boston's brand new Aeronaut Cannery was a massive success, due in no small part to all of you. Last Friday was the very first Friday this venue had ever been open, and we nearly sold it out. Our lighting was some of the best ever, thanks to the amazing Vin Pugliese (Pink Talking Fish, Le Special) and our sound was second-to-none thanks to our friend Kevin Corsett, who was simultaneously navigating a brand new soundsystem and mixing us on the fly."
+            text2="It's hard to imagine that less than a year ago the idea of playing shows seemed completely foreign. It's impossible to overstate the joy that we felt to share a space with you again and play music to some of the happiest faces we've ever seen. Thank you all, from the bottom of our hearts."
+          />
+          <div class='w-full h-0.25 bg-gray-200' />
+          <NewsItem
+            index={1}
             title='Aeronaut Cannery: Thank You, Boston!!'
             date="11/22/2021"
             img={aeronaut}
@@ -44,7 +56,7 @@
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={1}
+            index={2}
             title='New Video! Watch "15 Step > Golgi Apparatus" Live from Newburyport'
             date="11/2/2021"
             img={aeronaut}
@@ -53,7 +65,7 @@
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={2}
+            index={3}
             title="Weird Phishes at Aeronaut Cannery"
             date="9/30/2021"
             headerImg={aeronautBanner}
@@ -65,7 +77,7 @@
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={3}
+            index={4}
             title='Thank You Safe and SoundZ'
             date="6/15/2021"
             text1="We had an incredible time with friends new and old at the inaugural Safe n Soundz festival. Thank you all for sharing your time with us. It was incredible to bring Weird Phishes to a mountaintop, play music, and hang out with what we feel like is a brand new part of our family. We can't wait to see you all again. And an incredibly special thank you to George Adler and everyone at Shepherd Productions. We couldn't have asked for a better return to playing live music."
@@ -73,13 +85,13 @@
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={4}
+            index={5}
             title='Tonight: Weird Phishes at Electric Haze'
             date="6/5/2021"
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={5}
+            index={6}
             title='Summer Festival Announcement: Weird Phishes will Headline Safe & Soundz Night 1'
             date="3/15/2021"
           />
@@ -104,20 +116,28 @@
 
         <div class='flex space-y-4 lg:space-y-0 lg:space-x-4 flex-col lg:flex-row'>
           <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
+            <img src={cabot} />
+            <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>SHOW ANNOUNCEMENT: Weird Phishes opening for Prince/Bowie at The Cabot</h1>
+            <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing alongside Prince/Bowie, feat. members of Pink Talking Fish, Turkwuaz, TAUK, and more, at The Cabot in Beverly on April 30, 2022. <a href="https://thecabot.org/event/prince-bowie" class="underline text-phish-orange">Click here to get your tickets today</a></p>
+          </div>
+          <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
             <img src={aeronaut} />
             <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Aeronaut Cannery: Thank You Boston!</h1>
             <p class='text-sm text-phish-grey-light'>Our show at the Boston's brand new Aeronaut Cannery was a massive success, due in no small part to all of you. Last Friday was the very first Friday this venue had ever been open, and we nearly sold it out. Our lighting was some of the best ever, thanks to the amazing Vin Pugliese (Pink Talking Fish, Le Special) and our sound was second-to-none thanks to our friend Kevin Corsett, who was simultaneously navigating a brand new soundsystem and mixing us on the fly.</p>
           </div>
+        </div>
+
+        <div class='flex space-y-4 lg:space-y-0 lg:space-x-4 flex-col lg:flex-row'>
           <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
             <img src={posters.aeronaut1.img} />
             <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Weird Phishes at Aeronaut Cannery</h1>
             <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing their last hometown show of the year at Aeronaut Cannery in Boston/Everett, MA on November 19th, 2021.</p>
           </div>
-        </div>
-        <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
-          <img src={posters.opus2021.img} />
-          <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Soundcheck Studios & Opus Underground</h1>
-          <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing at the brand new Soundcheck Studios in Pembroke, MA on Tuesday, October 12th. Following that performance, the band will make their return to their home-away-from-home venue, Opus Underground on October 15th, 2021.</p>
+          <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
+            <img src={posters.opus2021.img} />
+            <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Soundcheck Studios & Opus Underground</h1>
+            <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing at the brand new Soundcheck Studios in Pembroke, MA on Tuesday, October 12th. Following that performance, the band will make their return to their home-away-from-home venue, Opus Underground on October 15th, 2021.</p>
+          </div>
         </div>
       </div>
     </div>
