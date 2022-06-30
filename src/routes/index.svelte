@@ -37,17 +37,25 @@
         <div class='space-y-2 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col'>
           <NewsItem
             index={0}
-            href="https://thecabot.org/event/prince-bowie"
+            href="https://www.eventbrite.com/e/weird-phishes-at-the-aeronaut-cannery-tickets-332951114747?aff=ebdssbdestsearch"
+            title="SHOW ANNOUNCEMENT: Weird Phishes at Boston's Aeronaut Cannery 7/1/2022"
+            date="5/24/2022"
+            img={aeronaut}
+            subtitle="Get your tickets now →"
+            text1="Our show at the Boston's brand new Aeronaut Cannery was a massive success, due in no small part to all of you. Last Friday was the very first Friday this venue had ever been open, and we nearly sold it out. Our lighting was some of the best ever, thanks to the amazing Vin Pugliese (Pink Talking Fish, Le Special) and our sound was second-to-none thanks to our friend Kevin Corsett, who was simultaneously navigating a brand new soundsystem and mixing us on the fly."
+            text2="It's hard to imagine that less than a year ago the idea of playing shows seemed completely foreign. It's impossible to overstate the joy that we felt to share a space with you again and play music to some of the happiest faces we've ever seen. Thank you all, from the bottom of our hearts."
+          />
+          <NewsItem
+            index={1}
             title='SHOW ANNOUNCEMENT: Weird Phishes opening for Prince/Bowie at The Cabot'
             date="4/24/2022"
             img={cabot}
-            subtitle="Get your tickets now →"
             text1="Our show at the Boston's brand new Aeronaut Cannery was a massive success, due in no small part to all of you. Last Friday was the very first Friday this venue had ever been open, and we nearly sold it out. Our lighting was some of the best ever, thanks to the amazing Vin Pugliese (Pink Talking Fish, Le Special) and our sound was second-to-none thanks to our friend Kevin Corsett, who was simultaneously navigating a brand new soundsystem and mixing us on the fly."
             text2="It's hard to imagine that less than a year ago the idea of playing shows seemed completely foreign. It's impossible to overstate the joy that we felt to share a space with you again and play music to some of the happiest faces we've ever seen. Thank you all, from the bottom of our hearts."
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={1}
+            index={2}
             title='Aeronaut Cannery: Thank You, Boston!!'
             date="11/22/2021"
             img={aeronaut}
@@ -56,7 +64,7 @@
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={2}
+            index={3}
             title='New Video! Watch "15 Step > Golgi Apparatus" Live from Newburyport'
             date="11/2/2021"
             img={aeronaut}
@@ -65,7 +73,7 @@
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={3}
+            index={4}
             title="Weird Phishes at Aeronaut Cannery"
             date="9/30/2021"
             headerImg={aeronautBanner}
@@ -77,7 +85,7 @@
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={4}
+            index={5}
             title='Thank You Safe and SoundZ'
             date="6/15/2021"
             text1="We had an incredible time with friends new and old at the inaugural Safe n Soundz festival. Thank you all for sharing your time with us. It was incredible to bring Weird Phishes to a mountaintop, play music, and hang out with what we feel like is a brand new part of our family. We can't wait to see you all again. And an incredibly special thank you to George Adler and everyone at Shepherd Productions. We couldn't have asked for a better return to playing live music."
@@ -85,19 +93,12 @@
           />
           <div class='w-full h-0.25 bg-gray-200' />
           <NewsItem
-            index={5}
+            index={6}
             title='Tonight: Weird Phishes at Electric Haze'
             date="6/5/2021"
           />
-          <div class='w-full h-0.25 bg-gray-200' />
-          <NewsItem
-            index={6}
-            title='Summer Festival Announcement: Weird Phishes will Headline Safe & Soundz Night 1'
-            date="3/15/2021"
-          />
         </div>
         <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
-          <img src='https://scontent-bos3-1.xx.fbcdn.net/v/t1.6435-9/155129487_842598203004115_1394750598899962830_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=e3f864&_nc_ohc=V3ZEgmDgYW0AX8HFESN&tn=ynwzltbB1areADxv&_nc_ht=scontent-bos3-1.xx&oh=f8a6f6d56ba4ac9419ec67cd0a9b0ba5&oe=61CB04DD' />
           <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Thank you Safe and Soundz Festival!</h1>
           <p class='text-sm text-phish-grey-light'>We had an incredible time with friends new and old at the inaugural Safe n Soundz festival. Thank you all for sharing your time with us. It was incredible to bring Weird Phishes to a mountaintop, play music, and hang out with what we feel like is a brand new part of our family. We can't wait to see you all again. And an incredibly special thank you to George Adler and everyone at Shepherd Productions. We couldn't have asked for a better return to playing live music.</p>
         </div>
@@ -108,6 +109,11 @@
       <div class='bg-phish-purple w-full h-1' />
       <span class='text-sm uppercase font-light tracking-wider mb-2'>Watch Now</span>
       <div class='space-y-4'>
+        <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
+          <img src='https://www.dropbox.com/s/a79hssgnpluym1b/High%20and%20Dry.png?raw=1' />
+          <a href='https://www.youtube.com/watch?v=gXXbKYb31LA' target='blank' class='text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>Watch "High and Dry / Chalk Dust Torture" Mashup Live from Boston</a>
+          <p class='text-sm text-phish-grey-light'>This 9-minute rendition of our High and Dry + Chalk Dust Torture mashup was recorded live at Aeronaut Cannery on 2/11/2022. You can watch the full performance here.</p>
+        </div>
         <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
           <img src='https://www.dropbox.com/s/ii1rb7lhj4xqndy/15-step-vid.png?raw=1' />
           <a href='https://www.youtube.com/watch?v=afKq4NmfHfs&feature=emb_title' target='blank' class='text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>Watch "15 Step > Golgi Apparatus > 15 Step" Live from Newburyport</a>
