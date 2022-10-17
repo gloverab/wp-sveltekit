@@ -174,3 +174,6 @@ export const aeronaut1Alt = {
   details: "Weird Phishes is the first band to play a headlining show at Aeronaut Cannery",
   img: "https://www.dropbox.com/s/fwhu05u0sh3go10/aeronaut-alt.png?raw=1"
 }
+
+export const baseUrl = "https://secret-coast-09187.herokuapp.com/"
+// export const baseUrl = "http://localhost:3001/"

@@ -1,90 +1,22 @@
 <script lang='ts'>
-  export let index
-  export let date: string
-  export let title: string
-  export let text1: string
-  export let ctaDisabled = false
-  export let cta = ''
-  export let ctaLink = ''
-  export let subtitle = ''
-  export let text2 = ''
-  export let img = ''
-  export let href = ''
-  export let headerImg = ''
-
-  let expanded = false
+  export let item
+  export let elH = undefined
 </script>
 
-{#if href}
-  <a {href} target="_blank" class='space-y-2 flex-shrink-0 py-2 group'>
-    {#if (headerImg || img) && index == 0}
-      <div class='w-full'>
-        <img src={headerImg || img} />
-      </div>
-    {/if}
-
-    <div>
-      <h4 class='text-xs text-phish-green'>{date}</h4>
-      <h1 class='text-lg font-medium text-phish-orange leading-5 group-hover:underline'>{title}</h1>
-      {#if subtitle}
-        <h4 class='mt-1 group-hover:underline'>{subtitle}</h4>
-      {/if}
-    </div>
-
-    {#if expanded}
-      <p>{text1}</p>
-
-      {#if text2}
-        <p>{text2}</p>
-      {/if}
-
-      {#if cta}
-        {#if !ctaDisabled}
-          <p class='py-3'>
-            <a href={ctaLink}>
-              <span class='btn'>{cta}</span>
-            </a>
-          </p>
-        {:else}
-          <p class='py-3'><span class='btn disabled'>{cta}</span></p>
-        {/if}
-      {/if}
-    {/if}
-  </a>
-{:else}
-  <div class='space-y-2 flex-shrink-0 py-2'>
-    {#if (headerImg || img) && index == 0}
-      <div class='w-full'>
-        <img src={headerImg || img} />
-      </div>
-    {/if}
-
-    <div>
-      <h4 class='text-xs text-phish-green'>{date}</h4>
-      <h1 class='text-lg font-medium text-phish-orange leading-5'>{title}</h1>
-      {#if subtitle}
-        <h4>{subtitle}</h4>
-      {/if}
-    </div>
-
-    {#if expanded}
-      <p>{text1}</p>
-
-      {#if text2}
-        <p>{text2}</p>
-      {/if}
-
-      {#if cta}
-        {#if !ctaDisabled}
-          <p class='py-3'>
-            <a href={ctaLink}>
-              <span class='btn'>{cta}</span>
-            </a>
-          </p>
-        {:else}
-          <p class='py-3'><span class='btn disabled'>{cta}</span></p>
-        {/if}
-      {/if}
-    {/if}
+<div bind:clientHeight={elH} class='flex-0 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
+  {#if item.img_1}
+    <img alt={item.title} src={item.img_1} />
+  {/if}
+  <a href="/news/{item.id}" class='text-xl font-semibold text-phish-grey-dark leading-5'>{item.title}</a>
+  <div class='max-h-60'>
+    <p class='text-sm text-phish-grey-light line-clamp-11'>
+      {item.long_desc || item.short_desc}
+    </p>
   </div>
-{/if}
+  {#if item.calls_to_actions?.length === 0}
+    <a class='text-phish-orange font-semibold' href='/news/{item.id}'>read more</a>
+  {/if}
+  {#if item.calls_to_actions?.length > 0}
+    <a class='text-phish-orange font-semibold' target="blank" href='{item.calls_to_actions[0].link}'>{item.calls_to_actions[0].text}</a>
+  {/if}
+</div>

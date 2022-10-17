@@ -24,8 +24,11 @@ const config = {
 			},
 			plugins: [
 				Windicss({ transformCSS: 'pre' })
-			]
-		}
+			],
+			ssr: {
+				noExternal: ['dayjs']
+			}
+		},
 	}
 };
 

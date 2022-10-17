@@ -5,6 +5,7 @@ import pj from "../assets/pj.jpg"
 import alex from "../assets/alex.jpg"
 import josh from "../assets/josh.jpg"
 import pat from "../assets/pat.jpg"
+import derek from "../assets/d-rokk.jpg"
 import BandMember from "$src/components/BandMember.svelte";
 
 </script>
@@ -58,6 +59,14 @@ import BandMember from "$src/components/BandMember.svelte";
           instrument='Drums'
           img={pj}
           description='PJ is known professionally throughout the northeast as a passionate, captivating performer and motivator who has devoted his life to music education, performance and therapy. He has toured with theater productions, including "A Night With Janis Joplin" and "Charlie Brown Jazz Christmas.'
+        />
+      </div>
+      <div class='flex justify-around items-start space-x-4 flex-col items-center space-y-8 md:flex-row md:space-y-0'>
+        <BandMember
+          name='Derek Dupuis (AKA D-Rokk)'
+          instrument='Keys/Vocals'
+          img={derek}
+          description={`Derek "D-Rokk" Dupuis is a lifelong multi-instrumentalist and vocalist. He also performs with the Video Game Orchestra, The Wild Versatile, and records solo music as a one-man-band. Though soft-spoken upon first glance, his mojo and unexpected dance moves have quickly become a sought-after highlight of any Weird Phishes performance.`}
         />
       </div>
     </div>

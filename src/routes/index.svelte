@@ -1,10 +1,57 @@
+<script lang='ts' context='module'>
+  import { newsStore } from "$src/stores/main";
+  const url = baseUrl
+  const getPerformer = new Promise(async (res, rej) => {
+    const resp = await fetch(url + 'performers/1')
+    if (resp.status === 200) {
+      const data = await resp.json()
+      res(data)
+    } else {
+      rej(resp)
+    }
+  })
+
+  const getNews = new Promise(async (res, rej) => {
+    const resp = await fetch(url + 'performers/1/news')
+    if (resp.status === 200) {
+      const data = await resp.json()
+      res(data)
+    } else {
+      rej(resp)
+    }
+  })
+
+  export const load = async () => {
+    const data = await Promise.all([getPerformer, getNews])
+    newsStore.set(data)
+    
+    return {
+      props: {
+        performer: data[0],
+        news: data[1]
+      }
+    }
+  }
+</script>
+
 <script lang='ts'>
-  import NewsItem from "$src/components/NewsItem.svelte";
-  import aeronaut from "../assets/aeronaut.png";
-  import cabot from "../assets/cabot-poster.png";
-  import aeronautBanner from "../assets/wp-aeronaut-fb.png";
-  import * as posters from '$src/constants';
   import Carousel from "$src/components/Carousel.svelte";
+  import NewsItem from "$src/components/NewsItem.svelte";
+  import NewsFeed from "$src/components/NewsFeed.svelte";
+  import { baseUrl } from "$src/constants";
+
+  export let performer: any
+  export let news: any[]
+
+  const featuredContent = news?.find(item => performer.featured_news_id === item.id)
+  const featuredContent2 = news?.find(item => performer.featured_news_2_id === item.id)
+
+  const nonFeaturedNews = news.filter(item => item.id !== performer.featured_news_id && item.id !== performer.featured_news_2_id)
+  const newsFeed = news.filter(item => item.id !== performer.featured_news_id && item.id !== performer.featured_news_2_id)
+  const sidebarNews = newsFeed.slice(0,5)
+
+  let itemTwoHeight
+  let itemThreeHeight
 </script>
 
 <div class='space-y-4 mt-0 md:mt-6'>
@@ -24,173 +71,132 @@
     </div>
   </div>
 
-  <!-- <div class='w-full h-0.25 bg-gray-200' />
-  <p class='italic font-medium text-lg'>"Weird Phishes successfully fuses the work of the groundbreaking experimental indie band Radiohead with the music of Phish."&nbsp;&nbsp;-<a class='link' href='https://jambands.com/news/2019/03/15/new-band-weird-phishes-will-blend-phish-with-radiohead/' target='blank'>Relix/JamBands.com</a></p>
-  <div class='w-full h-0.25 bg-gray-200' /> -->
+  {#if news?.length > 6}
+    <div class='flex space-y-4 md:space-y-0 md:space-x-4 flex-col md:flex-row'>
+      <div class='w-full md:w-57.5 space-y-4'>
+        <NewsFeed
+          news={sidebarNews}
+        />
+        <NewsItem
+          item={nonFeaturedNews[3]}
+        />
+      </div>
 
-  <div class='flex space-y-4 md:space-y-0 md:space-x-4 flex-col md:flex-row'>
-    <div class='w-full md:w-57.5'>
-      <div class='bg-phish-purple w-full h-1' />
-      <span class='text-sm uppercase font-light tracking-wider mb-2'>Latest News</span>
-      
-      <div class='flex flex-col space-y-4'>
-        <div class='space-y-2 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col'>
-          <NewsItem
-            index={0}
-            href="https://www.eventbrite.com/e/weird-phishes-at-the-aeronaut-cannery-tickets-332951114747?aff=ebdssbdestsearch"
-            title="SHOW ANNOUNCEMENT: Weird Phishes at Boston's Aeronaut Cannery 7/1/2022"
-            date="5/24/2022"
-            img={aeronaut}
-            subtitle="Get your tickets now →"
-            text1="Our show at the Boston's brand new Aeronaut Cannery was a massive success, due in no small part to all of you. Last Friday was the very first Friday this venue had ever been open, and we nearly sold it out. Our lighting was some of the best ever, thanks to the amazing Vin Pugliese (Pink Talking Fish, Le Special) and our sound was second-to-none thanks to our friend Kevin Corsett, who was simultaneously navigating a brand new soundsystem and mixing us on the fly."
-            text2="It's hard to imagine that less than a year ago the idea of playing shows seemed completely foreign. It's impossible to overstate the joy that we felt to share a space with you again and play music to some of the happiest faces we've ever seen. Thank you all, from the bottom of our hearts."
-          />
-          <NewsItem
-            index={1}
-            title='SHOW ANNOUNCEMENT: Weird Phishes opening for Prince/Bowie at The Cabot'
-            date="4/24/2022"
-            img={cabot}
-            text1="Our show at the Boston's brand new Aeronaut Cannery was a massive success, due in no small part to all of you. Last Friday was the very first Friday this venue had ever been open, and we nearly sold it out. Our lighting was some of the best ever, thanks to the amazing Vin Pugliese (Pink Talking Fish, Le Special) and our sound was second-to-none thanks to our friend Kevin Corsett, who was simultaneously navigating a brand new soundsystem and mixing us on the fly."
-            text2="It's hard to imagine that less than a year ago the idea of playing shows seemed completely foreign. It's impossible to overstate the joy that we felt to share a space with you again and play music to some of the happiest faces we've ever seen. Thank you all, from the bottom of our hearts."
-          />
-          <div class='w-full h-0.25 bg-gray-200' />
-          <NewsItem
-            index={2}
-            title='Aeronaut Cannery: Thank You, Boston!!'
-            date="11/22/2021"
-            img={aeronaut}
-            text1="Our show at the Boston's brand new Aeronaut Cannery was a massive success, due in no small part to all of you. Last Friday was the very first Friday this venue had ever been open, and we nearly sold it out. Our lighting was some of the best ever, thanks to the amazing Vin Pugliese (Pink Talking Fish, Le Special) and our sound was second-to-none thanks to our friend Kevin Corsett, who was simultaneously navigating a brand new soundsystem and mixing us on the fly."
-            text2="It's hard to imagine that less than a year ago the idea of playing shows seemed completely foreign. It's impossible to overstate the joy that we felt to share a space with you again and play music to some of the happiest faces we've ever seen. Thank you all, from the bottom of our hearts."
-          />
-          <div class='w-full h-0.25 bg-gray-200' />
-          <NewsItem
-            index={3}
-            title='New Video! Watch "15 Step > Golgi Apparatus" Live from Newburyport'
-            date="11/2/2021"
-            img={aeronaut}
-            text1="Our show at the Boston's brand new Aeronaut Cannery was a massive success, due in no small part to all of you. Last Friday was the very first Friday this venue had ever been open, and we nearly sold it out. Our lighting was some of the best ever, thanks to the amazing Vin Pugliese (Pink Talking Fish, Le Special) and our sound was second-to-none thanks to our friend Kevin Corsett, who was simultaneously navigating a brand new soundsystem and mixing us on the fly."
-            text2="It's hard to imagine that less than a year ago the idea of playing shows seemed completely foreign. It's impossible to overstate the joy that we felt to share a space with you again and play music to some of the happiest faces we've ever seen. Thank you all, from the bottom of our hearts."
-          />
-          <div class='w-full h-0.25 bg-gray-200' />
-          <NewsItem
-            index={4}
-            title="Weird Phishes at Aeronaut Cannery"
-            date="9/30/2021"
-            headerImg={aeronautBanner}
-            text1="Weird Phishes will be performing their last hometown show of the year at Aeronaut Cannery in Boston/Everett, MA on November 19th, 2021."
-            text2="This is a brand new venue in Boston and we couldn't be more excited to be a part of their opening lineup. Please buy tickets in advance, as this show is likely to sell out."
-            cta='Buy Tickets Now →'
-            ctaLink='#'
-            ctaDisabled
-          />
-          <div class='w-full h-0.25 bg-gray-200' />
-          <NewsItem
-            index={5}
-            title='Thank You Safe and SoundZ'
-            date="6/15/2021"
-            text1="We had an incredible time with friends new and old at the inaugural Safe n Soundz festival. Thank you all for sharing your time with us. It was incredible to bring Weird Phishes to a mountaintop, play music, and hang out with what we feel like is a brand new part of our family. We can't wait to see you all again. And an incredibly special thank you to George Adler and everyone at Shepherd Productions. We couldn't have asked for a better return to playing live music."
-            text2="Stay tuned for updates and more shows coming soon!"
-          />
-          <div class='w-full h-0.25 bg-gray-200' />
-          <NewsItem
-            index={6}
-            title='Tonight: Weird Phishes at Electric Haze'
-            date="6/5/2021"
-          />
-        </div>
-        <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
-          <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Thank you Safe and Soundz Festival!</h1>
-          <p class='text-sm text-phish-grey-light'>We had an incredible time with friends new and old at the inaugural Safe n Soundz festival. Thank you all for sharing your time with us. It was incredible to bring Weird Phishes to a mountaintop, play music, and hang out with what we feel like is a brand new part of our family. We can't wait to see you all again. And an incredibly special thank you to George Adler and everyone at Shepherd Productions. We couldn't have asked for a better return to playing live music.</p>
+      <div class='flex-1'>
+        <div class='bg-phish-purple w-full h-1' />
+        <span class='text-sm uppercase font-light tracking-wider mb-2'>Featured Content</span>
+        <div class='space-y-4'>
+          <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
+            <img alt='Featured Content 1' src={featuredContent.img_1} />
+            <a href={featuredContent.external_link} target='blank' class='text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>{featuredContent.title}</a>
+            <p class='text-sm text-phish-grey-light'>{featuredContent.short_desc}</p>
+            {#if featuredContent.calls_to_actions?.length > 0}
+              <a class='text-phish-orange font-semibold uppercase' target="blank" href='{featuredContent.calls_to_actions[0].link}'>{featuredContent.calls_to_actions[0].text}</a>
+            {/if}
+          </div>
+
+          <div class='flex space-x-4'>
+            <div class='space-y-4 flex-1'>
+              <NewsItem
+                item={nonFeaturedNews[2]}
+                bind:elH={itemTwoHeight}
+              />
+              <NewsItem
+                item={itemTwoHeight > itemThreeHeight ? nonFeaturedNews[5] : nonFeaturedNews[4]}
+              />
+            </div>
+            <div class='space-y-4 flex-1'>
+              <NewsItem
+                item={nonFeaturedNews[1]}
+                bind:elH={itemThreeHeight}
+              />
+              <NewsItem
+                item={itemTwoHeight > itemThreeHeight ? nonFeaturedNews[4] : nonFeaturedNews[5]}
+              />
+            </div>
+          </div>
+          <div class='flex space-x-4'>
+            
+            
+          </div>
+
+          <!-- {#each newsFeed as item, i}
+            {#if (i === 0 || i % 2 === 0)}
+              <NewsItemRow
+                item={item}
+                i={i}
+                {newsFeed}
+                {newsFeedPositions}
+                {updateNewsFeedPositions}
+              />
+            {/if}
+          {/each} -->
+
+          <!-- <div class='flex space-y-4 lg:space-y-0 lg:space-x-4 flex-col lg:flex-row'>
+            <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
+              <img src={posters.aeronaut1.img} />
+              <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Weird Phishes at Aeronaut Cannery</h1>
+              <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing their last hometown show of the year at Aeronaut Cannery in Boston/Everett, MA on November 19th, 2021.</p>
+            </div>
+            <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
+              <img src={posters.opus2021.img} />
+              <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Soundcheck Studios & Opus Underground</h1>
+              <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing at the brand new Soundcheck Studios in Pembroke, MA on Tuesday, October 12th. Following that performance, the band will make their return to their home-away-from-home venue, Opus Underground on October 15th, 2021.</p>
+            </div>
+          </div> -->
         </div>
       </div>
-    </div>
 
-    <div class='flex-1'>
-      <div class='bg-phish-purple w-full h-1' />
-      <span class='text-sm uppercase font-light tracking-wider mb-2'>Watch Now</span>
-      <div class='space-y-4'>
-        <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
-          <img src='https://www.dropbox.com/s/a79hssgnpluym1b/High%20and%20Dry.png?raw=1' />
-          <a href='https://www.youtube.com/watch?v=gXXbKYb31LA' target='blank' class='text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>Watch "High and Dry / Chalk Dust Torture" Mashup Live from Boston</a>
-          <p class='text-sm text-phish-grey-light'>This 9-minute rendition of our High and Dry + Chalk Dust Torture mashup was recorded live at Aeronaut Cannery on 2/11/2022. You can watch the full performance here.</p>
-        </div>
-        <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
-          <img src='https://www.dropbox.com/s/ii1rb7lhj4xqndy/15-step-vid.png?raw=1' />
-          <a href='https://www.youtube.com/watch?v=afKq4NmfHfs&feature=emb_title' target='blank' class='text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>Watch "15 Step > Golgi Apparatus > 15 Step" Live from Newburyport</a>
-          <p class='text-sm text-phish-grey-light'>This 11-minute rendition of 15 Step was recorded live at Newburyport Brewing Company. Nils Carlson recorded the multitrack of this performance, and Weird Phishes' own Alex Glover mixed and mastered the track. You can watch the full performance here. Keep an eye out for a full release of this show coming soon.</p>
-        </div>
-
-        <div class='flex space-y-4 lg:space-y-0 lg:space-x-4 flex-col lg:flex-row'>
-          <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
-            <img src={cabot} />
-            <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>SHOW ANNOUNCEMENT: Weird Phishes opening for Prince/Bowie at The Cabot</h1>
-            <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing alongside Prince/Bowie, feat. members of Pink Talking Fish, Turkwuaz, TAUK, and more, at The Cabot in Beverly on April 30, 2022. <a href="https://thecabot.org/event/prince-bowie" class="underline text-phish-orange">Click here to get your tickets today</a></p>
+      <div class='md:w-57.5 text-phish-grey-light space-y-4'>
+        <div>
+          <div class='bg-phish-purple w-full h-1' />
+          <span class='text-sm uppercase font-light tracking-wider mb-2'>From the Road</span>
+          <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col'>
+            <p class='text-2xl tracking-wide'>Nov. 19th 2021</p>
+            <p class='tracking-wide'>Aeronaut Cannery</p>
+            <p class='tracking-wide'>Boston, MA</p>
+            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set One</span>
+            <ul>
+              <li>15 Step ></li>
+              <li>Golgi Apparatus ></li>
+              <li>15 Step</li>
+              <li>Subterranean Homesick Alien / Twist</li>
+              <li>You And Whose Army ></li>
+              <li>Character Zero</li>
+              <li>High And Dry / Chalkdust Torture</li>
+              <li>Let Down</li>
+              <li>Bodysnatchers ></li>
+              <li>Weekapaug Groove</li>
+              <li>Paranoid Android ></li>
+              <li>Tweezer ></li>
+              <li>Paranoid Android</li>
+            </ul>
+            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Two</span>
+            <ul>
+              <li>Fluffhead ></li>
+              <li>Karma Police ></li>
+              <li>You Enjoy Myself ></li>
+              <li>Fluffhead</li>
+              <li>Reckoner ></li>
+              <li>Carini</li>
+              <li>Harry Hood ></li>
+              <li>Electioneering ></li>
+              <li>Harry Hood</li>
+            </ul>
+            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Encore</span>
+            <ul>
+              <li>National Anthem ></li>
+              <li>Tweezer Reprise</li>
+            </ul>
           </div>
-          <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
-            <img src={aeronaut} />
-            <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Aeronaut Cannery: Thank You Boston!</h1>
-            <p class='text-sm text-phish-grey-light'>Our show at the Boston's brand new Aeronaut Cannery was a massive success, due in no small part to all of you. Last Friday was the very first Friday this venue had ever been open, and we nearly sold it out. Our lighting was some of the best ever, thanks to the amazing Vin Pugliese (Pink Talking Fish, Le Special) and our sound was second-to-none thanks to our friend Kevin Corsett, who was simultaneously navigating a brand new soundsystem and mixing us on the fly.</p>
-          </div>
         </div>
-
-        <div class='flex space-y-4 lg:space-y-0 lg:space-x-4 flex-col lg:flex-row'>
-          <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
-            <img src={posters.aeronaut1.img} />
-            <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Weird Phishes at Aeronaut Cannery</h1>
-            <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing their last hometown show of the year at Aeronaut Cannery in Boston/Everett, MA on November 19th, 2021.</p>
-          </div>
-          <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
-            <img src={posters.opus2021.img} />
-            <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Soundcheck Studios & Opus Underground</h1>
-            <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing at the brand new Soundcheck Studios in Pembroke, MA on Tuesday, October 12th. Following that performance, the band will make their return to their home-away-from-home venue, Opus Underground on October 15th, 2021.</p>
-          </div>
-        </div>
+        <NewsItem
+          item={featuredContent2}
+        />
       </div>
-    </div>
 
-    <div class='md:w-57.5 text-phish-grey-light'>
-      <div class='bg-phish-purple w-full h-1' />
-      <span class='text-sm uppercase font-light tracking-wider mb-2'>From the Road</span>
-      <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col'>
-        <p class='text-2xl tracking-wide'>Nov. 19th 2021</p>
-        <p class='tracking-wide'>Aeronaut Cannery</p>
-        <p class='tracking-wide'>Boston, MA</p>
-        <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set One</span>
-        <ul>
-          <li>15 Step ></li>
-          <li>Golgi Apparatus ></li>
-          <li>15 Step</li>
-          <li>Subterranean Homesick Alien / Twist</li>
-          <li>You And Whose Army ></li>
-          <li>Character Zero</li>
-          <li>High And Dry / Chalkdust Torture</li>
-          <li>Let Down</li>
-          <li>Bodysnatchers ></li>
-          <li>Weekapaug Groove</li>
-          <li>Paranoid Android ></li>
-          <li>Tweezer ></li>
-          <li>Paranoid Android</li>
-        </ul>
-        <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Two</span>
-        <ul>
-          <li>Fluffhead ></li>
-          <li>Karma Police ></li>
-          <li>You Enjoy Myself ></li>
-          <li>Fluffhead</li>
-          <li>Reckoner ></li>
-          <li>Carini</li>
-          <li>Harry Hood ></li>
-          <li>Electioneering ></li>
-          <li>Harry Hood</li>
-        </ul>
-        <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Encore</span>
-        <ul>
-          <li>National Anthem ></li>
-          <li>Tweezer Reprise</li>
-        </ul>
-      </div>
     </div>
-  </div>
+  {/if}
 </div>
 
 <style>

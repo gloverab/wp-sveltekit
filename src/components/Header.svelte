@@ -1,11 +1,11 @@
 <script lang='ts'>
-import { page } from "$app/stores";
-import Logo from "$src/assets/Logo.svelte";
-import { mainRoutes } from "$src/constants";
-import PublicLibrary from "./PublicLibrary.svelte";
+  import { page } from "$app/stores";
+  import Logo from "$src/assets/Logo.svelte";
+  import { mainRoutes } from "$src/constants";
+  import PublicLibrary from "./PublicLibrary.svelte";
 
 
-$:libPage = $page.path.includes('library')
+  $:libPage = $page.path.includes('library')
 </script>
 
 <header class='fixed top-0 flex w-screen items-center justify-between h-15 px-4 {libPage ? 'bg-black' : 'bg-phish-purple'} shadow-md z-1000'>
@@ -15,7 +15,7 @@ $:libPage = $page.path.includes('library')
         <PublicLibrary />
       </div>
     {:else}
-      <Logo classes='h-full' fill='fill-white' />
+      <Logo classes='h-full max-w-60' fill='fill-white' />
     {/if}
   </a>
 
