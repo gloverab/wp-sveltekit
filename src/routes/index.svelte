@@ -78,8 +78,17 @@
           news={sidebarNews}
         />
         <NewsItem
+          item={featuredContent2}
+        />
+        <NewsItem
           item={nonFeaturedNews[3]}
         />
+        {#if nonFeaturedNews[6]}
+          <NewsItem
+            item={nonFeaturedNews[6]}
+          />
+        {/if}
+        
       </div>
 
       <div class='flex-1'>
@@ -104,6 +113,11 @@
               <NewsItem
                 item={itemTwoHeight > itemThreeHeight ? nonFeaturedNews[5] : nonFeaturedNews[4]}
               />
+              {#if nonFeaturedNews[7]}
+                <NewsItem
+                  item={nonFeaturedNews[7]}
+                />
+              {/if}
             </div>
             <div class='space-y-4 flex-1'>
               <NewsItem
@@ -120,30 +134,6 @@
             
           </div>
 
-          <!-- {#each newsFeed as item, i}
-            {#if (i === 0 || i % 2 === 0)}
-              <NewsItemRow
-                item={item}
-                i={i}
-                {newsFeed}
-                {newsFeedPositions}
-                {updateNewsFeedPositions}
-              />
-            {/if}
-          {/each} -->
-
-          <!-- <div class='flex space-y-4 lg:space-y-0 lg:space-x-4 flex-col lg:flex-row'>
-            <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
-              <img src={posters.aeronaut1.img} />
-              <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Weird Phishes at Aeronaut Cannery</h1>
-              <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing their last hometown show of the year at Aeronaut Cannery in Boston/Everett, MA on November 19th, 2021.</p>
-            </div>
-            <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
-              <img src={posters.opus2021.img} />
-              <h1 class='text-xl font-semibold text-phish-grey-dark leading-5'>Soundcheck Studios & Opus Underground</h1>
-              <p class='text-sm text-phish-grey-light'>Weird Phishes will be performing at the brand new Soundcheck Studios in Pembroke, MA on Tuesday, October 12th. Following that performance, the band will make their return to their home-away-from-home venue, Opus Underground on October 15th, 2021.</p>
-            </div>
-          </div> -->
         </div>
       </div>
 
@@ -191,7 +181,7 @@
           </div>
         </div>
         <NewsItem
-          item={featuredContent2}
+          item={nonFeaturedNews[0]}
         />
       </div>
 

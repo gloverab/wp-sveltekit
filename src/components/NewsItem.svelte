@@ -8,10 +8,10 @@
     <img alt={item.title} src={item.img_1} />
   {/if}
   <a href="/news/{item.id}" class='text-xl font-semibold text-phish-grey-dark leading-5'>{item.title}</a>
-  <div class='max-h-60'>
-    <p class='text-sm text-phish-grey-light line-clamp-11'>
-      {item.long_desc || item.short_desc}
-    </p>
+  <div class='max-h-60 overflow-hidden'>
+    <div class='text-sm text-phish-grey-light'>
+      {@html item.long_desc || item.short_desc}
+    </div>
   </div>
   {#if item.calls_to_actions?.length === 0}
     <a class='text-phish-orange font-semibold' href='/news/{item.id}'>read more</a>

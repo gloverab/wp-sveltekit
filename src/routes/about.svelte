@@ -52,7 +52,7 @@ import BandMember from "$src/components/BandMember.svelte";
           name='Pat Pingeton'
           instrument='Bass Guitar'
           img={pat}
-          description='Pat Pingeton is an in-demand bassist and personality alike. He also plays with 73 Duster, Mike Morrissey, and a slew of other artists throughout the northeast. One would be remiss if they failed to mention his Bernese Mountain Dog, Mr. Jibbers, the inarguable heart and soul of Weird Phishes.'
+          description='Pat Pingeton is an in-demand bassist and personality alike. He also plays with Booty Giuliani, 73 Duster, Mike Morrissey, and a slew of other artists throughout the northeast. One would be remiss if they failed to mention his Bernese Mountain Dog, Mr. Jibbers, the inarguable heart and soul of Weird Phishes.'
         />
         <BandMember
           name='PJ Holaday'
