@@ -1,6 +1,11 @@
 <script lang='ts' context='module'>
   import { newsStore } from "$src/stores/main";
   const url = baseUrl
+
+  const timeoutPromise = new Promise((res, rej) => {
+    setTimeout(rej, 100, 'forceTimeout')
+  })
+
   const getPerformer = new Promise(async (res, rej) => {
     const resp = await fetch(url + 'performers/1')
     if (resp.status === 200) {
@@ -21,15 +26,30 @@
     }
   })
 
+  const getPerformerRace = Promise.race([
+    getPerformer,
+    timeoutPromise
+  ])
+
+  const getNewsRace = Promise.race([
+    getNews,
+    timeoutPromise
+  ])
+
   export const load = async () => {
-    const data = await Promise.all([getPerformer, getNews])
-    newsStore.set(data)
-    
-    return {
-      props: {
-        performer: data[0],
-        news: data[1]
+    try {
+      const data = await Promise.all([getPerformerRace, getNewsRace])
+      newsStore.set(data)
+      
+      return {
+        props: {
+          performer: data[0],
+          news: data[1]
+        }
       }
+    } catch (err) {
+      console.log(err)
+      return {}
     }
   }
 </script>
@@ -39,16 +59,36 @@
   import NewsItem from "$src/components/NewsItem.svelte";
   import NewsFeed from "$src/components/NewsFeed.svelte";
   import { baseUrl } from "$src/constants";
+  import { onMount } from "svelte";
 
   export let performer: any
   export let news: any[]
 
-  const featuredContent = news?.find(item => performer.featured_news_id === item.id)
-  const featuredContent2 = news?.find(item => performer.featured_news_2_id === item.id)
+  let loading = !news || !performer
+  let error = undefined
 
-  const nonFeaturedNews = news.filter(item => item.id !== performer.featured_news_id && item.id !== performer.featured_news_2_id)
-  const newsFeed = news.filter(item => item.id !== performer.featured_news_id && item.id !== performer.featured_news_2_id)
-  const sidebarNews = newsFeed.slice(0,5)
+  onMount(async () => {
+    if (!news || !performer) {
+      try {
+        const data = await Promise.all([getPerformer, getNews])
+        newsStore.set(data)
+        
+        performer = data[0]
+        news = data[1]
+
+        loading = false
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  })
+
+  $: featuredContent = news?.find(item => performer.featured_news_id === item.id)
+  $: featuredContent2 = news?.find(item => performer.featured_news_2_id === item.id)
+
+  $: nonFeaturedNews = news?.filter(item => item.id !== performer.featured_news_id && item.id !== performer.featured_news_2_id)
+  $: newsFeed = news?.filter(item => item.id !== performer.featured_news_id && item.id !== performer.featured_news_2_id)
+  $: sidebarNews = newsFeed?.slice(0,5)
 
   let itemTwoHeight
   let itemThreeHeight
@@ -71,7 +111,7 @@
     </div>
   </div>
 
-  {#if news?.length > 6}
+  {#if !loading && !error && news?.length > 6}
     <div class='flex space-y-4 md:space-y-0 md:space-x-4 flex-col md:flex-row'>
       <div class='w-full md:w-57.5 space-y-4'>
         <NewsFeed
