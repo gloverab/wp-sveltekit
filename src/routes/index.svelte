@@ -3,7 +3,7 @@
   const url = baseUrl
 
   const timeoutPromise = new Promise((res, rej) => {
-    setTimeout(rej, 100, 'forceTimeout')
+    setTimeout(rej, 4000, 'forceTimeout')
   })
 
   const getPerformer = new Promise(async (res, rej) => {
@@ -111,7 +111,37 @@
     </div>
   </div>
 
+  
   {#if !loading && !error && news?.length > 6}
+    <div class='flex-1 md:hidden'>
+      <div class='bg-phish-purple w-full h-1' />
+      <span class='text-sm uppercase font-light tracking-wider mb-2'>Featured Content</span>
+      <div class='space-y-4'>
+        <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
+          <img alt='Featured Content 1' src={featuredContent.img_1} />
+          <a href={featuredContent.external_link} target='blank' class='text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>{featuredContent.title}</a>
+          <p class='text-sm text-phish-grey-light'>{featuredContent.short_desc}</p>
+          {#if featuredContent.calls_to_actions?.length > 0}
+            <a class='text-phish-orange font-semibold uppercase' target="blank" href='{featuredContent.calls_to_actions[0].link}'>{featuredContent.calls_to_actions[0].text}</a>
+          {/if}
+        </div>
+
+        <div class='space-y-4 flex-1'>
+          <NewsItem
+            item={featuredContent2}
+          />
+          <NewsItem
+            item={nonFeaturedNews[0]}
+          />
+          <NewsItem
+            item={nonFeaturedNews[1]}
+          />
+          <NewsItem
+            item={nonFeaturedNews[2]}
+          />
+        </div>
+      </div>
+    </div>
     <div class='flex space-y-4 md:space-y-0 md:space-x-4 flex-col md:flex-row'>
       <div class='w-full md:w-57.5 space-y-4'>
         <NewsFeed
@@ -169,11 +199,6 @@
               />
             </div>
           </div>
-          <div class='flex space-x-4'>
-            
-            
-          </div>
-
         </div>
       </div>
 
