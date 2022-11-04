@@ -24,7 +24,6 @@
   <title>Weird Phishes | Radiohead + Phish = Something Entirely New</title>
   <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script>
   <script src="https://kit.fontawesome.com/2a900224f0.js" crossorigin="anonymous"></script>
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e2b3a4569acd768a57c148cdf/00deffdd8d32dcfbd972ef52e.js");</script>
 </svelte:head>
 
 <svelte:window bind:innerHeight={$windowHeight} />

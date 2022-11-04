@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-  <title>Weird Phishes | EPK</title>
+  <title>Weird Phishes | Press Kit</title>
 </svelte:head>
 
 <div bind:clientWidth={wrapperW} class='w-full'>
