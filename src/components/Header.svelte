@@ -21,7 +21,7 @@
 
   <div class='md:flex h-full hidden'>
     {#each mainRoutes as route}
-      <a sveltekit:prefetch class='flex relative h-full px-5 items-center {libPage ? 'text-white' : 'text-white'} {!$page.path.includes(route.href) ? 'hover:text-phish-orange' : ''} group' href={route.href}>
+      <a sveltekit:prefetch target={route.targetBlank ? '_blank' : ''} class='flex relative h-full px-5 items-center {libPage ? 'text-white' : 'text-white'} {!$page.path.includes(route.href) ? 'hover:text-phish-orange' : ''} group' href={route.href}>
         <span>
           {route.name}
         </span>

@@ -16,6 +16,11 @@ export const mainRoutes = [
     href: '/library'
   },
   {
+    name: "Store",
+    href: 'https://40625f.myshopify.com/products/weird-phishes-in-rainbows-t-shirt',
+    targetBlank: true
+  },
+  {
     name: "Contact/Booking",
     href: '/contact'
   },
