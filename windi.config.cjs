@@ -13,7 +13,7 @@ module.exports = {
 		extend: {
 			backgroundImage: theme => ({
 				'wp-tile': 'url(\'/src/assets/wp-tile-trans-sm.png\')',
-				'phish-bg': 'url(\'https://5ojtv13o4by138ocv258q4xu7h-wpengine.netdna-ssl.com/wp-content/themes/phish/assets/img/background-texture.jpg?ver=1.0\')'
+				'phish-bg': 'url(\'https://phish.wpenginepowered.com/wp-content/themes/phish/assets/img/background-texture.jpg?ver=1.0\')'
 			})
 		}
 	},
