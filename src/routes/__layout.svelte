@@ -3,7 +3,7 @@
   import BearLogo from '$src/components/BearLogo.svelte';
   import Overlay from "$components/_common/Overlay.svelte";
   import { page } from '$app/stores';
-  import { numDrawersOut, showMobileMenu, windowHeight, hideMenuIcon } from "$stores/main";
+  import { numDrawersOut, showMobileMenu, windowHeight, hideMenuIcon, initialLoad } from "$stores/main";
   import Header from "$components/Header.svelte";
   import MenuIcon from "$components/MenuIcon.svelte";
   import Drawer from "$src/components/_common/Drawer.svelte";
@@ -14,8 +14,7 @@
   import { fade, fly } from 'svelte/transition';
 
   let mounted = false
-  let hideLoading = false
-  let showSpinner = false
+  let displayContent = false
 
   const handleShowMobileMenu = () => {
     if ($showMobileMenu) {
@@ -27,8 +26,8 @@
 
   onMount(() => {
     mounted = true
-    setTimeout(() => showSpinner = true, 500)
-    setTimeout(() => hideLoading = true, 2000)
+    setTimeout(() => displayContent = true, 500)
+    setTimeout(() => initialLoad.set(false), 1500)
   })
 
 </script>
@@ -74,37 +73,36 @@
 
 <div class='hidden' />
 
-{#if mounted}
-  <div class='min-h-[calc(100vh_-_8.75rem)] pb-12 flex justify-center'>
-    <div class:removeMarginsAndPadding={$page.path.includes('library')} class:marginsAndPadding={!$page.path.includes('library')}>
-      <slot />
-      <div class='{$page.path.includes('shows') ? 'block' : 'hidden'} bg-phish-purple w-full h-1' />
-      <span class='{$page.path.includes('shows') ? 'block' : 'hidden'} text-sm uppercase font-light tracking-wider mb-2'>Upcoming Shows</span>
-      <div class='{$page.path.includes('shows') ? 'block' : 'hidden'} bg-white w-full border-1 shadow-sm p-2.5'>
-        <a
-          class="bit-widget-initializer"
-          data-artist-name="id_14950026"
-          data-font="Helvetica"
-          data-language="en"
-          data-display-details="false"
-          data-text-color="#000000"
-          data-background-color="#ffffff"
-          data-separator-color="#DDDDDD"
-          data-popup-background-color="#ffffff"
-          data-link-color="#A2A2A2"
-          data-link-text-color="#FFFFFF"
-        ></a>
-      </div>
+
+<div class='min-h-[calc(100vh_-_8.75rem)] pb-12 flex justify-center'>
+  <div class='duration-150' class:opacity-0={!displayContent} class:opacity-100={displayContent} class:removeMarginsAndPadding={$page.path.includes('library')} class:marginsAndPadding={!$page.path.includes('library')}>
+    <slot />
+    <div class='{$page.path.includes('shows') ? 'block' : 'hidden'} bg-phish-purple w-full h-1' />
+    <span class='{$page.path.includes('shows') ? 'block' : 'hidden'} text-sm uppercase font-light tracking-wider mb-2'>Upcoming Shows</span>
+    <div class='{$page.path.includes('shows') ? 'block' : 'hidden'} bg-white w-full border-1 shadow-sm p-2.5'>
+      <a
+        class="bit-widget-initializer"
+        data-artist-name="id_14950026"
+        data-font="Helvetica"
+        data-language="en"
+        data-display-details="false"
+        data-text-color="#000000"
+        data-background-color="#ffffff"
+        data-separator-color="#DDDDDD"
+        data-popup-background-color="#ffffff"
+        data-link-color="#A2A2A2"
+        data-link-text-color="#FFFFFF"
+      ></a>
     </div>
   </div>
+</div>
 
-  <footer class='flex items-center justify-between h-20 bg-white border-t px-4'>
-    <span class='text-xs'>COPYRIGHT © 2021  ·  WEIRD PHISHES</span>
-    <span class='text-xs'>DESIGNED & BUILT WITH ❤️ BY <a class='font-medium' href='#'>ALEX GLOVER</a></span>
-  </footer>
-{/if}
+<footer class='flex items-center justify-between h-20 bg-white border-t px-4'>
+  <span class='text-xs'>COPYRIGHT © 2021  ·  WEIRD PHISHES</span>
+  <span class='text-xs'>DESIGNED & BUILT WITH ❤️ BY <a class='font-medium' href='#'>ALEX GLOVER</a></span>
+</footer>
 
-{#if !hideLoading && mounted}
+{#if $initialLoad && mounted}
   <div in:fly={{ y: $windowHeight, duration: 700, opacity: 1, easing: cubicOut }} out:fade={{ duration: 500 }} class='fixed top-0 left-0 z-900 w-screen h-screen flex items-center justify-center bg-white'>
       <div transition:fade={{ duration: 300 }} class='w-30 h-30'>
         <div class='animate-pulse'>

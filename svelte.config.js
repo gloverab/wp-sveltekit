@@ -25,6 +25,11 @@ const config = {
 			plugins: [
 				Windicss({ transformCSS: 'pre' })
 			],
+			server: {
+				fsServe: {
+					root: '../' 
+				}
+			},
 			ssr: {
 				noExternal: ['dayjs']
 			}
