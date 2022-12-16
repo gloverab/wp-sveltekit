@@ -39,7 +39,9 @@
   import { baseUrl } from "$src/constants";
   import dayjs from 'dayjs/esm';
 
-  export let article
+  export let data
+
+  let { article } = data
 </script>
 
 <div class='my-3 md:my-6'>
