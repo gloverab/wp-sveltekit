@@ -212,41 +212,23 @@
           <div class='bg-phish-purple w-full h-1' />
           <span class='text-sm uppercase font-light tracking-wider mb-2'>From the Road</span>
           <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col'>
-            <p class='text-2xl tracking-wide'>Nov. 19th 2021</p>
-            <p class='tracking-wide'>Aeronaut Cannery</p>
+            <p class='text-2xl tracking-wide'>December. 2nd 2022</p>
+            <p class='tracking-wide'>Paradise Rock Club</p>
             <p class='tracking-wide'>Boston, MA</p>
             <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set One</span>
             <ul>
-              <li>15 Step ></li>
-              <li>Golgi Apparatus ></li>
-              <li>15 Step</li>
+              <li>The Bends ></li>
+              <li>Free ></li>
+              <li>The Bends</li>
+              <li>Paranoid Android ></li>
+              <li>Jigsaw Falling Into Place ></li>
+              <li>Birds of a Feather ></li>
+              <li>Paranoid Android</li>
               <li>Subterranean Homesick Alien / Twist</li>
               <li>You And Whose Army ></li>
               <li>Character Zero</li>
               <li>High And Dry / Chalkdust Torture</li>
-              <li>Let Down</li>
-              <li>Bodysnatchers ></li>
-              <li>Weekapaug Groove</li>
-              <li>Paranoid Android ></li>
-              <li>Tweezer ></li>
-              <li>Paranoid Android</li>
-            </ul>
-            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Two</span>
-            <ul>
-              <li>Fluffhead ></li>
-              <li>Karma Police ></li>
-              <li>You Enjoy Myself ></li>
-              <li>Fluffhead</li>
-              <li>Reckoner ></li>
-              <li>Carini</li>
-              <li>Harry Hood ></li>
-              <li>Electioneering ></li>
-              <li>Harry Hood</li>
-            </ul>
-            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Encore</span>
-            <ul>
-              <li>National Anthem ></li>
-              <li>Tweezer Reprise</li>
+              <li>National Anthem</li>
             </ul>
           </div>
         </div>
