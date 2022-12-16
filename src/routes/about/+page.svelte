@@ -1,11 +1,10 @@
 <script lang='ts'>
-import BottomSheet from "$src/components/_common/BottomSheet.svelte";
-import banner from "../assets/ir-banner.png"
-import pj from "../assets/pj.jpg"
-import alex from "../assets/alex.jpg"
-import josh from "../assets/josh.jpg"
-import pat from "../assets/pat.jpg"
-import derek from "../assets/d-rokk.jpg"
+import banner from "$assets/ir-banner.png"
+import pj from "$assets/pj.jpg"
+import alex from "$assets/alex.jpg"
+import josh from "$assets/josh.jpg"
+import pat from "$assets/pat.jpg"
+import derek from "$assets/d-rokk.jpg"
 import BandMember from "$src/components/BandMember.svelte";
 
 </script>

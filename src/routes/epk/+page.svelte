@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import epk from '../assets/wp-epk.pdf'
+  import epk from '$assets/wp-epk.pdf'
 
   let wrapperW
 </script>

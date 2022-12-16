@@ -1,6 +1,6 @@
 <script lang='ts'>
-  import banner from "../assets/wp-lucky-fb-generic.png";
-  import alexjosh from '../assets/alex-josh.png'
+  import banner from "$assets/wp-lucky-fb-generic.png";
+  import alexjosh from '$assets/alex-josh.png'
 </script>
 
 <svelte:head>

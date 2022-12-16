@@ -1,3 +1,5 @@
+import { FB_PIXEL_ACCESS_TOKEN } from "./Env"
+
 export const mainRoutes = [
   {
     name: "About",
@@ -182,3 +184,9 @@ export const aeronaut1Alt = {
 
 export const baseUrl = "https://secret-coast-09187.herokuapp.com/"
 // export const baseUrl = "http://localhost:3001/"
+
+export const facebookPixelId = "2015280208683287"
+
+export const facebookPixelPath = () => {
+  return `https://graph.facebook.com/{API_VERSION}/${facebookPixelId}/events?access_token=${FB_PIXEL_ACCESS_TOKEN}`
+}
