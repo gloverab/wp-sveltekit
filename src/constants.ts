@@ -182,6 +182,27 @@ export const aeronaut1Alt = {
   img: "https://www.dropbox.com/s/fwhu05u0sh3go10/aeronaut-alt.png?raw=1"
 }
 
+export const treyAfterparty = {
+  name: 'TAB/Goose Afterparty',
+  date: 'November 2022',
+  details: 'TAB/Goose afterparty in Lowell, MA at Zorba Olympia Music Hall, sponsored by CashorTrade',
+  img: "https://www.dropbox.com/s/2tcnyxfk1ofz4xt/afterparty-11x17-web-medium.png?raw=1"
+}
+
+export const livePhishLogo = {
+  name: 'LivePhish Logo Mock',
+  date: 'November 2022',
+  details: 'Weird Phishes Youtube Asset, to be used on live videos',
+  img: "https://www.dropbox.com/s/3xwo0iqlboq18q6/WP%20-%20LivePhish%20Logo%20Mock%20%28white%29.png?raw=1"
+}
+
+export const kidADebut = {
+  name: 'Kid A Debut at Crystall Ballroom',
+  date: 'February 2023',
+  details: 'Weird Phishes debuts their renditiion of Kid A at The Crystal Ballroom in Somerville, MA',
+  img: "https://www.dropbox.com/s/f5skcv5enz2bvm0/Weird%20Phishes%20-%20Crystal%20Ballroom%20sm.png?raw=1"
+}
+
 export const baseUrl = "https://secret-coast-09187.herokuapp.com/"
 // export const baseUrl = "http://localhost:3001/"
 

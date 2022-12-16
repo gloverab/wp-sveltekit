@@ -22,6 +22,14 @@
 <div out:fly={{ y: $windowHeight, duration: 400, opacity: 1 }} class='flex bg-gray-500 min-h-screen p-3 space-x-3 {!hideLoading ? 'opacity-0' : 'opacity-100'}'>
   <div class='flex-1 flex flex-col space-y-3'>
     <div class='lib-item'>
+      <img src={posters.kidADebut.img} />
+    </div>
+
+    <div class='lib-item'>
+      <img src={posters.treyAfterparty.img} />
+    </div>
+
+    <div class='lib-item'>
       <img src={posters.aeronaut1.img} />
     </div>
 
@@ -40,13 +48,12 @@
     <div class='lib-item'>
       <img src={posters.fallPoster.img} />
     </div>
-
-    <div class='lib-item'>
-      <img src={posters.firstShow.img} />
-    </div>
   </div>
 
   <div class='flex-1 flex flex-col space-y-3'>
+    <div class='lib-item'>
+      <img src={posters.livePhishLogo.img} />
+    </div>
     <div class='lib-item'>
       <img src={posters.genericFb.img} />
     </div>
@@ -85,6 +92,9 @@
     </div>
     <div class='lib-item'>
       <img src={posters.bowery.img} />
+    </div>
+    <div class='lib-item'>
+      <img src={posters.firstShow.img} />
     </div>
   </div>
 </div>
