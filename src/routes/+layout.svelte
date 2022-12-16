@@ -10,7 +10,7 @@
   import { mainRoutes } from '$src/constants';
   import Logo from '$src/assets/Logo.svelte';
   import { onMount } from 'svelte';
-  import { cubicIn, cubicInOut, cubicOut } from 'svelte/easing';
+  import { cubicOut } from 'svelte/easing';
   import { fade, fly } from 'svelte/transition';
 
   let mounted = false
