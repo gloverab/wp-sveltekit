@@ -61,8 +61,9 @@
   import { baseUrl } from "$src/constants";
   import { onMount } from "svelte";
 
-  export let performer: any
-  export let news: any[]
+  export let data
+
+  let { performer, news } = data
 
   let loading = !news || !performer
   let error = undefined
