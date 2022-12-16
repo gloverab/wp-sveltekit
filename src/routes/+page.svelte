@@ -1,10 +1,12 @@
-<script lang='ts' context='module'>
+<script lang='ts'>
+  import Carousel from "$src/components/Carousel.svelte";
+  import NewsItem from "$src/components/NewsItem.svelte";
+  import NewsFeed from "$src/components/NewsFeed.svelte";
+  import { onMount } from "svelte";
   import { newsStore } from "$src/stores/main";
-  const url = baseUrl
+  import { baseUrl } from "$src/constants";
 
-  const timeoutPromise = new Promise((res, rej) => {
-    setTimeout(rej, 1000, 'forceTimeout')
-  })
+  const url = baseUrl
 
   const getPerformer = new Promise(async (res, rej) => {
     const resp = await fetch(url + 'performers/1')
@@ -25,41 +27,6 @@
       rej(resp)
     }
   })
-
-  const getPerformerRace = Promise.race([
-    getPerformer,
-    timeoutPromise
-  ])
-
-  const getNewsRace = Promise.race([
-    getNews,
-    timeoutPromise
-  ])
-
-  export const load = async () => {
-    try {
-      const data = await Promise.all([getPerformerRace, getNewsRace])
-      newsStore.set(data)
-      
-      return {
-        props: {
-          performer: data[0],
-          news: data[1]
-        }
-      }
-    } catch (err) {
-      console.log(err)
-      return {}
-    }
-  }
-</script>
-
-<script lang='ts'>
-  import Carousel from "$src/components/Carousel.svelte";
-  import NewsItem from "$src/components/NewsItem.svelte";
-  import NewsFeed from "$src/components/NewsFeed.svelte";
-  import { baseUrl } from "$src/constants";
-  import { onMount } from "svelte";
 
   export let data
 

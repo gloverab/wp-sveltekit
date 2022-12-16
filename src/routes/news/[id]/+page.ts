@@ -16,18 +16,17 @@ const getArticle = (id) => {
 }
 
 
-export const load = async ({ page }) => {
-  const id = page.params.id
+export const load = async ({ params }) => {
+  const id = params.id
   const existingNews = get(newsStore)
   let article = existingNews.find(item => item.id === id)
 
   if (!article) {
     const data = await getArticle(id)
+    console.log(data)
     article = data
   }
   return {
-    props: {
-      article
-    }
+    article
   }
 }

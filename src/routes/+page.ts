@@ -3,7 +3,7 @@ import { newsStore } from "$src/stores/main";
 const url = baseUrl
 
 const timeoutPromise = new Promise((res, rej) => {
-  setTimeout(rej, 1000, 'forceTimeout')
+  setTimeout(rej, 500, 'forceTimeout')
 })
 
 const getPerformer = new Promise(async (res, rej) => {
@@ -42,10 +42,8 @@ export const load = async () => {
     newsStore.set(data)
     
     return {
-      props: {
-        performer: data[0],
-        news: data[1]
-      }
+      performer: data[0],
+      news: data[1]
     }
   } catch (err) {
     console.log(err)
