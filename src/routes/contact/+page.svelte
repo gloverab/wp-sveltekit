@@ -1,19 +1,14 @@
-<script lang='ts'>
-  import banner from "$assets/wp-lucky-fb-generic.png";
-  import alexjosh from '$assets/alex-josh.png'
-</script>
-
 <svelte:head>
   <title>Weird Phishes | Contact</title>
 </svelte:head>
 
 <div class='md:space-y-4 md:mt-6'>
   <div class='h-30 md:h-80 overflow-hidden md:flex items-center hidden'>
-    <img src={banner} />
+    <img src="https://www.dropbox.com/s/lxhqvnpff72mmc6/wp-lucky-fb-generic.png?raw=1" />
   </div>
   <div class='flex md:space-x-8 flex-col md:flex-row'>
     <div class='w-full md:w-100 flex-shrink-0'>
-      <img class='hidden md:block filter grayscale' src={alexjosh} />
+      <img class='hidden md:block filter grayscale' src="https://www.dropbox.com/s/xubv9echxep4cj2/alex-josh.png?raw=1" />
     </div>
     <div class='space-y-4 md:space-y-8'>
       <div>

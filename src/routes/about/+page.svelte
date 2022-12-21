@@ -1,11 +1,5 @@
 <script lang='ts'>
-import banner from "$assets/ir-banner.png"
-import pj from "$assets/pj.jpg"
-import alex from "$assets/alex.jpg"
-import josh from "$assets/josh.jpg"
-import pat from "$assets/pat.jpg"
-import derek from "$assets/d-rokk.jpg"
-import BandMember from "$src/components/BandMember.svelte";
+  import BandMember from "$src/components/BandMember.svelte";
 
 </script>
 
@@ -14,7 +8,7 @@ import BandMember from "$src/components/BandMember.svelte";
 </svelte:head>
 
 <div class='space-y-4 md:space-y-4 mt-6'>
-  <img src={banner} />
+  <img alt='In Rainbows Banner' src="https://www.dropbox.com/s/zhxdfsltw77mudy/ir-banner.png?raw=1" />
   <div class='w-full h-0.25 bg-gray-200' />
   <p class='italic font-medium text-lg'>"While the hybrid cover band thing has been done before, the way Weird Phishes combines their two sources of inspiration is both imaginative and principled."&nbsp;&nbsp;-<a class='link' href='https://liveforlivemusic.com/news/weird-phishes-video/' target='blank'>Live for Live Music</a></p>
   <div class='w-full h-0.25 bg-gray-200' />
@@ -36,13 +30,13 @@ import BandMember from "$src/components/BandMember.svelte";
         <BandMember
           name='Alex Glover'
           instrument='Guitar/Vocals'
-          img={alex}
+          img="https://www.dropbox.com/s/t09i0ghyg0endaq/alex.jpg?raw=1"
           description='Alex Glover is a multi-instrumentalist and producer living in Boston, MA. He is a member of post-rock group It Was A Good Dream and releases experimental electronic music through his Ellimist moniker. In 2021 he was named "Producer of the Year" at the New England Music Awards.'
         />
         <BandMember
           name='Josh Knowles'
           instrument='Violin/Vocals'
-          img={josh}
+          img="https://www.dropbox.com/s/krbh2m2poret6qw/josh.jpg?raw=1"
           description='Josh Knowles is an electric violinist, singer/songwriter, and composer. He has featured on albums by The Front Bottoms, Taking Back Sunday, and An Horse, performed on stages for Barack Obama, David Letterman and James Taylor, and frequently collaborates with Cirio Collective and Boston Ballet'
         />
       </div>
@@ -50,13 +44,13 @@ import BandMember from "$src/components/BandMember.svelte";
         <BandMember
           name='Pat Pingeton'
           instrument='Bass Guitar'
-          img={pat}
+          img="https://www.dropbox.com/s/1chq1gyc75s844f/pat.jpg?raw=1"
           description='Pat Pingeton is an in-demand bassist and personality alike. He also plays with Booty Giuliani, 73 Duster, Mike Morrissey, and a slew of other artists throughout the northeast. One would be remiss if they failed to mention his Bernese Mountain Dog, Mr. Jibbers, the inarguable heart and soul of Weird Phishes.'
         />
         <BandMember
           name='PJ Holaday'
           instrument='Drums'
-          img={pj}
+          img="https://www.dropbox.com/s/5uw8ntjete5h27u/pj.jpg?raw=1"
           description='PJ is known professionally throughout the northeast as a passionate, captivating performer and motivator who has devoted his life to music education, performance and therapy. He has toured with theater productions, including "A Night With Janis Joplin" and "Charlie Brown Jazz Christmas.'
         />
       </div>
@@ -64,7 +58,7 @@ import BandMember from "$src/components/BandMember.svelte";
         <BandMember
           name='Derek Dupuis (AKA D-Rokk)'
           instrument='Keys/Vocals'
-          img={derek}
+          img="https://www.dropbox.com/s/tc6n960akfiohby/d-rokk.jpg?raw=1"
           description={`Derek "D-Rokk" Dupuis is a lifelong multi-instrumentalist and vocalist. He also performs with the Video Game Orchestra, The Wild Versatile, and records solo music as a one-man-band. Though soft-spoken upon first glance, his mojo and unexpected dance moves have quickly become a sought-after highlight of any Weird Phishes performance.`}
         />
       </div>
