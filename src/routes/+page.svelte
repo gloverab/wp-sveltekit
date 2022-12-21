@@ -56,7 +56,7 @@
 
   $: nonFeaturedNews = news?.filter(item => item.id !== performer.featured_news_id && item.id !== performer.featured_news_2_id)
   $: newsFeed = news?.filter(item => item.id !== performer.featured_news_id && item.id !== performer.featured_news_2_id)
-  $: sidebarNews = newsFeed?.slice(0,5)
+  $: sidebarNews = news?.slice(0,5)
 
   let itemTwoHeight
   let itemThreeHeight
