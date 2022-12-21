@@ -10,28 +10,35 @@
   let attempts = 0
 
   const getPerformer = new Promise(async (res, rej) => {
-    const resp = await fetch(url + 'performers/1')
-    if (resp.status === 200) {
-      const data = await resp.json()
-      res(data)
-    } else {
-      rej(resp)
+    try {
+      const resp = await fetch(url + 'performers/1')
+      if (resp.status === 200) {
+        const data = await resp.json()
+        res(data)
+      } else {
+        rej(resp)
+      }
+    } catch (err) {
+      console.log(err)
     }
   })
 
   const getNews = new Promise(async (res, rej) => {
-    const resp = await fetch(url + 'performers/1/news')
-    if (resp.status === 200) {
-      const data = await resp.json()
-      res(data)
-    } else {
-      rej(resp)
+    try {
+      const resp = await fetch(url + 'performers/1/news')
+      if (resp.status === 200) {
+        const data = await resp.json()
+        res(data)
+      } else {
+        rej(resp)
+      }
+    } catch (err) {
+      console.log(err)
     }
   })
 
-  export let data
-
-  let { performer, news } = data
+  let news
+  let performer
 
   let loading = !news || !performer
   let error = undefined
