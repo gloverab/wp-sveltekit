@@ -8,14 +8,18 @@
   let loading = news && news.length > 0 ? false : true
 
   const getNews = async () => {
-    const url = baseUrl
-    const resp = await fetch(url + 'performers/1/news')
-    if (resp.status === 200) {
-      const data = await resp.json()
-      news = data
-      loading = false
-    } else {
-      
+    try {
+      const url = baseUrl
+      const resp = await fetch(url + 'performers/1/news')
+      if (resp.status === 200) {
+        const data = await resp.json()
+        news = data
+        loading = false
+      } else {
+        
+      }
+    } catch (err) {
+      console.log(err)
     }
   }
 

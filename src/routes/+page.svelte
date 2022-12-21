@@ -54,7 +54,7 @@
     }
   }
 
-  onMount(async () => {
+  onMount(() => {
     getPerformerAndNews()
   })
 
