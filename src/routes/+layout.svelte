@@ -10,7 +10,7 @@
   import { mainRoutes } from '$src/constants';
   import Logo from '$src/assets/Logo.svelte';
   import { onMount } from 'svelte';
-  import { cubicOut } from 'svelte/easing';
+  import { cubicIn, cubicOut } from 'svelte/easing';
   import { fade, fly } from 'svelte/transition';
 
   let mounted = false
@@ -102,9 +102,9 @@
   <span class='text-xs'>DESIGNED & BUILT WITH ❤️ BY <a class='font-medium' href='#'>ALEX GLOVER</a></span>
 </footer>
 
-{#if $initialLoad && mounted}
-  <div in:fly={{ y: $windowHeight, duration: 700, opacity: 1, easing: cubicOut }} out:fade={{ duration: 500 }} class='fixed top-0 left-0 z-900 w-screen h-screen flex items-center justify-center bg-white'>
-      <div transition:fade={{ duration: 300 }} class='w-30 h-30'>
+{#if $initialLoad}
+  <div out:fly={{ y: $windowHeight, duration: 700, opacity: 1, easing: cubicIn }} in:fade={{ duration: 500 }} class='fixed top-0 left-0 z-900 w-screen h-screen flex items-center justify-center bg-white'>
+      <div transition:fade={{ duration: 900 }} class='w-30 h-30'>
         <div class='animate-pulse'>
           <BearLogo fill='fill-phish-purple' />
         </div>
