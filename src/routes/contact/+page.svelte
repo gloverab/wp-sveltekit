@@ -18,7 +18,15 @@
     <div class='space-y-4 md:space-y-8'>
       <div>
         <div class='bg-phish-purple w-full h-1' />
-        <span class='text-sm uppercase font-light tracking-wider'>Booking/Management</span>
+        <span class='text-sm uppercase font-light tracking-wider'>Booking</span>
+        <div class='bg-white w-full border-1 shadow-sm p-2.5'>
+          <p>Emily VanderWiel</p>
+          <p><a class='link' href='emailto:weirdphishesmusic@gmail.com'>emily@omniartsgroup.com</a></p>
+        </div>
+      </div>
+      <div>
+        <div class='bg-phish-purple w-full h-1' />
+        <span class='text-sm uppercase font-light tracking-wider'>General Info/Management</span>
         <div class='bg-white w-full border-1 shadow-sm p-2.5'>
           <p>Alex Glover</p>
           <p>Email: <a class='link' href='emailto:weirdphishesmusic@gmail.com'>weirdphishesmusic@gmail.com</a></p>
