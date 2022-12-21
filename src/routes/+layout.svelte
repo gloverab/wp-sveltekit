@@ -34,7 +34,7 @@
 
 <svelte:head>
   <title>Weird Phishes | Radiohead + Phish = Something Entirely New</title>
-  <!-- <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script> -->
+  <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script>
   <script src="https://kit.fontawesome.com/2a900224f0.js" crossorigin="anonymous"></script>
 </svelte:head>
 
@@ -80,7 +80,7 @@
     <div class='{$page.url.pathname.includes('shows') ? 'block' : 'hidden'} bg-phish-purple w-full h-1' />
     <span class='{$page.url.pathname.includes('shows') ? 'block' : 'hidden'} text-sm uppercase font-light tracking-wider mb-2'>Upcoming Shows</span>
     <div class='{$page.url.pathname.includes('shows') ? 'block' : 'hidden'} bg-white w-full border-1 shadow-sm p-2.5'>
-      <!-- <a
+      <a
         class="bit-widget-initializer"
         data-artist-name="id_14950026"
         data-font="Helvetica"
@@ -92,7 +92,7 @@
         data-popup-background-color="#ffffff"
         data-link-color="#A2A2A2"
         data-link-text-color="#FFFFFF"
-      ></a> -->
+      ></a>
     </div>
   </div>
 </div>
