@@ -7,6 +7,7 @@
   import { baseUrl } from "$src/constants";
 
   const url = baseUrl
+  let attempts = 0
 
   const getPerformer = new Promise(async (res, rej) => {
     const resp = await fetch(url + 'performers/1')
@@ -35,8 +36,8 @@
   let loading = !news || !performer
   let error = undefined
 
-  onMount(async () => {
-    if (!news || !performer) {
+  const getPerformerAndNews = async () => {
+    if ((!news || !performer) && attempts < 3) {
       try {
         const data = await Promise.all([getPerformer, getNews])
         newsStore.set(data)
@@ -46,9 +47,15 @@
 
         loading = false
       } catch (err) {
+        attempts = attempts + 1
+        getPerformerAndNews()
         console.log(err)
       }
     }
+  }
+
+  onMount(async () => {
+    getPerformerAndNews()
   })
 
   $: featuredContent = news?.find(item => performer.featured_news_id === item.id)
