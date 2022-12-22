@@ -76,6 +76,9 @@
 
   <div class='flex-1 flex flex-col space-y-3'>
     <div class='lib-item'>
+      <img src={posters.inRainbowsShirtPhoto.img} />
+    </div>
+    <div class='lib-item'>
       <img src={posters.aeronaut1Alt.img} />
     </div>
     <div class='lib-item'>

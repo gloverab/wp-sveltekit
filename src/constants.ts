@@ -200,7 +200,14 @@ export const kidADebut = {
   name: 'Kid A Debut at Crystall Ballroom',
   date: 'February 2023',
   details: 'Weird Phishes debuts their renditiion of Kid A at The Crystal Ballroom in Somerville, MA',
-  img: "https://www.dropbox.com/s/f5skcv5enz2bvm0/Weird%20Phishes%20-%20Crystal%20Ballroom%20sm.png?raw=1"
+  img: "https://www.dropbox.com/s/q7simftd9fcfqkv/Crystal%20Ballroom%20-med%20-%20no%20frame.png?raw=1"
+}
+
+export const inRainbowsShirtPhoto = {
+  name: 'In Rainbows Shirt Photo',
+  date: 'November 2022',
+  details: 'In Rainbows t-shirt photo. The first Weird Phishes t-shirt!',
+  img: "https://www.dropbox.com/s/mr20vsig1j7gort/ir-shirt-photo.JPG?raw=1"
 }
 
 export const baseUrl = "https://secret-coast-09187.herokuapp.com/"
