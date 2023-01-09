@@ -3,7 +3,7 @@
   import BearLogo from '$src/components/BearLogo.svelte';
   import Overlay from "$components/_common/Overlay.svelte";
   import { page } from '$app/stores';
-  import { numDrawersOut, showMobileMenu, windowHeight, hideMenuIcon, initialLoad } from "$stores/main";
+  import { numDrawersOut, showMobileMenu, windowHeight, hideMenuIcon, initialLoad, ipAddress } from "$stores/main";
   import Header from "$components/Header.svelte";
   import MenuIcon from "$components/MenuIcon.svelte";
   import Drawer from "$src/components/_common/Drawer.svelte";
@@ -12,6 +12,10 @@
   import { onMount } from 'svelte';
   import { cubicIn, cubicOut } from 'svelte/easing';
   import { fade, fly } from 'svelte/transition';
+  
+  export let data
+
+  $:console.log(data)
 
   let mounted = false
   let displayContent = false
@@ -26,6 +30,7 @@
 
   onMount(() => {
     mounted = true
+    ipAddress.set(data.ip)
     setTimeout(() => displayContent = true, 500)
     setTimeout(() => initialLoad.set(false), 1500)
   })

@@ -104,11 +104,13 @@
       <span class='text-sm uppercase font-light tracking-wider mb-2'>Featured Content</span>
       <div class='space-y-4'>
         <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
-          <img alt='Featured Content 1' src={featuredContent.img_1} />
-          <a href={featuredContent.external_link} target='blank' class='text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>{featuredContent.title}</a>
+          <a class='featured-content-1-link' href={featuredContent.calls_to_actions[0].link} target='blank'>
+            <img alt='Featured Content 1' src={featuredContent.img_1} />
+          </a>
+          <a href={featuredContent.calls_to_actions[0].link} target='blank' class='featured-content-1-link text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>{featuredContent.title}</a>
           <p class='text-sm text-phish-grey-light'>{featuredContent.short_desc}</p>
           {#if featuredContent.calls_to_actions?.length > 0}
-            <a class='text-phish-orange font-semibold uppercase' target="blank" href='{featuredContent.calls_to_actions[0].link}'>{featuredContent.calls_to_actions[0].text}</a>
+            <a class='featured-content-1-link text-phish-orange font-semibold uppercase' target="blank" href='{featuredContent.calls_to_actions[0].link}'>{featuredContent.calls_to_actions[0].text}</a>
           {/if}
         </div>
 
@@ -152,11 +154,13 @@
         <span class='text-sm uppercase font-light tracking-wider mb-2'>Featured Content</span>
         <div class='space-y-4'>
           <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
-            <img alt='Featured Content 1' src={featuredContent.img_1} />
-            <a href={featuredContent.external_link} target='blank' class='text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>{featuredContent.title}</a>
+            <a class='featured-content-1-link' href={featuredContent.calls_to_actions[0].link} target='blank'>
+              <img alt='Featured Content 1' src={featuredContent.img_1} />
+            </a>
+            <a href={featuredContent.calls_to_actions[0].link} target='blank' class='featured-content-1-link text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>{featuredContent.title}</a>
             <p class='text-sm text-phish-grey-light'>{featuredContent.short_desc}</p>
             {#if featuredContent.calls_to_actions?.length > 0}
-              <a class='text-phish-orange font-semibold uppercase' target="blank" href='{featuredContent.calls_to_actions[0].link}'>{featuredContent.calls_to_actions[0].text}</a>
+              <a class='featured-content-1-link text-phish-orange font-semibold uppercase' target="blank" href='{featuredContent.calls_to_actions[0].link}'>{featuredContent.calls_to_actions[0].text}</a>
             {/if}
           </div>
 
