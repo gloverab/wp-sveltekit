@@ -27,7 +27,7 @@ import { onMount, onDestroy } from "svelte";
 <div class='bg-black min-h-screen'>
   <div class='hidden sm:block'>
     <div class='w-screen flex'>
-      <div class='max-h-full w-1/2'>
+      <div class='max-h-screen w-1/2 overflow-hidden'>
         <img class='' src='https://www.dropbox.com/s/i82wqiw2ijhlhwe/ticket-group-7-sm.png?raw=1' />
       </div>
 
@@ -42,8 +42,8 @@ import { onMount, onDestroy } from "svelte";
     </div>
   </div>
 
-  <div class='block sm:hidden'>
-    <div class='p-5'>
+  <div style="background-image: url('https://www.dropbox.com/s/i82wqiw2ijhlhwe/ticket-group-7-sm.png?raw=1')" class='bg-cover block sm:hidden'>
+    <div class='relative p-5 z-1 bg-black bg-opacity-90'>
       <div class='mb-4'>
         <!-- <h1 class='text-white text-center uppercase tracking-widest'>Welcome to</h1> -->
         <h1 class='text-white font-display text-6xl uppercase text-center leading-3'>Weird Phishes</h1>
@@ -51,6 +51,7 @@ import { onMount, onDestroy } from "svelte";
       </div>
       <Wptbm {isiOs} />
     </div>
+    <img class='' src='https://www.dropbox.com/s/44ydhtr1mmzputj/ticketstub-mock-1-sm.png?raw=1' />
   </div>
 </div>
 
