@@ -15,7 +15,10 @@ module.exports = {
 				'wp-tile': 'url(\'/src/assets/wp-tile-trans-sm.png\')',
 				'phish-bg': 'url(\'https://phish.wpenginepowered.com/wp-content/themes/phish/assets/img/background-texture.jpg?ver=1.0\')'
 			})
-		}
+		},
+		fontFamily: {
+      'display': ['BD_Plakatbau']
+    }
 	},
 	variants: {},
 	plugins: [
