@@ -25,7 +25,7 @@
   <p class='text-white text-sm mb-2'>To combat that, we went down to the box office over at Crystal Ballroom in Somerville, secured some barcodes, and put them onto physical tickets with exclusive artwork for this show only.</p>
   <p class='text-white text-sm mb-2 line-spa'>You can order them exclusively through our webstore or by venmoing us (include your address in the comment) and we'll mail them to you, simple as that.</p>
   <p class='text-white text-sm mb-2 line-spa'>No service fees, no shipping fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
-  <p class='text-white text-lg font-semibold text'>$20.00/ea</p>
+  <p class='text-white text-lg font-semibold text'>$20.00/ea + $0.00 Fees</p>
   <p class='text-white font-semibold text'>Only until January 24</p>
   <p class='text-green-600 text-sm mb-6'>{"<100 Remaining"}</p>
   <div class='mb-4'>
