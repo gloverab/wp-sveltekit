@@ -5,7 +5,12 @@
   let showVenmo = false
   let animateVenmo = false
 
-  const changeText = async () => {
+  const handleClick = (linkType) => {
+    fbq('trackCustom', 'WPTBMClick', { type: linkType })
+  }
+
+  const handleDesktopVenmoClick = async () => {
+    handleClick('venmo-desktop')
     showVenmo = true
     setTimeout(() => animateVenmo = true)
   }
@@ -29,16 +34,16 @@
   <p class='text-white font-semibold text'>Only until January 24</p>
   <p class='text-green-600 text-sm mb-6'>{"<100 Remaining"}</p>
   <div class='mb-4'>
-    <a class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://40625f.myshopify.com/products/wptbm-kid-a-at-crystal-ballroom-somerville-ma' target='blank'>
+    <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://40625f.myshopify.com/products/wptbm-kid-a-at-crystal-ballroom-somerville-ma' target='blank'>
       <span class='text-white'>Buy Tickets via Shopify</span>
     </a>
     <div class='hidden sm:block'>
-      <button on:click={changeText} class='w-full purchase-button bg-blue-600 flex justify-center hover:bg-blue-500'>
+      <button on:click={handleDesktopVenmoClick} class='w-full purchase-button bg-blue-600 flex justify-center hover:bg-blue-500'>
         <span class='text-white'>{venmoText}</span>
       </button>
     </div>
     <div class='sm:hidden'>
-      <a class='flex purchase-button bg-blue-600 justify-center hover:bg-blue-500' href='{isiOs ? "venmo://paycharge?txn=pay&recipients=weird-phishes&text=Your%20Address" : "intent://paycharge?txn=pay&recipients=weird-phishes#Intent;package=com.venmo;scheme=venmo;end"}' target='blank'>
+      <a on:click={() => handleClick('venmo-mobile')} class='flex purchase-button bg-blue-600 justify-center hover:bg-blue-500' href='{isiOs ? "venmo://paycharge?txn=pay&recipients=weird-phishes&text=Your%20Address" : "intent://paycharge?txn=pay&recipients=weird-phishes#Intent;package=com.venmo;scheme=venmo;end"}' target='blank'>
         <span class='text-white'>Buy Tickets via Venmo</span>
       </a>
     </div>
@@ -47,7 +52,7 @@
     </div>
   </div>
   <div class='mb-4'>
-    <a class='underline text-blue-800' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
+    <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
       Or buy from Ticketmaster⇗
     </a>
   </div>
