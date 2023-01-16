@@ -51,7 +51,9 @@
       </div>
       <Wptbm {isiOs} />
     </div>
-    <img class='' src='https://www.dropbox.com/s/44ydhtr1mmzputj/ticketstub-mock-1-sm.png?raw=1' />
+    <div class='p-5 pt-0 bg-black'>
+      <img class='' src='https://www.dropbox.com/s/44ydhtr1mmzputj/ticketstub-mock-1-sm.png?raw=1' />
+    </div>
   </div>
 </div>
 
