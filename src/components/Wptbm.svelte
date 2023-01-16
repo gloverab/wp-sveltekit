@@ -7,6 +7,14 @@
 
   const handleClick = (linkType) => {
     fbq('trackCustom', 'WPTBMClick', { type: linkType })
+
+    // const data = {
+    //   ok: true
+    // }
+    // fetch('/api/tickets', {
+    //   method: "POST",
+    //   body: JSON.stringify(data)
+    // })
   }
 
   const handleDesktopVenmoClick = async () => {
@@ -34,7 +42,7 @@
   <p class='text-white font-semibold text'>Only until January 24</p>
   <p class='text-green-600 text-sm mb-6'>{"<100 Remaining"}</p>
   <div class='mb-4'>
-    <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://40625f.myshopify.com/products/wptbm-kid-a-at-crystal-ballroom-somerville-ma' target='blank'>
+    <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://store.weirdphishes.com/products/wptbm-kid-a-at-crystal-ballroom-somerville-ma' target='blank'>
       <span class='text-white'>Buy Tickets via Shopify</span>
     </a>
     <div class='hidden sm:block'>
