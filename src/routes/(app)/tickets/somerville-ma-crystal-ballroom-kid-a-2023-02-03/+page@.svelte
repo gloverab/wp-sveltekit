@@ -26,6 +26,11 @@
   })
 </script>
 
+<svelte:head>
+  <meta property=’og:title’ content='Weird Phishes Tickets By Mail - Kid A at Crystal Ballroom in Somerville, MA'/>
+  <meta property=’og:image’ content='https://www.dropbox.com/s/44ydhtr1mmzputj/ticketstub-mock-1-sm.png?raw=1'/>
+</svelte:head>
+
 <div class='bg-black min-h-screen'>
   <div class='hidden sm:block'>
     <div class='w-screen flex'>
