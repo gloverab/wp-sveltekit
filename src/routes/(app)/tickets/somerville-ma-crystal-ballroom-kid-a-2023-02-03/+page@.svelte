@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-  <meta property=’og:title’ content='Weird Phishes Tickets By Mail - Kid A at Crystal Ballroom in Somerville, MA'/>
+  <title>Weird Phishes Tickets By Mail - Kid A at Crystal Ballroom in Somerville, MA</title>
   <meta property=’og:image’ content='https://www.dropbox.com/s/44ydhtr1mmzputj/ticketstub-mock-1-sm.png?raw=1'/>
 </svelte:head>
 

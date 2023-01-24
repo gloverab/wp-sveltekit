@@ -40,7 +40,7 @@
   <p class='text-white text-sm mb-2 line-spa'>No service fees, no shipping fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
   <p class='text-white text-lg font-semibold text'>$20.00/ea + $0.00 Fees</p>
   <p class='text-white font-semibold text'>Only until January 26</p>
-  <p class='text-green-600 text-sm mb-6'>{"37 Remaining"}</p>
+  <p class='text-orange-600 text-sm mb-6'>{"19 Remaining"}</p>
   <div class='mb-4'>
     <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://store.weirdphishes.com/products/wptbm-kid-a-at-crystal-ballroom-somerville-ma' target='blank'>
       <span class='text-white'>Buy Tickets via Shopify</span>
