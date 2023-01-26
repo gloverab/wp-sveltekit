@@ -1,22 +1,20 @@
 <script lang='ts'>
+  import { onMount } from "svelte";
+
+
   export let isiOs
 
   let venmoText = "Buy Tickets via Venmo"
   let showVenmo = false
   let animateVenmo = false
+  let x
 
-  const handleClick = (linkType) => {
-    fbq('trackCustom', 'WPTBMClick', { type: linkType })
+  const countDownDate = new Date("Jan 26, 2023 18:00:00").getTime();
 
-    // const data = {
-    //   ok: true
-    // }
-    // fetch('/api/tickets', {
-    //   method: "POST",
-    //   body: JSON.stringify(data)
-    // })
-  }
+  const initialDistance = countDownDate - new Date().getTime()
 
+  let expired = initialDistance <= 0
+  
   const handleDesktopVenmoClick = async () => {
     handleClick('venmo-desktop')
     showVenmo = true
@@ -27,6 +25,44 @@
     animateVenmo = false
     setTimeout(() => showVenmo = false, 300)
   }
+
+  const handleClick = (linkType) => {
+    fbq('trackCustom', 'WPTBMClick', { type: linkType })
+  }
+
+  const humanizeTime = (distance) => {
+    // Time calculations for days, hours, minutes and seconds
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="demo"
+    return hours + "h " + minutes + "m " + seconds + "s ";
+  }
+
+  let timeRemaining = humanizeTime(initialDistance)
+
+  const updateCountdown = () => {
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    timeRemaining = humanizeTime(distance)
+
+    if (distance < 0) {
+      clearInterval(x);
+      timeRemaining = "EXPIRED";
+      expired = true
+    }
+  }
+
+  x = setInterval(updateCountdown, 1000);
+
+  onMount(() => {
+    
+  })
 </script>
 
 <div class='w-full border-1 border-grey-light rounded-xl sm:max-w-130 p-4 sm:p-10'>
@@ -39,31 +75,41 @@
   <p class='text-white text-sm mb-2 line-spa'>You can order them exclusively through our webstore or by venmoing us (include your address in the comment) and we'll mail them to you, simple as that.</p>
   <p class='text-white text-sm mb-2 line-spa'>No service fees, no shipping fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
   <p class='text-white text-lg font-semibold text'>$20.00/ea + $0.00 Fees</p>
-  <p class='text-white font-semibold text'>Only until January 26</p>
-  <p class='text-orange-600 text-sm mb-6'>{"14 Remaining"}</p>
-  <div class='mb-4'>
-    <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://store.weirdphishes.com/products/wptbm-kid-a-at-crystal-ballroom-somerville-ma' target='blank'>
-      <span class='text-white'>Buy Tickets via Shopify</span>
+  <!-- <p class='text-white font-semibold text'>Only until January 26</p> -->
+  {#if expired}
+    <p class='text-red-600 mb-6'>WPTBM ticket period is over. Please purchase your tickets from Ticketmaster below.</p>
+    <a on:click={() => handleClick('ticketmaster')} class='purchase-button mb-2 bg-blue-600 flex justify-center hover:bg-green-500' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
+      <span class='text-white'>Buy Tickets on Ticketmaster</span>
     </a>
-    <div class='hidden sm:block'>
-      <button on:click={handleDesktopVenmoClick} class='w-full purchase-button bg-blue-600 flex justify-center hover:bg-blue-500'>
-        <span class='text-white'>{venmoText}</span>
-      </button>
+  {:else}
+    <p class='text-red-600 text-lg mb-6'>{timeRemaining + " Remaining"}</p>
+  {/if}
+
+  {#if !expired}
+    <div class='mb-4'>
+      <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://store.weirdphishes.com/products/wptbm-kid-a-at-crystal-ballroom-somerville-ma' target='blank'>
+        <span class='text-white'>Buy Tickets via Shopify</span>
+      </a>
+      <div class='hidden sm:block'>
+        <button on:click={handleDesktopVenmoClick} class='w-full purchase-button bg-blue-600 flex justify-center hover:bg-blue-500'>
+          <span class='text-white'>{venmoText}</span>
+        </button>
+      </div>
+      <div class='sm:hidden'>
+        <a on:click={() => handleClick('venmo-mobile')} class='flex purchase-button bg-blue-600 justify-center hover:bg-blue-500' href='{isiOs ? "venmo://paycharge?txn=pay&recipients=weird-phishes&text=Your%20Address" : "intent://paycharge?txn=pay&recipients=weird-phishes#Intent;package=com.venmo;scheme=venmo;end"}' target='blank'>
+          <span class='text-white'>Buy Tickets via Venmo</span>
+        </a>
+      </div>
+      <div class='flex justify-center'>
+        <span class='text-white text-xs'>Please remember to include your mailing address</span>
+      </div>
     </div>
-    <div class='sm:hidden'>
-      <a on:click={() => handleClick('venmo-mobile')} class='flex purchase-button bg-blue-600 justify-center hover:bg-blue-500' href='{isiOs ? "venmo://paycharge?txn=pay&recipients=weird-phishes&text=Your%20Address" : "intent://paycharge?txn=pay&recipients=weird-phishes#Intent;package=com.venmo;scheme=venmo;end"}' target='blank'>
-        <span class='text-white'>Buy Tickets via Venmo</span>
+    <div class='mb-4'>
+      <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
+        Or buy from Ticketmaster⇗
       </a>
     </div>
-    <div class='flex justify-center'>
-      <span class='text-white text-xs'>Please remember to include your mailing address</span>
-    </div>
-  </div>
-  <div class='mb-4'>
-    <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
-      Or buy from Ticketmaster⇗
-    </a>
-  </div>
+  {/if}
 </div>
 
 {#if showVenmo}
