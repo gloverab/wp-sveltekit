@@ -197,23 +197,70 @@
           <div class='bg-phish-purple w-full h-1' />
           <span class='text-sm uppercase font-light tracking-wider mb-2'>From the Road</span>
           <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col'>
-            <p class='text-2xl tracking-wide'>December. 2nd 2022</p>
-            <p class='tracking-wide'>Paradise Rock Club</p>
-            <p class='tracking-wide'>Boston, MA</p>
+            <p class='text-2xl tracking-wide'>February. 3rd 2023</p>
+            <p class='tracking-wide'>Crystal Ballroom</p>
+            <p class='tracking-wide'>Somerville, MA</p>
             <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set One</span>
             <ul>
-              <li>The Bends ></li>
-              <li>Free ></li>
-              <li>The Bends</li>
-              <li>Paranoid Android ></li>
-              <li>Jigsaw Falling Into Place ></li>
-              <li>Birds of a Feather ></li>
+              <li>Everything in its Right Place</li>
+              <li>Kid A =></li>
+              <li>2001 =></li>
+              <li>Kid A =></li>
+              <li>Punch You In The Eye<sup>1</sup> =></li>
+              <li>Kid A</li>
+              <li>National Anthem => Tweezer Reprise</li>
+              <li>How to Disappear Completely =></li>
+              <li>Mike's Song =></li>
+              <li>How to Disappear Completely</li>
+              <li>Treefingers<sup>2</sup></li>
+              <li>OPTIMISTASH ></li>
+              <li>In Limbo</li>
+              <li>Somewhere Over the Rainbow<sup>3</sup></li>
+              <li>RIFTIOTEQUE<sup>4</sup></li>
+              <li>Morning Bell</li>
+              <li>Motion Picture Soundtrack =></li>
+              <li>Wading in the Velvet Sea =></li>
+              <li>Motion Picture Soundtrack</li>
+            </ul>
+            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Two</span>
+            <ul>
+              <li>Fluffhead =></li>
+              <li>Karma Police =></li>
+              <li>YEM<sup>5</sup> =></li>
+              <li>Fluffhead</li>
+              <li>Reckoner =></li>
+              <li>Carini<sup>6</sup></li>
+              <li>Paranoid Android =></li>
+              <li>Jigsaw Falling Into Place =></li>
+              <li>Birds of a Feather<sup>7</sup> =></li>
+              <li>Jigsaw Falling Into Place =></li>
               <li>Paranoid Android</li>
+              <li>15 Step =></li>
+              <li>Golgi Apparatus =></li>
+              <li>15 Step</li>
+              <li>Bodysnatchers =></li>
+              <li>Weekapaug Groove =></li>
+              <li>Bodysnatchers ></li>
+              <li>Electioneering =></li>
+              <li>Harry Hood<sup>8</sup></li>
+            </ul>
+            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Encore</span>
+            <ul>
+              <li>You and Whose Army => Character Zero</li>
               <li>Subterranean Homesick Alien / Twist</li>
-              <li>You And Whose Army ></li>
-              <li>Character Zero</li>
-              <li>High And Dry / Chalkdust Torture</li>
-              <li>National Anthem</li>
+            </ul>
+
+            <ul class='mt-6 mb-3'>
+              <li><sup>1</sup>"Kid A!" instead of "Hey!" Lyrics changed to "played toward the end with optimistic/stash"</li>
+              <li><sup>2</sup>Played in a drum and bass style. Alex used a sample pad.</li>
+              <li><sup>3</sup>Audience request after Josh successfully changed his violin string mid-jam</li>
+              <li><sup>4</sup>Contained "Sparkle" quotes</li>
+            </ul>
+            <ul>
+              <li><sup>5</sup>Lyrics changed to "Boy, Man, Kid, A"</li>
+              <li><sup>6</sup>Alex teased "Killing in the Name Of." Josh quoted "Bulls on Parade" with "Carini Now!" lyrics.</li>
+              <li><sup>7</sup>Contained quotes from "The Adventure"</li>
+              <li><sup>8</sup>Contained quotes from "Same"</li>
             </ul>
           </div>
         </div>
