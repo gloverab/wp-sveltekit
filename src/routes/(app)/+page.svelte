@@ -5,9 +5,11 @@
   import { onMount } from "svelte";
   import { newsStore } from "$src/stores/main";
   import { baseUrl } from "$src/constants";
+  import FeaturedModal from "$src/components/FeaturedModal.svelte";
 
   const url = baseUrl
   let attempts = 0
+  let showFeaturedVideo = true
 
   const getPerformer = new Promise(async (res, rej) => {
     try {
@@ -77,7 +79,7 @@
 </script>
 
 <svelte:head>
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e2b3a4569acd768a57c148cdf/00deffdd8d32dcfbd972ef52e.js");</script>
+  <!-- <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e2b3a4569acd768a57c148cdf/00deffdd8d32dcfbd972ef52e.js");</script> -->
 </svelte:head>
 
 <div class='space-y-4 mt-0 md:mt-6'>
@@ -272,6 +274,14 @@
     </div>
   {/if}
 </div>
+
+<FeaturedModal
+  show={showFeaturedVideo}
+  onHide={() => showFeaturedVideo = false}
+  title="Watch The First Performance From 'Kid A' Now"
+  subtitle={`Watch the proshot video of "Kid A" => "2001" => "PYITE" => "Kid A"`}
+  videoUrl="https://www.youtube.com/embed/V31TB2h4ylc"
+/>
 
 <style>
   li {
