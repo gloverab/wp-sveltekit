@@ -43,7 +43,11 @@
             {@html article.long_desc || article.short_desc}
           </div>
           {#if article.calls_to_actions?.length > 0}
-            <a class='text-phish-orange font-semibold' target="blank" href='{article.calls_to_actions[0].link}'>{article.calls_to_actions[0].text}</a>
+            <div class='flex flex-col space-y-2'>
+              {#each article.calls_to_actions as cta}
+                <a class='text-phish-orange font-semibold uppercase' target="blank" href='{cta.link}'>{cta.text}</a>
+              {/each}
+            </div>
           {/if}
         </div>
       </div>
