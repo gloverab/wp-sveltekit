@@ -106,7 +106,7 @@
       <span class='text-sm uppercase font-light tracking-wider mb-2'>Featured Content</span>
       <div class='space-y-4'>
         <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2'>
-          <a class='featured-content-1-link' href={featuredContent.calls_to_actions[0].link} target='blank'>
+          <a class='featured-content-1-link' href={featuredContent.calls_to_actions.length > 0 ? featuredContent.calls_to_actions[0].link : undefined} target='blank'>
             <img alt='Featured Content 1' src={featuredContent.img_1} />
           </a>
           <a href={featuredContent.calls_to_actions[0].link} target='blank' class='featured-content-1-link text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>{featuredContent.title}</a>
