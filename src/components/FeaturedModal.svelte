@@ -1,4 +1,7 @@
 <script lang='ts'>
+  // import clickOutside from "$src/actions/clickOutside";
+
+
   export let onHide: () => void
   export let show = false
   export let subtitle: string
@@ -15,8 +18,7 @@
 </script>
 
 {#if show}
-  <button
-    on:click={handleHide}
+  <div
     class:bg-opacity-0={animateHide}
     class:bg-opacity-85={!animateHide}
     class:duration-200={animateHide}
@@ -70,5 +72,5 @@
         </button>
       </div>
     </div>
-  </button>
+  </div>
 {/if}

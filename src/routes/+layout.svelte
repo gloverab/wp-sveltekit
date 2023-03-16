@@ -1,5 +1,14 @@
 <script lang='ts'>
+  import { page } from '$app/stores';
+  import { showMailingListModal } from '$src/stores/main';
+  import { onMount } from 'svelte';
   import 'virtual:windi.css';
+
+  onMount(() => {
+    if ($page.route.id === "/(app)") {
+      showMailingListModal.set(true)
+    }
+  })
 </script>
 
 <slot />

@@ -5,10 +5,11 @@
   import NavLink from "./NavLink.svelte";
   import PublicLibrary from "./PublicLibrary.svelte";
 
+  export let wrapperH
   $:libPage = $page.url.pathname.includes('library')
 </script>
 
-<header class='fixed top-0 flex w-screen items-center justify-between h-15 px-4 {libPage ? 'bg-black' : 'bg-phish-purple'} shadow-md z-1000'>
+<header style="transform:translate3d(0, {wrapperH}px, 0)" class='absolute top-0 flex w-screen items-center justify-between h-15 px-4 {libPage ? 'bg-black' : 'bg-phish-purple'} shadow-md z-1000'>
   <a class='h-full flex items-center' href='/'>
     {#if libPage}
       <div class='h-3 md:h-7'>

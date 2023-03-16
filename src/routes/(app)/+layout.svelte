@@ -10,11 +10,28 @@
   import { mainRoutes } from '$src/constants';
   import Logo from '$src/assets/Logo.svelte';
   import { onMount } from 'svelte';
-  import { cubicIn, cubicOut } from 'svelte/easing';
+  import { cubicIn, cubicOut, linear } from 'svelte/easing';
   import { fade, fly } from 'svelte/transition';
+  import { tweened } from 'svelte/motion';
+  import CrossIcon from '$src/icons/CrossIcon.svelte';
+
+  const animationTime = 800
+
+  const initialFeaturedBackgroundHeight = tweened(0, {
+		duration: animationTime,
+		easing: linear
+	});
 
   let mounted = false
   let displayContent = false
+
+  let initialAnimationTookPlace = false
+  let useAnimatedValue = true
+  let videoUrl = "https://www.youtube.com/embed/mKZR-2hKfic"
+  let wrapperW
+  let wrapperH
+  let videoWrapperW
+  let promoHasBeenClosed = false
 
   const handleShowMobileMenu = () => {
     if ($showMobileMenu) {
@@ -22,6 +39,18 @@
     } else {
       showMobileMenu.set(true)
     }
+  }
+
+  const closeFeaturedTopPart = () => {
+    useAnimatedValue = true
+    initialFeaturedBackgroundHeight.set(0)
+    setTimeout(() => promoHasBeenClosed = true, animationTime)
+  }
+
+  $: if (wrapperH > 0 && useAnimatedValue && !initialAnimationTookPlace) {
+    initialFeaturedBackgroundHeight.set(wrapperH)
+    setTimeout(() => useAnimatedValue = false, animationTime)
+    setTimeout(() => initialAnimationTookPlace = true, animationTime)
   }
 
   onMount(() => {
@@ -32,6 +61,8 @@
 
 </script>
 
+<!-- <svelte:window on:resize={} /> -->
+
 <svelte:head>
   <title>Weird Phishes | Radiohead + Phish = Something Entirely New</title>
   <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script>
@@ -40,7 +71,9 @@
 
 <svelte:window bind:innerHeight={$windowHeight} />
 
-<Header />
+<div>
+  <Header wrapperH={useAnimatedValue ? $initialFeaturedBackgroundHeight : wrapperH} />
+</div>
 
 <button on:click={handleShowMobileMenu} class='fixed md:hidden h-15 flex items-center top-0 right-0 {$numDrawersOut > 0 && !$hideMenuIcon ? 'z-2000' : 'z-1000'}'>
   <MenuIcon
@@ -73,8 +106,24 @@
 
 <div class='hidden' />
 
+<div class:hidden={promoHasBeenClosed} class='fixed top-0 left-0 w-full sm:p-2 md:p-4 lg:p-6 bg-gray-700' bind:clientHeight={wrapperH} bind:clientWidth={wrapperW}>
+  <button on:click={closeFeaturedTopPart} class='absolute top-0 right-0 p-4'>
+    <CrossIcon size={24} />
+  </button>
+  <div class='flex flex-col w-full items-center justify-center'>
+    <div class='mb-4 marginsAndPadding'>
+      <p class='hidden md:block md:text-3xl lg:text-4xl text-white let uppercase font-medium text-center'>The full album performance of "Kid A" is here.</p>
+      <p class='hidden md:block text-white font-light text-left'>Relive the entire show, from Everything In Its Right Place to Motion Picture Soundtrack, completely rearranged and mashed up in the style of Phish, while maintaining the intricacy and passion contained in the original. This is the first public release of a Weird Phishes set in its entirety, and we couldn't be more excited to share it with you.</p>
+    </div>
+    <div class='w-full max-w-300' bind:clientWidth={videoWrapperW}>
+      <div class='w-full relative' style="height:{videoWrapperW / 1.7777777}px">
+        <iframe style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" src={videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class='min-h-[calc(100vh_-_8.75rem)] pb-12 flex justify-center'>
+<div style="transform:translate3d(0, {useAnimatedValue ? $initialFeaturedBackgroundHeight : wrapperH}px, 0)" class='min-h-[calc(100vh_-_8.75rem)] bg-blue-100 bg-phish-bg bg-center pt-15 pb-12 flex justify-center'>
   <div class='duration-150' class:opacity-0={!displayContent} class:opacity-100={displayContent} class:removeMarginsAndPadding={$page.url.pathname.includes('library')} class:marginsAndPadding={!$page.url.pathname.includes('library')}>
     <slot />
     <div class='{$page.url.pathname.includes('shows') ? 'block' : 'hidden'} bg-phish-purple w-full h-1' />
@@ -103,7 +152,7 @@
 </footer>
 
 {#if $initialLoad}
-  <div out:fly={{ y: $windowHeight, duration: 700, opacity: 1, easing: cubicIn }} in:fade={{ duration: 500 }} class='fixed top-0 left-0 z-900 w-screen h-screen flex items-center justify-center bg-white'>
+  <div out:fly={{ y: $windowHeight, duration: 700, opacity: 1, easing: cubicIn }} in:fade={{ duration: 500 }} style="top: {wrapperH}px" class='fixed left-0 z-900 w-screen h-screen flex items-center justify-center bg-white'>
       <div transition:fade={{ duration: 900 }} class='w-30 h-30'>
         <div class='animate-pulse'>
           <BearLogo fill='fill-phish-purple' />
