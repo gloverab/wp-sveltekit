@@ -18,12 +18,17 @@
     fbq('trackCustom', 'oneMinuteAfterVideoPlay')
   }
 
+  const handleFiveMinutes = () => {
+    fbq('trackCustom', 'fiveMinutesAfterVideoPlay')
+  }
+
   const handleOverlayClick = () => {
     showButton = false
     const symbol = youtubeVideo.src.indexOf("?") > -1 ? "&" : "?";
     youtubeVideo.src += symbol + "autoplay=1"
     handleVideoPlayClick()
     setTimeout(handleOneMinute, 60000)
+    setTimeout(handleFiveMinutes, 300000)
   }
 
 </script>
