@@ -51,6 +51,7 @@
     <div class='flex-0 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>
       <div class='text-phish-grey-light mb-2 space-y-1'>
         <p>We are excited to share the full video of our "Kid A" album set performance. The performance took place on February 3rd, 2023 at Crystal Balloom in Somerville, MA on the coldest recorded night in the last ten years. Despite the cold weather, nearly 300 folks came out, danced all night, and filled the room with warmth.</p>
+        <p>Watch it now:</p>
       </div>
       <div use:viewport class='w-full' bind:clientWidth={videoWrapperW}>
         <div
