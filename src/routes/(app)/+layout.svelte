@@ -9,7 +9,7 @@
   import Drawer from "$src/components/_common/Drawer.svelte";
   import { mainRoutes } from '$src/constants';
   import Logo from '$src/assets/Logo.svelte';
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
   import { cubicIn, cubicOut, linear } from 'svelte/easing';
   import { fade, fly } from 'svelte/transition';
   import { tweened } from 'svelte/motion';

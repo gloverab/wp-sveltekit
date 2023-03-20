@@ -2,13 +2,15 @@
   import NewsFeed from "$src/components/NewsFeed.svelte";
   import viewport from '$src/actions/userViewportAction';
   import dayjs from 'dayjs/esm';
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
 
   const videoUrl = "https://www.youtube.com/embed/mKZR-2hKfic"
 
   let videoWrapperW
   let youtubeVideo
   let showButton = true
+  let oneMinuteTimeout
+  let fiveMinuteTimeout
 
   const handleVideoPlayClick = () => {
     fbq('trackCustom', 'videoClick')
@@ -27,9 +29,14 @@
     const symbol = youtubeVideo.src.indexOf("?") > -1 ? "&" : "?";
     youtubeVideo.src += symbol + "autoplay=1"
     handleVideoPlayClick()
-    setTimeout(handleOneMinute, 60000)
-    setTimeout(handleFiveMinutes, 300000)
+    oneMinuteTimeout = setTimeout(handleOneMinute, 60000)
+    fiveMinuteTimeout = setTimeout(handleFiveMinutes, 300000)
   }
+
+  onDestroy(() => {
+    clearTimeout(oneMinuteTimeout)
+    clearTimeout(fiveMinuteTimeout)
+  })
 
 </script>
 
