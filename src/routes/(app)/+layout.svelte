@@ -65,7 +65,7 @@
 
 <svelte:head>
   <title>Weird Phishes | Radiohead + Phish = Something Entirely New</title>
-  <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script>
+  <!-- <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script> -->
   <script src="https://kit.fontawesome.com/2a900224f0.js" crossorigin="anonymous"></script>
 </svelte:head>
 
@@ -106,7 +106,7 @@
 
 <div class='hidden' />
 
-<div class:hidden={promoHasBeenClosed} class='fixed top-0 left-0 w-full sm:p-2 md:p-4 lg:p-6 bg-gray-700' bind:clientHeight={wrapperH} bind:clientWidth={wrapperW}>
+<div class:hidden={promoHasBeenClosed || $page.url.pathname.includes('full-kid-a-set-video-released')} class='fixed top-0 left-0 w-full sm:p-2 md:p-4 lg:p-6 bg-gray-700' bind:clientHeight={wrapperH} bind:clientWidth={wrapperW}>
   <button on:click={closeFeaturedTopPart} class='absolute top-0 right-0 p-4'>
     <CrossIcon size={24} />
   </button>
@@ -151,7 +151,7 @@
   <span class='text-xs'>DESIGNED & BUILT WITH ❤️ BY <a class='font-medium' href='#'>ALEX GLOVER</a></span>
 </footer>
 
-{#if $initialLoad}
+{#if $initialLoad && !$page.url.pathname.includes('full-kid-a-set-video-released')}
   <div out:fly={{ y: $windowHeight, duration: 700, opacity: 1, easing: cubicIn }} in:fade={{ duration: 500 }} style="top: {wrapperH}px" class='fixed left-0 z-900 w-screen h-screen flex items-center justify-center bg-white'>
       <div transition:fade={{ duration: 900 }} class='w-30 h-30'>
         <div class='animate-pulse'>
