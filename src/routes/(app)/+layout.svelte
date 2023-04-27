@@ -65,7 +65,7 @@
 
 <svelte:head>
   <title>Weird Phishes | Radiohead + Phish = Something Entirely New</title>
-  <!-- <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script> -->
+  <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script>
   <script src="https://kit.fontawesome.com/2a900224f0.js" crossorigin="anonymous"></script>
 </svelte:head>
 
