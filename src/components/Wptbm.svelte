@@ -66,53 +66,56 @@
   })
 </script>
 
-<div class='w-full border-1 border-grey-light rounded-xl sm:max-w-130 p-4 sm:p-10'>
-  <div class='mb-4'>
-    <h3 class='text-white text-2xl font-semibold'>WELCOME TO WPTBM<span class='hidden sm:inline'>&nbsp;| No-fee Tickets</span></h3>
-    <h3 class='text-white text-2xl font-semibold uppercase sm:hidden'>No-fee Tickets</h3>
-  </div>
-  <p class='text-white text-sm mb-2'>Ticket fees suck. And going to the box office ahead of time isn't always convenient.</p>
-  <p class='text-white text-sm mb-2'>To combat that, we went down to the box office over at Crystal Ballroom in Somerville, secured some barcodes, and put them onto physical tickets with exclusive artwork for this show only.</p>
-  <p class='text-white text-sm mb-2 line-spa'>You can order them exclusively through our webstore or by venmoing us (include your address in the comment) and we'll mail them to you, simple as that.</p>
-  <p class='text-white text-sm mb-2 line-spa'>No service fees, no shipping fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
-  <p class='text-white text-lg font-semibold text'>$20.00/ea + $1.00 Shipped</p>
-  <!-- <p class='text-white font-semibold text'>Only until January 26</p> -->
-  {#if expired}
-    <p class='text-red-600 mb-6'>WPTBM ticket period is over. Please purchase your tickets from Ticketmaster below.</p>
-    <a on:click={() => handleClick('ticketmaster')} class='purchase-button mb-2 bg-blue-600 flex justify-center hover:bg-green-500' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
-      <span class='text-white'>Buy Tickets on Ticketmaster</span>
-    </a>
-  {:else}
-    <p class='text-red-600 text-lg mb-6'>{timeRemaining + " Remaining"}</p>
-  {/if}
-
-  {#if !expired}
+<div class='flex w-full justify-center'>
+  <div class='w-full border-1 border-grey-light rounded-xl sm:max-w-130 p-4 sm:p-10'>
     <div class='mb-4'>
-      <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://store.weirdphishes.com/products/wptbm-kid-a-at-crystal-ballroom-somerville-ma' target='blank'>
-        <span class='text-white'>Buy Tickets via Shopify</span>
-      </a>
-      <div class='hidden sm:block'>
-        <button on:click={handleDesktopVenmoClick} class='w-full purchase-button bg-blue-600 flex justify-center hover:bg-blue-500'>
-          <span class='text-white'>{venmoText}</span>
-        </button>
-      </div>
-      <div class='sm:hidden'>
-        <a on:click={() => handleClick('venmo-mobile')} class='flex purchase-button bg-blue-600 justify-center hover:bg-blue-500' href='{isiOs ? "venmo://paycharge?txn=pay&recipients=weird-phishes&text=Your%20Address" : "intent://paycharge?txn=pay&recipients=weird-phishes#Intent;package=com.venmo;scheme=venmo;end"}' target='blank'>
-          <span class='text-white'>Buy Tickets via Venmo</span>
-        </a>
-      </div>
-      <div class='flex justify-center'>
-        <span class='text-white text-xs'>Please remember to include your mailing address</span>
-      </div>
+      <h3 class='text-white text-2xl font-semibold'>WELCOME TO WPTBM<span class='hidden sm:inline'>&nbsp;| No-fee Tickets</span></h3>
+      <h3 class='text-white text-2xl font-semibold uppercase sm:hidden'>No-fee Tickets</h3>
     </div>
-    {#if !hideTicketmaster}
-      <div class='mb-4'>
-        <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
-          Or buy from Ticketmaster⇗
-        </a>
-      </div>
+    <p class='text-white text-sm mb-2'>Ticket fees suck. And going to the box office ahead of time isn't always convenient.</p>
+    <p class='text-white text-sm mb-2'>To combat that, we went down to the box office over at Middle East in Cambridge, secured some barcodes, and put them onto physical tickets with exclusive artwork for this show only.</p>
+    <p class='text-white text-sm mb-2 line-spa'>You can order them exclusively through our webstore or by venmoing us (include your address in the comment) and we'll mail them to you, simple as that.</p>
+    <p class='text-white text-sm mb-2 line-spa'>No service fees, no shipping fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
+    <p class='text-white text-lg font-semibold text'>$20.00/ea + $1.00 Shipped</p>
+    <!-- <p class='text-white font-semibold text'>Only until January 26</p> -->
+    {#if expired}
+      <p class='text-red-600 mb-6'>WPTBM ticket period is over. Please purchase your tickets from Ticketmaster below.</p>
+      <a on:click={() => handleClick('ticketmaster')} class='purchase-button mb-2 bg-blue-600 flex justify-center hover:bg-green-500' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
+        <span class='text-white'>Buy Tickets on Ticketmaster</span>
+      </a>
+    {:else}
+      <p class='text-sm text-white'>Limited to 100 | On sale 07/24/2023</p>
+      <p class='text-orange-600 text-lg mb-6 leading-5'>90 Remaining</p>
     {/if}
-  {/if}
+  
+    {#if !expired}
+      <div class='mb-4'>
+        <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://store.weirdphishes.com/products/wptbm-in-rainbows-at-middle-east-downstairs-cambridge-ma' target='blank'>
+          <span class='text-white'>Buy Tickets via Shopify</span>
+        </a>
+        <div class='hidden sm:block'>
+          <button on:click={handleDesktopVenmoClick} class='w-full purchase-button bg-blue-600 flex justify-center hover:bg-blue-500'>
+            <span class='text-white'>{venmoText}</span>
+          </button>
+        </div>
+        <div class='sm:hidden'>
+          <a on:click={() => handleClick('venmo-mobile')} class='flex purchase-button bg-blue-600 justify-center hover:bg-blue-500' href='{isiOs ? "venmo://paycharge?txn=pay&recipients=weird-phishes&text=Your%20Address" : "intent://paycharge?txn=pay&recipients=weird-phishes#Intent;package=com.venmo;scheme=venmo;end"}' target='blank'>
+            <span class='text-white'>Buy Tickets via Venmo</span>
+          </a>
+        </div>
+        <div class='flex justify-center'>
+          <span class='text-white text-xs'>Please remember to include your mailing address</span>
+        </div>
+      </div>
+      {#if !hideTicketmaster}
+        <div class='mb-4'>
+          <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
+            Or buy from Ticketmaster⇗
+          </a>
+        </div>
+      {/if}
+    {/if}
+  </div>
 </div>
 
 {#if showVenmo}
@@ -121,7 +124,7 @@
 
     <div class='relative bg-white p-8 rounded-md max-w-100 transform {animateVenmo ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0"} duration-300'>
       <h2 class='text-xl font-semibold'>It looks like you're on Desktop</h2>
-      <p class='mb-4'>Scan the QR code below with your phone and Venmo us $20 per ticket (@weird-phishes). Please don't forget to include your mailing address in the note.</p>
+      <p class='mb-4'>Scan the QR code below with your phone and Venmo us $20 per ticket (+ $1 shipping) (@weird-phishes). Please don't forget to include your mailing address in the note.</p>
       <div class='w-full flex flex-col items-center justify-center'>
         <div class='w-50 h-50'>
           <img src="https://www.dropbox.com/s/b1w402d3kg0mahb/venmo-code.jpeg?raw=1" />
