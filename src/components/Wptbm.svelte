@@ -3,13 +3,14 @@
 
 
   export let isiOs
+  export let countDownDate = new Date("Jan 26, 2023 18:00:00").getTime();
+  export let hideTicketmaster = false
 
   let venmoText = "Buy Tickets via Venmo"
   let showVenmo = false
   let animateVenmo = false
   let x
 
-  const countDownDate = new Date("Jan 26, 2023 18:00:00").getTime();
 
   const initialDistance = countDownDate - new Date().getTime()
 
@@ -74,7 +75,7 @@
   <p class='text-white text-sm mb-2'>To combat that, we went down to the box office over at Crystal Ballroom in Somerville, secured some barcodes, and put them onto physical tickets with exclusive artwork for this show only.</p>
   <p class='text-white text-sm mb-2 line-spa'>You can order them exclusively through our webstore or by venmoing us (include your address in the comment) and we'll mail them to you, simple as that.</p>
   <p class='text-white text-sm mb-2 line-spa'>No service fees, no shipping fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
-  <p class='text-white text-lg font-semibold text'>$20.00/ea + $0.00 Fees</p>
+  <p class='text-white text-lg font-semibold text'>$20.00/ea + $1.00 Shipped</p>
   <!-- <p class='text-white font-semibold text'>Only until January 26</p> -->
   {#if expired}
     <p class='text-red-600 mb-6'>WPTBM ticket period is over. Please purchase your tickets from Ticketmaster below.</p>
@@ -104,11 +105,13 @@
         <span class='text-white text-xs'>Please remember to include your mailing address</span>
       </div>
     </div>
-    <div class='mb-4'>
-      <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
-        Or buy from Ticketmaster⇗
-      </a>
-    </div>
+    {#if !hideTicketmaster}
+      <div class='mb-4'>
+        <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
+          Or buy from Ticketmaster⇗
+        </a>
+      </div>
+    {/if}
   {/if}
 </div>
 
