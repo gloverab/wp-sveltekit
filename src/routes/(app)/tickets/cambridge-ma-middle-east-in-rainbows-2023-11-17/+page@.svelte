@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-  <title>Weird Phishes Tickets By Mail - Kid A at Crystal Ballroom in Somerville, MA</title>
+  <title>Weird Phishes Tickets By Mail - In Rainbows at Middle East in Cambridge, MA</title>
   <meta property=’og:image’ content='https://www.dropbox.com/scl/fi/bjlhb2na8ee1q6b8189hk/single-ticketstub-sm.png?rlkey=zbdxfradip8n58qefy5w2p77d&raw=1'/>
 </svelte:head>
 

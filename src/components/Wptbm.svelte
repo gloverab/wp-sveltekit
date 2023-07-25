@@ -71,11 +71,12 @@
     <div class='mb-4'>
       <h3 class='text-white text-2xl font-semibold'>WELCOME TO WPTBM<span class='hidden sm:inline'>&nbsp;| No-fee Tickets</span></h3>
       <h3 class='text-white text-2xl font-semibold uppercase sm:hidden'>No-fee Tickets</h3>
+      <h3 class='text-white font-medium'>2 sets of Weird Phishes including <strong>In Rainbows</strong> in its entirety</h3>
     </div>
     <p class='text-white text-sm mb-2'>Ticket fees suck. And going to the box office ahead of time isn't always convenient.</p>
     <p class='text-white text-sm mb-2'>To combat that, we went down to the box office over at Middle East in Cambridge, secured some barcodes, and put them onto physical tickets with exclusive artwork for this show only.</p>
     <p class='text-white text-sm mb-2 line-spa'>You can order them exclusively through our webstore or by venmoing us (include your address in the comment) and we'll mail them to you, simple as that.</p>
-    <p class='text-white text-sm mb-2 line-spa'>No service fees, no shipping fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
+    <p class='text-white text-sm mb-2 line-spa'>No service fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
     <p class='text-white text-lg font-semibold text'>$20.00/ea + $1.00 Shipped</p>
     <!-- <p class='text-white font-semibold text'>Only until January 26</p> -->
     {#if expired}
