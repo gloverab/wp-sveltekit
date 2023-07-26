@@ -28,7 +28,7 @@
 
 <svelte:head>
   <title>Weird Phishes Tickets By Mail - In Rainbows at Middle East in Cambridge, MA</title>
-  <meta property=’og:image’ content='https://www.dropbox.com/scl/fi/bjlhb2na8ee1q6b8189hk/single-ticketstub-sm.png?rlkey=zbdxfradip8n58qefy5w2p77d&raw=1'/>
+  <meta property=’og:image’ content='https://www.dropbox.com/scl/fi/7u6u8ebffv8dr7uzuh9ca/single-ticketstub-xs.png?rlkey=yzmx7ssxvebcn7bp1afjvrb0n&raw=1'/>
 </svelte:head>
 
 <div class='bg-black min-h-screen'>
@@ -54,7 +54,7 @@
 
   <div class='bg-cover block md:hidden'>
     <div class='relative p-5 z-1 bg-black bg-opacity-90'>
-      <div class='mb-4'>
+      <div class='mb-2'>
         <h1 class='text-white font-display text-6xl uppercase text-center leading-3'>Weird Phishes</h1>
         <h1 class='text-white font-display text-4xl uppercase text-center tracking-5px'>Tickets By Mail</h1>
       </div>
@@ -66,7 +66,7 @@
     </div>
     <div class='flex w-full justify-center'>
       <div class='p-5 pt-0 bg-black sm:max-w-130 sm:px-0'>
-        <img class='' src='https://www.dropbox.com/scl/fi/bjlhb2na8ee1q6b8189hk/single-ticketstub-sm.png?rlkey=zbdxfradip8n58qefy5w2p77d&raw=1' />
+        <img class='' src='https://www.dropbox.com/scl/fi/7u6u8ebffv8dr7uzuh9ca/single-ticketstub-xs.png?rlkey=yzmx7ssxvebcn7bp1afjvrb0n&raw=1' />
       </div>
     </div>
   </div>

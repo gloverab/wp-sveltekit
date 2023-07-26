@@ -1,7 +1,4 @@
 <script lang='ts'>
-  import { onMount } from "svelte";
-
-
   export let isiOs
   export let countDownDate = new Date("Jan 26, 2023 18:00:00").getTime();
   export let hideTicketmaster = false
@@ -60,24 +57,23 @@
   }
 
   x = setInterval(updateCountdown, 1000);
-
-  onMount(() => {
-    
-  })
 </script>
 
 <div class='flex w-full justify-center'>
   <div class='w-full border-1 border-grey-light rounded-xl sm:max-w-130 p-4 sm:p-10'>
-    <div class='mb-4'>
-      <h3 class='text-white text-2xl font-semibold'>WELCOME TO WPTBM<span class='hidden sm:inline'>&nbsp;| No-fee Tickets</span></h3>
-      <h3 class='text-white text-2xl font-semibold uppercase sm:hidden'>No-fee Tickets</h3>
-      <h3 class='text-white font-medium'>2 sets of Weird Phishes including <strong>In Rainbows</strong> in its entirety</h3>
+    <div class='mb-4 text-white'>
+      <h3 class='text-2xl font-semibold'>WELCOME TO WPTBM<span class='hidden sm:inline'>&nbsp;| No-fee Tickets</span></h3>
+      <h3 class='text-2xl font-semibold uppercase sm:hidden'>No-fee Tickets</h3>
+      <h3 class='font-medium mb-2'>2 sets of Weird Phishes including <strong>In Rainbows</strong> in its entirety</h3>
+      <p class='text-gray-400'>Fri. November 17, 2023 - Cambridge, MA</p>
+      <p class='text-gray-400'>Middle East Downstairs</p>
+      <p class='text-gray-400'>Doors: 8pm // Music until late</p>
     </div>
     <p class='text-white text-sm mb-2'>Ticket fees suck. And going to the box office ahead of time isn't always convenient.</p>
-    <p class='text-white text-sm mb-2'>To combat that, we went down to the box office over at Middle East in Cambridge, secured some barcodes, and put them onto physical tickets with exclusive artwork for this show only.</p>
+    <p class='text-white text-sm mb-2'>To combat that, we went down to the box office over at Middle East in Cambridge, secured some barcodes, and put them onto <span class='text-yellow-300'>physical tickets with exclusive artwork</span> for this show only.</p>
     <p class='text-white text-sm mb-2 line-spa'>You can order them exclusively through our webstore or by venmoing us (include your address in the comment) and we'll mail them to you, simple as that.</p>
     <p class='text-white text-sm mb-2 line-spa'>No service fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
-    <p class='text-white text-lg font-semibold text'>$20.00/ea + $1.00 Shipped</p>
+    <p class='text-white text-lg font-semibold text'>Presale: $20.00/ea + $1.00 Shipped</p>
     <!-- <p class='text-white font-semibold text'>Only until January 26</p> -->
     {#if expired}
       <p class='text-red-600 mb-6'>WPTBM ticket period is over. Please purchase your tickets from Ticketmaster below.</p>
@@ -86,7 +82,7 @@
       </a>
     {:else}
       <p class='text-sm text-white'>Limited to 100 | On sale 07/24/2023</p>
-      <p class='text-orange-600 text-lg mb-6 leading-5'>90 Remaining</p>
+      <p class='text-orange-500 text-lg mb-6 leading-5'>89 Remaining</p>
     {/if}
   
     {#if !expired}
