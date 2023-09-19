@@ -45,7 +45,6 @@
         </div>
         <Wptbm
           {isiOs}
-          hideTicketmaster
           countDownDate={new Date("Nov 5, 2023 18:00:00").getTime()}
         />
       </div>
@@ -60,7 +59,6 @@
       </div>
       <Wptbm
         {isiOs}
-        hideTicketmaster
         countDownDate={new Date("Nov 5, 2023 18:00:00").getTime()}
       />
     </div>

@@ -77,8 +77,8 @@
     <!-- <p class='text-white font-semibold text'>Only until January 26</p> -->
     {#if expired}
       <p class='text-red-600 mb-6'>WPTBM ticket period is over. Please purchase your tickets from Ticketmaster below.</p>
-      <a on:click={() => handleClick('ticketmaster')} class='purchase-button mb-2 bg-blue-600 flex justify-center hover:bg-green-500' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
-        <span class='text-white'>Buy Tickets on Ticketmaster</span>
+      <a on:click={() => handleClick('ticketmaster')} class='purchase-button mb-2 bg-blue-600 flex justify-center hover:bg-green-500' href='https://www.ticketweb.com/event/weird-phishes-middle-east-downstairs-tickets/13470898' target='blank'>
+        <span class='text-white'>Buy Tickets on TicketWeb</span>
       </a>
     {:else}
       <p class='text-sm text-white'>Limited to 100 | On sale 07/24/2023</p>
@@ -106,8 +106,8 @@
       </div>
       {#if !hideTicketmaster}
         <div class='mb-4'>
-          <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketmaster.com/weird-phishes-somerville-massachusetts-02-03-2023/event/01005D88E2EC56DB' target='blank'>
-            Or buy from Ticketmaster⇗
+          <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketweb.com/event/weird-phishes-middle-east-downstairs-tickets/13470898' target='blank'>
+            Or buy from TicketWeb
           </a>
         </div>
       {/if}
