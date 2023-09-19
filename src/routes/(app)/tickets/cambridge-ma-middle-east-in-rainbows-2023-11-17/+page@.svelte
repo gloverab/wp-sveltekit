@@ -61,7 +61,7 @@
       <Wptbm
         {isiOs}
         hideTicketmaster
-        countDownDate={new Date("Aug 20, 2023 18:00:00").getTime()}
+        countDownDate={new Date("Nov 10, 2023 18:00:00").getTime()}
       />
     </div>
     <div class='flex w-full justify-center'>
