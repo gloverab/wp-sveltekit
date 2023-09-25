@@ -81,8 +81,8 @@
         <span class='text-white'>Buy Tickets on TicketWeb</span>
       </a>
     {:else}
-      <p class='text-sm text-white'>Limited to 100 | On sale 07/24/2023</p>
-      <p class='text-orange-500 text-lg mb-6 leading-5'>89 Remaining</p>
+      <p class='text-sm text-white'>Limited to 100</p>
+      <p class='text-orange-500 text-lg mb-6 leading-5'>74 Remaining</p>
     {/if}
   
     {#if !expired}
