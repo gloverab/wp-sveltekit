@@ -26,7 +26,7 @@
   let displayContent = false
 
   let initialAnimationTookPlace = false
-  let useAnimatedValue = true
+  let useAnimatedValue = false // change to true to use top part
   let videoUrl = "https://www.youtube.com/embed/mKZR-2hKfic"
   let wrapperW
   let wrapperH
@@ -106,7 +106,7 @@
 
 <div class='hidden' />
 
-<div class:hidden={promoHasBeenClosed || $page.url.pathname.includes('weird-phishes-release-full-kid-a-album-set-video-released')} class='fixed top-0 left-0 w-full sm:p-2 md:p-4 lg:p-6 bg-gray-700' bind:clientHeight={wrapperH} bind:clientWidth={wrapperW}>
+<!-- <div class:hidden={promoHasBeenClosed || $page.url.pathname.includes('weird-phishes-release-full-kid-a-album-set-video-released')} class='fixed top-0 left-0 w-full sm:p-2 md:p-4 lg:p-6 bg-gray-700' bind:clientHeight={wrapperH} bind:clientWidth={wrapperW}>
   <button on:click={closeFeaturedTopPart} class='absolute top-0 right-0 p-4'>
     <CrossIcon size={24} />
   </button>
@@ -121,7 +121,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div style="transform:translate3d(0, {useAnimatedValue ? $initialFeaturedBackgroundHeight : wrapperH}px, 0)" class='min-h-[calc(100vh_-_8.75rem)] bg-blue-100 bg-phish-bg bg-center pt-15 pb-12 flex justify-center'>
   <div class='duration-150' class:opacity-0={!displayContent} class:opacity-100={displayContent} class:removeMarginsAndPadding={$page.url.pathname.includes('library')} class:marginsAndPadding={!$page.url.pathname.includes('library')}>
