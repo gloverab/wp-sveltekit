@@ -126,23 +126,7 @@
 <div style="transform:translate3d(0, {useAnimatedValue ? $initialFeaturedBackgroundHeight : wrapperH}px, 0)" class='min-h-[calc(100vh_-_8.75rem)] bg-blue-100 bg-phish-bg bg-center pt-15 pb-12 flex justify-center'>
   <div class='duration-150' class:opacity-0={!displayContent} class:opacity-100={displayContent} class:removeMarginsAndPadding={$page.url.pathname.includes('library')} class:marginsAndPadding={!$page.url.pathname.includes('library')}>
     <slot />
-    <div class='{$page.url.pathname.includes('shows') ? 'block' : 'hidden'} bg-phish-purple w-full h-1' />
-    <span class='{$page.url.pathname.includes('shows') ? 'block' : 'hidden'} text-sm uppercase font-light tracking-wider mb-2'>Upcoming Shows</span>
-    <div class='{$page.url.pathname.includes('shows') ? 'block' : 'hidden'} bg-white w-full border-1 shadow-sm p-2.5'>
-      <a
-        class="bit-widget-initializer"
-        data-artist-name="id_14950026"
-        data-font="Helvetica"
-        data-language="en"
-        data-display-details="false"
-        data-text-color="#000000"
-        data-background-color="#ffffff"
-        data-separator-color="#DDDDDD"
-        data-popup-background-color="#ffffff"
-        data-link-color="#A2A2A2"
-        data-link-text-color="#FFFFFF"
-      ></a>
-    </div>
+    
   </div>
 </div>
 
