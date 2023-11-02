@@ -45,7 +45,7 @@
         </div>
         <Wptbm
           {isiOs}
-          countDownDate={new Date("Nov 5, 2023 18:00:00").getTime()}
+          countDownDate={new Date("Nov 9, 2023 18:00:00").getTime()}
         />
       </div>
     </div>
@@ -59,7 +59,7 @@
       </div>
       <Wptbm
         {isiOs}
-        countDownDate={new Date("Nov 5, 2023 18:00:00").getTime()}
+        countDownDate={new Date("Nov 9, 2023 18:00:00").getTime()}
       />
     </div>
     <div class='flex w-full justify-center'>

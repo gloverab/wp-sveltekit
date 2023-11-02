@@ -74,7 +74,7 @@
     <p class='text-white text-sm mb-2 line-spa'>You can order them exclusively through our webstore or by venmoing us (include your address in the comment) and we'll mail them to you, simple as that.</p>
     <p class='text-white text-sm mb-2 line-spa'>No service fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
     <p class='text-white text-lg font-semibold text'>Presale: $20.00/ea + $1.00 Shipped</p>
-    <!-- <p class='text-white font-semibold text'>Only until January 26</p> -->
+    <p class='text-red-600 font-semibold text'>Ending in TWO days</p>
     {#if expired}
       <p class='text-red-600 mb-6'>WPTBM ticket period is over. Please purchase your tickets from Ticketmaster below.</p>
       <a on:click={() => handleClick('ticketmaster')} class='purchase-button mb-2 bg-blue-600 flex justify-center hover:bg-green-500' href='https://www.ticketweb.com/event/weird-phishes-middle-east-downstairs-tickets/13470898' target='blank'>
@@ -82,7 +82,7 @@
       </a>
     {:else}
       <p class='text-sm text-white'>Limited to 100</p>
-      <p class='text-orange-500 text-lg mb-6 leading-5'>62 Remaining</p>
+      <p class='text-orange-500 text-lg mb-6 leading-5'>51 Remaining</p>
     {/if}
   
     {#if !expired}
