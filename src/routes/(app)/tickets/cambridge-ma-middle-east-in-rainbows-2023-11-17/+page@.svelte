@@ -28,14 +28,14 @@
 
 <svelte:head>
   <title>Weird Phishes Tickets By Mail - In Rainbows at Middle East in Cambridge, MA</title>
-  <meta property=’og:image’ content='https://www.dropbox.com/scl/fi/7u6u8ebffv8dr7uzuh9ca/single-ticketstub-xs.png?rlkey=yzmx7ssxvebcn7bp1afjvrb0n&raw=1'/>
+  <meta property=’og:image’ content='https://www.dropbox.com/scl/fi/dn92ybxjlfdow99tx3ol4/single-ticketstub-xs-compressed.png?rlkey=kcgpqcwgh81fbgt3fsj565vtx&raw=1'/>
 </svelte:head>
 
 <div class='bg-black min-h-screen'>
   <div class='hidden md:block'>
     <div class='w-screen flex'>
       <div style="max-height: {maxHeightNeeded}px" class='w-1/2 min-h-screen overflow-hidden'>
-        <img class='' src='https://www.dropbox.com/scl/fi/trqsr3jgmlrjuogqzn5oj/4-stubs.png?rlkey=cunklbfwxrqbh299654urwasm&raw=1' />
+        <img class='' src='https://www.dropbox.com/scl/fi/oah95wl60273jp5ceqa26/4-stubs-compressed.png?rlkey=ytcun5y2hqrg062pp7aroe7hw&raw=1' />
       </div>
 
       <div bind:clientHeight={maxHeightNeeded} class='flex-1 flex flex-col items-center pt-15 md:p-15 relative min-w-150'>
@@ -64,7 +64,7 @@
     </div>
     <div class='flex w-full justify-center'>
       <div class='p-5 pt-0 bg-black sm:max-w-130 sm:px-0'>
-        <img class='' src='https://www.dropbox.com/scl/fi/7u6u8ebffv8dr7uzuh9ca/single-ticketstub-xs.png?rlkey=yzmx7ssxvebcn7bp1afjvrb0n&raw=1' />
+        <img class='' src='https://www.dropbox.com/scl/fi/dn92ybxjlfdow99tx3ol4/single-ticketstub-xs-compressed.png?rlkey=kcgpqcwgh81fbgt3fsj565vtx&raw=1' />
       </div>
     </div>
   </div>
