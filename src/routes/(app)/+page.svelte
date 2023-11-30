@@ -68,7 +68,13 @@
     getPerformerAndNews()
   })
 
-  $: featuredContent = news?.find(item => performer.featured_news_id === item.id)
+  let featuredContent
+
+  $: if (news?.length > 0) {
+    featuredContent = news.find(item => performer.featured_news_id === item.id) || news[0]
+    console.log(featuredContent)
+  }
+
   $: featuredContent2 = news?.find(item => performer.featured_news_2_id === item.id)
 
   $: nonFeaturedNews = news?.filter(item => item.id !== performer.featured_news_id && item.id !== performer.featured_news_2_id)
@@ -108,7 +114,7 @@
           <a class='featured-content-1-link' href={featuredContent.calls_to_actions.length === 1 ? featuredContent.calls_to_actions[0].link : `/news/${featuredContent.id}`} target='blank'>
             <img alt='Featured Content 1' src={featuredContent.img_1} />
           </a>
-          <a href={featuredContent.calls_to_actions.length === 1 ? featuredContent.calls_to_actions[0].link : `/news/${featuredContent.id}`} target='blank' class='featured-content-1-link text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>{featuredContent.title}</a>
+          <a href={featuredContent.calls_to_actions.length === 1 ? featuredContent.calls_to_actions[0].link : `/news/${featuredContent.id}`} target='blank' class='featured-content-1-link text-2xl font-semibold text-phish-grey-dark leading-6 hover:text-phish-orange hover:underline'>{featuredContent?.title}</a>
           <p class='text-sm text-phish-grey-light'>{featuredContent.short_desc}</p>
           {#if featuredContent.calls_to_actions?.length > 0}
             {#each featuredContent.calls_to_actions as cta}
@@ -202,70 +208,64 @@
           <div class='bg-phish-purple w-full h-1' />
           <span class='text-sm uppercase font-light tracking-wider mb-2'>From the Road</span>
           <div class='bg-white w-full border-1 shadow-sm p-2.5 flex flex-col'>
-            <p class='text-2xl tracking-wide'>February. 3rd 2023</p>
-            <p class='tracking-wide'>Crystal Ballroom</p>
-            <p class='tracking-wide'>Somerville, MA</p>
+            <p class='text-2xl tracking-wide'>November 17th 2023</p>
+            <p class='tracking-wide'>The Middle East Downstairs</p>
+            <p class='tracking-wide'>Cambridge, MA</p>
             <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set One</span>
             <ul>
-              <li>Everything in its Right Place</li>
-              <li>Kid A =></li>
-              <li>2001 =></li>
-              <li>Kid A =></li>
-              <li>Punch You In The Eye<sup>1</sup> =></li>
-              <li>Kid A</li>
-              <li>National Anthem => Tweezer Reprise</li>
-              <li>How to Disappear Completely =></li>
-              <li>Mike's Song =></li>
-              <li>How to Disappear Completely</li>
-              <li>Treefingers<sup>2</sup></li>
-              <li>OPTIMISTASH ></li>
-              <li>In Limbo</li>
-              <li>Somewhere Over the Rainbow<sup>3</sup></li>
-              <li>RIFTIOTEQUE<sup>4</sup></li>
-              <li>Morning Bell</li>
-              <li>Motion Picture Soundtrack =></li>
-              <li>Wading in the Velvet Sea =></li>
-              <li>Motion Picture Soundtrack</li>
+              <li>15 Step =></li>
+              <li>Golgi Apparatus></li>
+              <li>15 Step</li>
+              <li>Bodysnatchers =></li>
+              <li>Weekapaug Groove<sup>1</sup> =></li>
+              <li>Bodysnatchers</li>
+              <li>Nude</li>
+              <li>Weird Phishes/Arpeggi<sup>2</sup></li>
+              <li>All I Need</li>
+              <li>Faust Arp<sup>3</sup> =></li>
+              <li>Down With Disease<sup>1</sup></li>
+              <li>Reckoner =></li>
+              <li>Carini<sup>4</sup></li>
+              <li>House of Cards<sup>5</sup> =></li>
+              <li>Simple</li>
+              <li>Jigsaw Falling Into Place =></li>
+              <li>Birds of a Feather</li>
+              <li>Jigsaw Falling Into Place</li>
+              <li>Videotape =></li>
+              <li>Slave to the Traffic Light</li>
             </ul>
             <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Two</span>
             <ul>
+              <li>How to Disappear Completely =></li>
+              <li>Mike's Song =></li>
+              <li>How to Disappear Completely</li>
               <li>Fluffhead =></li>
-              <li>Karma Police =></li>
-              <li>YEM<sup>5</sup> =></li>
+              <li>Karma Police</li>
+              <li>You Enjoy Myself<sup>7, 8</sup> =></li>
               <li>Fluffhead</li>
-              <li>Reckoner =></li>
-              <li>Carini<sup>6</sup></li>
-              <li>Paranoid Android =></li>
-              <li>Jigsaw Falling Into Place =></li>
-              <li>Birds of a Feather<sup>7</sup> =></li>
-              <li>Jigsaw Falling Into Place =></li>
-              <li>Paranoid Android</li>
-              <li>15 Step =></li>
-              <li>Golgi Apparatus =></li>
-              <li>15 Step</li>
-              <li>Bodysnatchers =></li>
-              <li>Weekapaug Groove =></li>
-              <li>Bodysnatchers ></li>
-              <li>Electioneering =></li>
-              <li>Harry Hood<sup>8</sup></li>
+              <li>OPTIMISTASH<sup>9</sup></li>
+              <li>The Tourist ></li>
+              <li>Creep<sup>10</sup></li>
             </ul>
-            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Encore</span>
+            <!-- <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Encore</span>
             <ul>
               <li>You and Whose Army => Character Zero</li>
               <li>Subterranean Homesick Alien / Twist</li>
-            </ul>
+            </ul> -->
 
             <ul class='mt-6 mb-3'>
-              <li><sup>1</sup>"Kid A!" instead of "Hey!" Lyrics changed to "played toward the end with optimistic/stash"</li>
-              <li><sup>2</sup>Played in a drum and bass style. Alex used a sample pad.</li>
-              <li><sup>3</sup>Audience request after Josh successfully changed his violin string mid-jam</li>
-              <li><sup>4</sup>Contained "Sparkle" quotes</li>
+              <li><sup>1</sup>Contained Deadmau5 teases</li>
+              <li><sup>2</sup>Contained “Julius” teases</li>
+              <li><sup>3</sup>Played in the style of “Down With Disease”</li>
+              <li><sup>4</sup>“Killing in the Name Of” guitar solo. “Bulls on Parade” lyrical quotes. Josh screamed “Carini, now!” instead of “come wit’ it now”</li>
+              <li><sup>5</sup>Performed over the riff from “Simple”</li>
+              <li><sup>6</sup>Only one verse performed. Lyrics changed to reference “House of Cards”</li>
             </ul>
             <ul>
-              <li><sup>5</sup>Lyrics changed to "Boy, Man, Kid, A"</li>
-              <li><sup>6</sup>Alex teased "Killing in the Name Of." Josh quoted "Bulls on Parade" with "Carini Now!" lyrics.</li>
-              <li><sup>7</sup>Contained quotes from "The Adventure"</li>
-              <li><sup>8</sup>Contained quotes from "Same"</li>
+              <li><sup>7</sup>Build and jam sections only</li>
+              <li><sup>8</sup>Featured Lee Ross on saxophone</li>
+              <li><sup>9</sup>Equal parts Radiohead’s “Optimistic” and Phish’s “Stash”</li>
+              <li><sup>10</sup>Incomplete. Performed in a lounge act style</li>
             </ul>
           </div>
         </div>
