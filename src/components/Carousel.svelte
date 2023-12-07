@@ -39,7 +39,7 @@
     </div>
     <div class='h-full w-full flex-shrink-0 flex flex-col justify-between items-end'>
       <div />
-      <p class='italic font-medium text-base md:text-2xl text-phish-grey-dark'>"Caught these guys after Fenway 2009 night 1. Was skeptical going in but blown the hell away going out."<p>
+      <p class='italic font-medium text-base md:text-2xl text-phish-grey-dark'>"Caught these guys after Fenway 2019 night 1. Was skeptical going in but blown the hell away going out."<p>
       <p class='text-phish-orange underline'><a class='' href='https://forum.phish.net/forum/show/1379217940' target='blank'>-@bl002e</a></p>
     </div>
   </div>
