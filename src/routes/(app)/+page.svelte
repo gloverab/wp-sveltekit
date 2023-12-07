@@ -278,13 +278,13 @@
   {/if}
 </div>
 
-<!-- <Modal
+<Modal
   classes='max-w-140'
   onHide={() => showMailingListModal.set(false)}
   show={$showMailingListModal}
 >
   <MailchimpForm />
-</Modal> -->
+</Modal>
 
 <!-- <FeaturedModal
   show={showFeaturedVideo}
