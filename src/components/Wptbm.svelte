@@ -2,6 +2,18 @@
   export let isiOs
   export let countDownDate = new Date("Jan 26, 2023 18:00:00").getTime();
   export let hideTicketmaster = false
+  export let ticketSource: { name: string; link: string }
+  export let showInfo: {
+    date: any;
+    venue: string;
+    city: string;
+    state: string;
+    doorTime: string;
+    showTime: string;
+    titleHTML: string;
+    price: number;
+  }
+  export let ticketsRemaining: number;
 
   let venmoText = "Buy Tickets via Venmo"
   let showVenmo = false
@@ -56,6 +68,10 @@
     }
   }
 
+  const convertToCurrency = (value: number) => {
+    return (Math.round(value * 100) / 100).toFixed(2)
+  }
+
   x = setInterval(updateCountdown, 1000);
 </script>
 
@@ -64,25 +80,27 @@
     <div class='mb-4 text-white'>
       <h3 class='text-2xl font-semibold'>WELCOME TO WPTBM<span class='hidden sm:inline'>&nbsp;| No-fee Tickets</span></h3>
       <h3 class='text-2xl font-semibold uppercase sm:hidden'>No-fee Tickets</h3>
-      <h3 class='font-medium mb-2'>2 sets of Weird Phishes including <strong>In Rainbows</strong> in its entirety</h3>
-      <p class='text-gray-400'>Fri. November 17, 2023 - Cambridge, MA</p>
-      <p class='text-gray-400'>Middle East Downstairs</p>
+      {@html showInfo.titleHTML}
+      <p class='text-white text-base mb-2 text-indigo-200'>We've enjoyed our last 2 album-themed shows with our Boston fam so much, but this time, for our debut performance at The Sinclair, we're gonna keep it unpredictable.</p>
+      <p class='text-white text-base mb-2 text-indigo-200'>There will be rearranged Radiohead. There will be mashed-up Phish. There will be no alarms and all surprises.</p>
+      <p class='text-gray-400'>{showInfo.date.format('ddd, MMMM DD, YYYY')} - {showInfo.city}, {showInfo.state}</p>
+      <p class='text-gray-400'>{showInfo.venue}</p>
       <p class='text-gray-400'>Doors: 8pm // Music until late</p>
     </div>
     <p class='text-white text-sm mb-2'>Ticket fees suck. And going to the box office ahead of time isn't always convenient.</p>
-    <p class='text-white text-sm mb-2'>To combat that, we went down to the box office over at Middle East in Cambridge, secured some barcodes, and put them onto <span class='text-yellow-300'>physical tickets with exclusive artwork</span> for this show only.</p>
+    <p class='text-white text-sm mb-2'>To combat that, we went down to the box office over at {showInfo.venue} in {showInfo.city}, secured some barcodes, and put them onto <span class='text-yellow-300'>physical tickets with exclusive artwork</span> for this show only.</p>
     <p class='text-white text-sm mb-2 line-spa'>You can order them exclusively through our webstore or by venmoing us (include your address in the comment) and we'll mail them to you, simple as that.</p>
     <p class='text-white text-sm mb-2 line-spa'>No service fees, no convenience fees. Plus as an added bonus, you'll have a small keepsake from the show.</p>
-    <p class='text-white text-lg font-semibold text'>Presale: $20.00/ea + $1.00 Shipped</p>
+    <p class='text-white text-lg font-semibold text'>Presale: ${convertToCurrency(showInfo.price)}/ea + $1.00 Shipped</p>
     <!-- <p class='text-red-600 font-semibold text'>Ending Tonight (11/9) at 6:00pm</p> -->
     {#if expired}
       <p class='text-red-600 mb-6'>WPTBM ticket period is over. Please purchase your tickets from TicketWeb below.</p>
-      <a on:click={() => handleClick('ticketmaster')} class='purchase-button mb-2 bg-blue-600 flex justify-center hover:bg-green-500' href='https://www.ticketweb.com/event/weird-phishes-middle-east-downstairs-tickets/13470898' target='blank'>
-        <span class='text-white'>Buy Tickets on TicketWeb</span>
+      <a on:click={() => handleClick('ticketmaster')} class='purchase-button mb-2 bg-blue-600 flex justify-center hover:bg-green-500' href='{ticketSource.link}' target='blank'>
+        <span class='text-white'>Buy Tickets on {ticketSource.name}</span>
       </a>
     {:else}
       <p class='text-sm text-white'>Limited to 100</p>
-      <p class='text-orange-500 text-lg mb-6 leading-5'>39 Remaining</p>
+      <p class='{ticketsRemaining > 80 ? 'text-green-500' : 'text-orange-500'} text-lg mb-6 leading-5'>{ticketsRemaining} Remaining</p>
     {/if}
   
     {#if !expired}
@@ -106,8 +124,8 @@
       </div>
       {#if !hideTicketmaster}
         <div class='mb-4'>
-          <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='https://www.ticketweb.com/event/weird-phishes-middle-east-downstairs-tickets/13470898' target='blank'>
-            Or buy from TicketWeb
+          <a on:click={() => handleClick('ticketmaster')} class='underline text-blue-800' href='{ticketSource.link}' target='blank'>
+            Or buy from {ticketSource.name}
           </a>
         </div>
       {/if}
@@ -121,7 +139,7 @@
 
     <div class='relative bg-white p-8 rounded-md max-w-100 transform {animateVenmo ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0"} duration-300'>
       <h2 class='text-xl font-semibold'>It looks like you're on Desktop</h2>
-      <p class='mb-4'>Scan the QR code below with your phone and Venmo us $20 per ticket (+ $1 shipping) (@weird-phishes). Please don't forget to include your mailing address in the note.</p>
+      <p class='mb-4'>Scan the QR code below with your phone and Venmo us ${showInfo.price} per ticket (+ $1 shipping) (@weird-phishes). Please don't forget to include your mailing address in the note.</p>
       <div class='w-full flex flex-col items-center justify-center'>
         <div class='w-50 h-50'>
           <img src="https://www.dropbox.com/s/b1w402d3kg0mahb/venmo-code.jpeg?raw=1" />
