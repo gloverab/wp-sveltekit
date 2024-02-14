@@ -12,6 +12,7 @@
     showTime: string;
     titleHTML: string;
     price: number;
+    shopifyLink: string;
   }
   export let ticketsRemaining: number;
 
@@ -105,7 +106,7 @@
   
     {#if !expired}
       <div class='mb-4'>
-        <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href='https://store.weirdphishes.com/products/wptbm-in-rainbows-at-middle-east-downstairs-cambridge-ma' target='blank'>
+        <a on:click={() => handleClick('shopify')} class='purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500' href={showInfo.shopifyLink} target='blank'>
           <span class='text-white'>Buy Tickets via Shopify</span>
         </a>
         <div class='hidden sm:block'>

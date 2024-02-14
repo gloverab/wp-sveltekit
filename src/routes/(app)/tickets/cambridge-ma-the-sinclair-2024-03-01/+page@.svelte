@@ -39,6 +39,7 @@
     doorTime: '7pm',
     showTime: '8pm',
     titleHTML: `<h3 class='font-medium mb-2'>Weird Phishes Freeform Set <strong>opening for Prince/Bowie</strong> at <strong>The Sinclair</strong></h3>`,
+    shopifyLink: 'https://store.weirdphishes.com/products/wptbm-weird-phishes-with-prince-bowie-at-the-sinclair-march-1-2024',
     price: 20
   }
 
@@ -47,7 +48,7 @@
     link: 'https://www.axs.com/events/516368/prince-bowie-tickets?skin=sinclair'
   }
 
-  const ticketsRemaining = 99
+  const ticketsRemaining = 46
 </script>
 
 <svelte:head>
