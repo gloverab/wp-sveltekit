@@ -48,7 +48,7 @@
     link: 'https://www.axs.com/events/516368/prince-bowie-tickets?skin=sinclair'
   }
 
-  const ticketsRemaining = 22
+  const ticketsRemaining = 18
 </script>
 
 <svelte:head>
@@ -70,7 +70,7 @@
         </div>
         <Wptbm
           {isiOs}
-          countDownDate={new Date("Feb 19, 2024 18:00:00").getTime()}
+          countDownDate={new Date("Feb 23, 2024 18:00:00").getTime()}
           {ticketSource}
           {showInfo}
           {ticketsRemaining}
