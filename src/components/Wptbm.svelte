@@ -100,7 +100,7 @@
         <span class='text-white'>Buy Tickets on {ticketSource.name}</span>
       </a>
     {:else}
-      <p class='text-sm text-white'>Limited to 100</p>
+      <p class='text-sm text-white'>Limited to 50</p>
       <p class='{ticketsRemaining > 80 ? 'text-green-500' : 'text-orange-500'} text-lg mb-6 leading-5'>{ticketsRemaining} Remaining</p>
     {/if}
   
