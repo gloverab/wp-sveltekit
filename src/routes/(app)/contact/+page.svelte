@@ -16,7 +16,7 @@
         <span class='text-sm uppercase font-light tracking-wider'>Booking</span>
         <div class='bg-white w-full border-1 shadow-sm p-2.5'>
           <p>Emily VanderWiel</p>
-          <p><a class='link' href='emailto:weirdphishesmusic@gmail.com'>emily@omniartsgroup.com</a></p>
+          <p><a class='link' href='emailto:emily@royalartistgroup.com '>emily@royalartistgroup.com</a></p>
         </div>
       </div>
       <div>
