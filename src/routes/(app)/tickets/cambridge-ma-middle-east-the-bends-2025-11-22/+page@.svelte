@@ -30,7 +30,7 @@
     showTime: "9pm",
     titleHTML: `<h3 class='font-medium mb-2'>Performing<strong> Radiohead's "The Bends"</strong> in the style of <strong>Phish</strong></h3>`,
     shopifyLink:
-      "https://store.weirdphishes.com/products/wptbm-weird-phishes-with-prince-bowie-at-the-sinclair-march-1-2024",
+      "https://store.weirdphishes.com/products/wptbm-the-bends-at-middle-east-downstairs-cambridge-ma",
     price: 20,
   };
 
@@ -128,7 +128,7 @@
           countDownDate={new Date("Nov 1, 2025 18:00:00").getTime()}
           {showInfo}
           {ticketSource}
-          ticketsRemaining={74}
+          ticketsRemaining={71}
         />
       </div>
     </div>
