@@ -128,7 +128,7 @@
           countDownDate={new Date("Nov 1, 2025 18:00:00").getTime()}
           {showInfo}
           {ticketSource}
-          ticketsRemaining={71}
+          ticketsRemaining={64}
         />
       </div>
     </div>
