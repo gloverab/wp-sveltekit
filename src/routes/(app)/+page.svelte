@@ -7,41 +7,42 @@
   import { baseUrl } from "$src/constants";
   import Modal from "$src/components/Modal.svelte";
   import MailchimpForm from "$src/components/MailchimpForm.svelte";
+  import dayjs from "dayjs/esm/index.js";
 
-  const url = baseUrl;
+  export let data;
+
   let attempts = 0;
   let showFeaturedVideo = true;
+  let news = data.news;
+  let performer = data.performer;
 
-  const getPerformer = new Promise(async (res, rej) => {
+  const getPerformer = async () => {
     try {
-      const resp = await fetch(url + "performers/1");
+      const resp = await fetch(baseUrl + "performers/1");
       if (resp.status === 200) {
         const data = await resp.json();
-        res(data);
+        return data;
       } else {
-        rej(resp);
+        throw resp;
       }
     } catch (err) {
       console.log(err);
     }
-  });
+  };
 
-  const getNews = new Promise(async (res, rej) => {
+  const getNews = async () => {
     try {
-      const resp = await fetch(url + "performers/1/news");
+      const resp = await fetch(baseUrl + "performers/1/news");
       if (resp.status === 200) {
         const data = await resp.json();
-        res(data);
+        return data;
       } else {
-        rej(resp);
+        throw resp;
       }
     } catch (err) {
       console.log(err);
     }
-  });
-
-  let news;
-  let performer;
+  };
 
   let loading = !news || !performer;
   let error = undefined;
@@ -49,12 +50,10 @@
   const getPerformerAndNews = async () => {
     if ((!news || !performer) && attempts < 3) {
       try {
-        const data = await Promise.all([getPerformer, getNews]);
+        const data = await Promise.all([getPerformer(), getNews()]);
         newsStore.set(data);
-
         performer = data[0];
         news = data[1];
-
         loading = false;
       } catch (err) {
         attempts = attempts + 1;
@@ -64,8 +63,35 @@
     }
   };
 
+  const checkShowMail = () => {
+    const now = dayjs().format();
+    const mailLastHiddenAtLs = localStorage.getItem("mail-hidden-at");
+    if (mailLastHiddenAtLs) {
+      const mailLastHiddenAt = dayjs(mailLastHiddenAtLs);
+
+      if (mailLastHiddenAt.diff(now, "h") >= 8) {
+        showMailingListModal.set(true);
+      }
+    } else {
+      showMailingListModal.set(true);
+    }
+  };
+
+  const handleClickHideMail = () => {
+    const time = dayjs().format();
+    try {
+      localStorage.setItem("mail-hidden-at", time);
+      showMailingListModal.set(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   onMount(() => {
-    getPerformerAndNews();
+    checkShowMail();
+    if (!performer || !news) {
+      getPerformerAndNews();
+    }
   });
 
   let featuredContent;
@@ -73,7 +99,6 @@
   $: if (news?.length > 0) {
     featuredContent =
       news.find((item) => performer.featured_news_id === item.id) || news[0];
-    console.log(featuredContent);
   }
 
   $: featuredContent2 = news?.find(
@@ -139,7 +164,7 @@
         >
           <a
             class="featured-content-1-link"
-            href={featuredContent.calls_to_actions.length === 1
+            href={featuredContent.calls_to_actions.length > 0
               ? featuredContent.calls_to_actions[0].link
               : `/news/${featuredContent.id}`}
             target="blank"
@@ -147,7 +172,7 @@
             <img alt="Featured Content 1" src={featuredContent.img_1} />
           </a>
           <a
-            href={featuredContent.calls_to_actions.length === 1
+            href={featuredContent.calls_to_actions.length > 0
               ? featuredContent.calls_to_actions[0].link
               : `/news/${featuredContent.id}`}
             target="blank"
@@ -158,13 +183,12 @@
             {featuredContent.short_desc}
           </p>
           {#if featuredContent.calls_to_actions?.length > 0}
-            {#each featuredContent.calls_to_actions as cta}
-              <a
-                class="featured-content-1-link text-phish-orange font-semibold uppercase"
-                target="blank"
-                href={cta.link}>{cta.text}</a
-              >
-            {/each}
+            {@const cta = featuredContent.calls_to_actions[0]}
+            <a
+              class="featured-content-1-link text-phish-orange font-bold uppercase"
+              target="blank"
+              href={cta.link}>{cta.text}</a
+            >
           {/if}
         </div>
 
@@ -197,7 +221,7 @@
           >
             <a
               class="featured-content-1-link"
-              href={featuredContent.calls_to_actions.length === 1
+              href={featuredContent.calls_to_actions.length > 0
                 ? featuredContent.calls_to_actions[0].link
                 : `/news/${featuredContent.id}`}
               target="blank"
@@ -205,7 +229,7 @@
               <img alt="Featured Content 1" src={featuredContent.img_1} />
             </a>
             <a
-              href={featuredContent.calls_to_actions.length === 1
+              href={featuredContent.calls_to_actions.length > 0
                 ? featuredContent.calls_to_actions[0].link
                 : `/news/${featuredContent.id}`}
               target="blank"
@@ -216,13 +240,12 @@
               {featuredContent.short_desc}
             </p>
             {#if featuredContent.calls_to_actions?.length > 0}
-              {#each featuredContent.calls_to_actions as cta}
-                <a
-                  class="featured-content-1-link text-phish-orange font-semibold uppercase"
-                  target="blank"
-                  href={cta.link}>{cta.text}</a
-                >
-              {/each}
+              {@const cta = featuredContent.calls_to_actions[0]}
+              <a
+                class="featured-content-1-link text-phish-orange font-bold text-base uppercase hover:underline"
+                target="blank"
+                href={cta.link}>{cta.text}</a
+              >
             {/if}
           </div>
 
@@ -317,7 +340,7 @@
 
 <Modal
   classes="max-w-140"
-  onHide={() => showMailingListModal.set(false)}
+  onHide={handleClickHideMail}
   show={$showMailingListModal}
 >
   <MailchimpForm />

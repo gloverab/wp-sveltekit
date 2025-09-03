@@ -1,6 +1,5 @@
 export function clickOutside(node) {
-	console.log("hello??")
-  
+
   const handleClick = event => {
     if (node && !node.contains(event.target) && !event.defaultPrevented) {
       node.dispatchEvent(
@@ -9,11 +8,11 @@ export function clickOutside(node) {
     }
   }
 
-	document.addEventListener('click', handleClick, true);
-  
+  document.addEventListener('click', handleClick, true);
+
   return {
     destroy() {
       document.removeEventListener('click', handleClick, true);
     }
-	}
+  }
 }
