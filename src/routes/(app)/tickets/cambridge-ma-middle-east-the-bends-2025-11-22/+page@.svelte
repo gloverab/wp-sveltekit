@@ -128,7 +128,7 @@
           countDownDate={new Date("Nov 1, 2025 18:00:00").getTime()}
           {showInfo}
           {ticketSource}
-          ticketsRemaining={64}
+          ticketsRemaining={49}
         />
       </div>
     </div>
@@ -153,7 +153,7 @@
         countDownDate={new Date("Nov 1, 2025 18:00:00").getTime()}
         {showInfo}
         {ticketSource}
-        ticketsRemaining={74}
+        ticketsRemaining={49}
       />
     </div>
     <div class="flex w-full justify-center">
