@@ -125,10 +125,11 @@
         </div>
         <Wptbm
           {isiOs}
-          countDownDate={new Date("Nov 1, 2025 18:00:00").getTime()}
+          countDownDate={new Date("Oct 1, 2025 18:00:00").getTime()}
           {showInfo}
           {ticketSource}
-          ticketsRemaining={44}
+          ticketsRemaining={34}
+          remainingLastUpdatedAt={new Date("Sept 5, 2025 10:16:00").getTime()}
         />
       </div>
     </div>
@@ -150,10 +151,11 @@
       </div>
       <Wptbm
         {isiOs}
-        countDownDate={new Date("Nov 1, 2025 18:00:00").getTime()}
+        countDownDate={new Date("Oct 1, 2025 18:00:00").getTime()}
         {showInfo}
         {ticketSource}
-        ticketsRemaining={49}
+        ticketsRemaining={34}
+        remainingLastUpdatedAt={new Date("Sept 5, 2025 10:16:00").getTime()}
       />
     </div>
     <div class="flex w-full justify-center">

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import dayjs from "dayjs/esm";
+
   export let isiOs;
   export let countDownDate;
   export let hideTicketmaster = false;
@@ -15,6 +17,7 @@
     shopifyLink: string;
   };
   export let ticketsRemaining: number;
+  export let remainingLastUpdatedAt: string;
 
   let venmoText = "Buy Tickets via Venmo";
   let showVenmo = false;
@@ -143,15 +146,22 @@
         <span class="text-white">Buy Tickets From The Venue</span>
       </a>
     {:else}
-      <p class="text-sm text-white">Presale ends October 1st, 2025</p>
-      <p class="text-sm text-white">Limited to 75</p>
-      <p
-        class="{ticketsRemaining > 50
-          ? 'text-green-500'
-          : 'text-orange-500'} text-lg mb-6 leading-5"
-      >
-        {ticketsRemaining} Remaining
-      </p>
+      <div class="mb-6">
+        <p class="text-sm text-white">Presale ends October 1st, 2025</p>
+        <p class="text-sm text-white">Limited to 75</p>
+        <p
+          class="{ticketsRemaining > 50
+            ? 'text-green-500'
+            : 'text-orange-500'} text-lg leading-5"
+        >
+          {ticketsRemaining} Remaining
+          <span class="text-gray-400 text-sm"
+            >as of {dayjs(remainingLastUpdatedAt).format(
+              "MM/DD/YYYY @ h:mm a"
+            )}</span
+          >
+        </p>
+      </div>
     {/if}
 
     {#if !expired}
