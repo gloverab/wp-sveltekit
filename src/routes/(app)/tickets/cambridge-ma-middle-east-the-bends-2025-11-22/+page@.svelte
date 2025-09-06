@@ -128,8 +128,8 @@
           countDownDate={new Date("Oct 1, 2025 18:00:00").getTime()}
           {showInfo}
           {ticketSource}
-          ticketsRemaining={34}
-          remainingLastUpdatedAt={new Date("Sept 5, 2025 10:16:00").getTime()}
+          ticketsRemaining={23}
+          remainingLastUpdatedAt={new Date("Sept 6, 2025 11:45:00").getTime()}
         />
       </div>
     </div>
@@ -154,8 +154,8 @@
         countDownDate={new Date("Oct 1, 2025 18:00:00").getTime()}
         {showInfo}
         {ticketSource}
-        ticketsRemaining={34}
-        remainingLastUpdatedAt={new Date("Sept 5, 2025 10:16:00").getTime()}
+        ticketsRemaining={23}
+        remainingLastUpdatedAt={new Date("Sept 6, 2025 11:45:00").getTime()}
       />
     </div>
     <div class="flex w-full justify-center">
