@@ -128,7 +128,7 @@
           countDownDate={new Date("Oct 1, 2025 18:00:00").getTime()}
           {showInfo}
           {ticketSource}
-          ticketsRemaining={23}
+          ticketsRemaining={21}
           remainingLastUpdatedAt={new Date("Sept 6, 2025 11:45:00").getTime()}
         />
       </div>
@@ -154,7 +154,7 @@
         countDownDate={new Date("Oct 1, 2025 18:00:00").getTime()}
         {showInfo}
         {ticketSource}
-        ticketsRemaining={23}
+        ticketsRemaining={21}
         remainingLastUpdatedAt={new Date("Sept 6, 2025 11:45:00").getTime()}
       />
     </div>
