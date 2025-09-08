@@ -17,7 +17,7 @@
     shopifyLink: string;
   };
   export let ticketsRemaining: number;
-  export let remainingLastUpdatedAt: string;
+  export let remainingLastUpdatedAt: string | number;
 
   let venmoText = "Buy Tickets via Venmo";
   let showVenmo = false;
@@ -152,7 +152,9 @@
         <p
           class="{ticketsRemaining > 50
             ? 'text-green-500'
-            : 'text-orange-500'} text-lg leading-5"
+            : ticketsRemaining > 10
+            ? 'text-orange-500'
+            : 'text-red-400'} text-lg leading-5"
         >
           {ticketsRemaining} Remaining
           <span class="text-gray-400 text-sm"

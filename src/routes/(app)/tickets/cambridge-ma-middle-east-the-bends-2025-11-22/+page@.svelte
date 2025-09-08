@@ -39,6 +39,15 @@
     link: null,
   };
 
+  const wptbmProps = {
+    isiOs,
+    countDownDate: new Date("Oct 1, 2025 18:00:00").getTime(),
+    showInfo,
+    ticketSource,
+    ticketsRemaining: 9,
+    remainingLastUpdatedAt: new Date("Sept 8, 2025 12:18:00").getTime(),
+  };
+
   onMount(() => {
     if (window) {
       isiOs = iOS();
@@ -66,42 +75,52 @@
         class="w-1/2 min-h-screen overflow-hidden"
       >
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
         <img
+          alt="stub"
           class=""
           src="https://www.dropbox.com/scl/fi/wxri2pc2b8woac27nynrs/example-stub-sm.png?rlkey=8k2ibapg5vkt6ofxjost4f5gx&raw=1"
         />
@@ -123,14 +142,7 @@
             Tickets By Mail
           </h1>
         </div>
-        <Wptbm
-          {isiOs}
-          countDownDate={new Date("Oct 1, 2025 18:00:00").getTime()}
-          {showInfo}
-          {ticketSource}
-          ticketsRemaining={21}
-          remainingLastUpdatedAt={new Date("Sept 6, 2025 11:45:00").getTime()}
-        />
+        <Wptbm {...wptbmProps} />
       </div>
     </div>
   </div>
@@ -149,14 +161,7 @@
           Tickets By Mail
         </h1>
       </div>
-      <Wptbm
-        {isiOs}
-        countDownDate={new Date("Oct 1, 2025 18:00:00").getTime()}
-        {showInfo}
-        {ticketSource}
-        ticketsRemaining={21}
-        remainingLastUpdatedAt={new Date("Sept 6, 2025 11:45:00").getTime()}
-      />
+      <Wptbm {...wptbmProps} />
     </div>
     <div class="flex w-full justify-center">
       <div class="p-5 pt-0 bg-black sm:max-w-130 sm:px-0 rounded-xl">
