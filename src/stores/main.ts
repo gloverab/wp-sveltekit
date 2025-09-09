@@ -8,3 +8,5 @@ export const newsStore = writable([])
 export const initialLoad = writable(true)
 export const showMailingListModal = writable(false)
 export const showFeaturedTop = writable(false)
+
+export const shows = writable(null)

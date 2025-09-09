@@ -5,6 +5,7 @@ module.exports = {
 		colors: {
 			...colors,
 			'phish-purple': '#413648',
+			'phish-purple-light': '#7e668e',
 			'phish-green': '#68947c',
 			'phish-orange': '#e36740',
 			'phish-grey-dark': '#403547',
@@ -17,8 +18,9 @@ module.exports = {
 			})
 		},
 		fontFamily: {
-      'display': ['BD_Plakatbau']
-    }
+			'display': ['BD_Plakatbau'],
+			'phish': ['Function Regular']
+		}
 	},
 	variants: {},
 	plugins: [
