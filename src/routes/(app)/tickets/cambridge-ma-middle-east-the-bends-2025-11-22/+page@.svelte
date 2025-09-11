@@ -36,7 +36,7 @@
 
   const ticketSource = {
     name: "The Venue",
-    link: "https://mideastclub.com/tm-event/weird-phishes/",
+    link: "https://www.ticketweb.com/event/weird-phishes-performing-middle-east-downstairs-tickets/14533163?pl=mideastclub&REFID=clientsitewp",
   };
 
   const wptbmProps = {
