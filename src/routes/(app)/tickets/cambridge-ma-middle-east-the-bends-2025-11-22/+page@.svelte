@@ -36,7 +36,7 @@
 
   const ticketSource = {
     name: "The Venue",
-    link: null,
+    link: "https://mideastclub.com/tm-event/weird-phishes/",
   };
 
   const wptbmProps = {
@@ -44,7 +44,7 @@
     countDownDate: new Date("Oct 1, 2025 18:00:00").getTime(),
     showInfo,
     ticketSource,
-    ticketsRemaining: 4,
+    ticketsRemaining: 0,
     remainingLastUpdatedAt: new Date("Sept 9, 2025 12:21:00").getTime(),
   };
 

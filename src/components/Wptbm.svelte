@@ -1,5 +1,7 @@
 <script lang="ts">
   import dayjs from "dayjs/esm";
+  import { onMount } from "svelte";
+  import BearLogo from "$src/components/BearLogo.svelte";
 
   export let isiOs;
   export let countDownDate;
@@ -22,6 +24,8 @@
   let venmoText = "Buy Tickets via Venmo";
   let showVenmo = false;
   let animateVenmo = false;
+  let showSoldOut = false;
+  let animateSoldOut = false;
   let x;
 
   const initialDistance = countDownDate - new Date().getTime();
@@ -37,6 +41,16 @@
   const hideVenmo = async () => {
     animateVenmo = false;
     setTimeout(() => (showVenmo = false), 300);
+  };
+
+  const displaySoldOut = async () => {
+    showSoldOut = true;
+    setTimeout(() => (animateSoldOut = true));
+  };
+
+  const hideSoldOut = async () => {
+    animateSoldOut = false;
+    setTimeout(() => (showSoldOut = false), 300);
   };
 
   const handleClick = (linkType) => {
@@ -76,6 +90,12 @@
   const convertToCurrency = (value: number) => {
     return (Math.round(value * 100) / 100).toFixed(2);
   };
+
+  onMount(() => {
+    if (ticketsRemaining === 0) {
+      displaySoldOut();
+    }
+  });
 
   x = setInterval(updateCountdown, 1000);
 </script>
@@ -132,9 +152,9 @@
       Presale: ${convertToCurrency(showInfo.price)}/ea + $1.00 Shipped
     </p>
     <!-- <p class='text-red-600 font-semibold text'>Ending Tonight (11/9) at 6:00pm</p> -->
-    {#if expired}
+    {#if expired || ticketsRemaining === 0}
       <p class="text-red-600 mb-6">
-        WPTBM ticket period is over. Please purchase your tickets from TicketWeb
+        WPTBM tickets are sold out. Please purchase your tickets from the link
         below.
       </p>
       <a
@@ -166,7 +186,7 @@
       </div>
     {/if}
 
-    {#if !expired}
+    {#if !expired && ticketsRemaining > 0}
       <div class="mb-4">
         <a
           on:click={() => handleClick("shopify")}
@@ -259,6 +279,50 @@
           />
         </div>
         <span>@weird-phishes on Venmo</span>
+      </div>
+    </div>
+  </div>
+{/if}
+
+{#if showSoldOut}
+  <div
+    class="w-screen h-screen flex justify-center items-center z-2 fixed top-0 left-0"
+  >
+    <div
+      on:click={hideSoldOut}
+      class="absolute top-0 left-0 h-full w-full bg-black bg-opacity-40 {animateSoldOut
+        ? 'opacity-100'
+        : 'opacity-0'} duration-300"
+    />
+
+    <div
+      class="relative bg-white p-4 rounded-md max-w-100 transform {animateSoldOut
+        ? 'translate-y-0 opacity-100'
+        : 'translate-y-7 opacity-0'} duration-300 space-y-1"
+    >
+      <div class="flex justify-center">
+        <div class="w-15">
+          <BearLogo />
+        </div>
+      </div>
+      <h2 class="text-xl font-semibold">
+        By-Mail Tickets are sold out. Digital Tickets are still available.
+      </h2>
+      <p>
+        We are sold out of WPTBM exclusive tickets for this event, but don't
+        worry!
+      </p>
+      <p>
+        You're still able to buy tickets from {showInfo.venue}' website. Visit
+        the link below and buy yours today before they're all gone.
+      </p>
+      <div class="flex justify-center pt-2">
+        <a
+          class="py-2 px-4 bg-phish-orange hover:bg-phish-purple text-white uppercase font-phish tracking-wide"
+          href={ticketSource.link}
+          target="_blank"
+          rel="noreferrer">Buy Tickets Now</a
+        >
       </div>
     </div>
   </div>
