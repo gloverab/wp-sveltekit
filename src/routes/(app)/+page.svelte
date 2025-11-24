@@ -280,55 +280,69 @@
             >From the Road</span
           >
           <div class="bg-white w-full border-1 shadow-sm p-2.5 flex flex-col">
-            <p class="text-2xl tracking-wide">August 22nd 2025</p>
-            <p class="tracking-wide">The Brooklyn Bowl</p>
-            <p class="tracking-wide">Brooklyn, NY</p>
+            <p class="text-2xl tracking-wide">November 22nd 2025</p>
+            <p class="tracking-wide">The Middle East Downstairs</p>
+            <p class="tracking-wide">Cambridge, MA</p>
             <span class="mt-6 mb-3 text-xs uppercase text-phish-green"
-              >Setlist</span
+              >Set One</span
             >
             <ul>
-              <li>Free/The Bends</li>
+              <li>Planet Telex/Wilson<sup>1</sup></li>
+              <li>The Bends/Free</li>
+              <li>High & Dry/Chalk Dust Torture</li>
+              <li>Fake Plastic Trees/Strange Design<sup>1</sup></li>
+              <li>Bones</li>
+            </ul>
+            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Two</span>
+            <ul>
+              <li>My Friend, My Friend<sup>1</sup> =></li>
+              <li>Nice Dream<sup>1</sup> =></li>
+              <li>My Friend, My Friend<sup>1</sup> =></li>
+              <li>Just<sup>1</sup> =></li>
+              <li>My Friend, My Friend<sup>1</sup></li>
+              <li>My Iron Lung<sup>1</sup></li>
+              <li>Bullet Proof...I Wish I Was<sup>1</sup> =></li>
+              <li>Black Star<sup>1,2</sup> =></li>
+              <li>Piper<sup>1</sup> =></li>
+              <li>Black Star<sup>1</sup></li>
+              <li>Sulk/Limb By Limb<sup>1</sup></li>
+              <li>Street Spirit<sup>1</sup> =></li>
+              <li>No Quarter<sup>1</sup> =></li>
+              <li>Street Spirit<sup>1</sup></li>
+            </ul>
+            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Three</span>
+            <ul>
+              <li>Nude<sup>3</sup></li>
+              <li>How To Disappear Completely =></li>
+              <li>Mike's Song<sup>4</sup> =></li>
+              <li>How To Disappear Completely =></li>
               <li>Paranoid Android =></li>
               <li>Jigsaw Falling Into Place =></li>
               <li>Birds of a Feather =></li>
               <li>Jigsaw Falling Into Place =></li>
-              <li>Paranoid Android</li>
-              <li>Exit Music (for a film)</li>
-              <li>
-                Subterranean Homesick Alien / Twist<sup>1</sup>,<sup>2</sup>
-              </li>
-              <li>OPTIMISTASH</li>
-              <li>Reckoner<sup>3</sup> =></li>
-              <li>Carini =></li>
-              <li>Reckoner</li>
-              <li>Weird Fishes/Arpeggi<sup>4</sup></li>
+              <li>Paranoid Android<sup>5</sup></li>
+              <li>Bodysnatchers =></li>
+              <li>Weekapaug Groove</li>
+              <li>OPTIMISTASH (Stash/Optimistic)</li>
+              <li>RECKARINI (Reckoner/Carini)<sup>6</sup></li>
+              <li>Creep/Farmhouse<sup>1,2</sup></li>
+              <li>Airbag =></li>
+              <li>Ghost<sup>2</sup> =></li>
+              <li>Airbag</li>
+              <li>Weird Fishes/Arpeggi</li>
+              <li>Let Down<sup>7</sup></li>
               <li>National Anthem =></li>
-              <li>Tweezer Reprise<sup>1</sup></li>
+              <li>Tweezer Reprise</li>
             </ul>
-            <!-- <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Two</span>
-            <ul>
-              <li>How to Disappear Completely =></li>
-              <li>Mike's Song =></li>
-              <li>How to Disappear Completely</li>
-              <li>Fluffhead =></li>
-              <li>Karma Police</li>
-              <li>You Enjoy Myself<sup>7, 8</sup> =></li>
-              <li>Fluffhead</li>
-              <li>OPTIMISTASH<sup>9</sup></li>
-              <li>The Tourist ></li>
-              <li>Creep<sup>10</sup></li>
-            </ul> -->
-            <!-- <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Encore</span>
-            <ul>
-              <li>You and Whose Army => Character Zero</li>
-              <li>Subterranean Homesick Alien / Twist</li>
-            </ul> -->
 
             <ul class="mt-6 mb-3">
-              <li><sup>1</sup>Contained "First Tube" teases</li>
-              <li><sup>2</sup>Contained "Bathtub Gin" teases</li>
-              <li><sup>3</sup>Contained "Limousine (MS Rebridge)" teases</li>
-              <li><sup>3</sup>Contained "Julius" teases</li>
+              <li><sup>1</sup>First Time Played</li>
+              <li><sup>2</sup>Unfinished</li>
+              <li><sup>3</sup>Contained "Planet Telex" teases</li>
+              <li><sup>4</sup>Jam/Ending only</li>
+              <li><sup>5</sup>Contained "Say It To Me S.A.N.T.O.S." teases</li>
+              <li><sup>6</sup>Contained "Degausser" and "You Won't Know" teases</li>
+              <li><sup>7</sup>Contained "Plaese Haalp" teases</li>
             </ul>
           </div>
         </div>
