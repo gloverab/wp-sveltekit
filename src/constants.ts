@@ -218,3 +218,21 @@ export const facebookPixelId = "2015280208683287"
 export const facebookPixelPath = () => {
   return `https://graph.facebook.com/{API_VERSION}/${facebookPixelId}/events?access_token=${FB_PIXEL_ACCESS_TOKEN}`
 }
+
+export const videos = [
+  {
+    title: 'Bones',
+    subtitle: 'Live at Middle East Downstairs | 11/22/2025',
+    id: 'ZuAX9o2GeX0',
+  },
+  {
+    title: 'High And Dry / Chalk Dust Torture',
+    subtitle: 'Live at Middle East Downstairs | 11/22/2025',
+    id: 'eP76bVPEaMM',
+  },
+  {
+    title: 'The Bends / Free',
+    subtitle: 'Live From Brooklyn Bowl | 8/22/2025',
+    id: 'QjVTrSTUpG0',
+  },
+]

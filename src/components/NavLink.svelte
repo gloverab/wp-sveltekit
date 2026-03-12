@@ -5,13 +5,13 @@
   export let libPage = false
 </script>
 
-<a target={route.targetBlank ? '_blank' : ''} class='flex relative h-full px-5 items-center {libPage ? 'text-white' : 'text-white'} {!$page.url.pathname.includes(route.href) ? 'hover:text-phish-orange' : ''} group' href={route.href}>
+<a class:active={$page.url.pathname.includes(route.href)} target={route.targetBlank ? '_blank' : ''} class='flex relative h-full px-5 items-center {libPage ? 'text-white' : 'text-white'} {!$page.url.pathname.includes(route.href) ? 'hover:text-phish-orange' : ''} group' href={route.href}>
   <span>
     {route.name}
   </span>
   <div
     class:scale-y-100={$page.url.pathname.includes(route.href)}
-    class='absolute
+    class='bottom-underline absolute
       bottom-0
       left-0
       w-full
@@ -24,3 +24,13 @@
       {!$page.url.pathname.includes(route.href) ? 'group-hover:bg-phish-orange' : ''}
       group-hover:scale-y-100' />
 </a>
+
+<style>
+  .active {
+    @apply text-phish-orange;
+  }
+
+  .active .bottom-underline {
+    @apply bg-phish-orange;
+  }
+</style>

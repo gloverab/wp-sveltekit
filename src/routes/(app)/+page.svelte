@@ -8,6 +8,7 @@
   import Modal from "$src/components/Modal.svelte";
   import MailchimpForm from "$src/components/MailchimpForm.svelte";
   import dayjs from "dayjs/esm/index.js";
+  import FeaturedVideos from "$src/components/FeaturedVideos.svelte";
 
   export let data;
 
@@ -156,7 +157,7 @@
     <div class="flex-1 md:hidden">
       <div class="bg-phish-purple w-full h-1" />
       <span class="text-sm uppercase font-light tracking-wider mb-2"
-        >Featured Content</span
+        >Latest Tourdates</span
       >
       <div class="space-y-4">
         <div
@@ -213,7 +214,7 @@
       <div class="flex-1">
         <div class="bg-phish-purple w-full h-1" />
         <span class="text-sm uppercase font-light tracking-wider mb-2"
-          >Featured Content</span
+          >Latest Tourdates</span
         >
         <div class="space-y-4">
           <div
@@ -274,6 +275,7 @@
       </div>
 
       <div class="md:w-57.5 text-phish-grey-light space-y-4">
+        <FeaturedVideos />
         <div>
           <div class="bg-phish-purple w-full h-1" />
           <span class="text-sm uppercase font-light tracking-wider mb-2"

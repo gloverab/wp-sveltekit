@@ -7,17 +7,23 @@
 </svelte:head>
 
 <div class='relative border-l border-r px-3'>
-  <Video
-    src='https://www.youtube.com/embed/5oGZzAkNk34'
-    title='Subterranean Homesick Alien / Twist'
-    subtitle='12/2/2022 - Live at Paradise Rock Club'
-  />
+    <Video
+      src='https://www.youtube.com/embed/eP76bVPEaMM?si=V0R3DJCMYxHaVjFC'
+      title='High & Dry / Chalk Dust Torture'
+      subtitle='11/22/2025 - Live at Middle East Downstairs'
+    />
   <div class='grid grid-cols-2 gap-x-5'>
     <Video
-      src='https://www.youtube.com/embed/gXXbKYb31LA'
+      src='https://www.youtube.com/embed/QjVTrSTUpG0?si=fNAmcOfEoMxRymrx'
       smallText
-      title='High & Dry / Chalk Dust Torture'
-      subtitle='2/11/2022 - Live at Aeronaut Cannery'
+      title='The Bends / Free'
+      subtitle='8/22/2025 - Live at The Brooklyn Bowl'
+    />
+    <Video
+      src='https://www.youtube.com/embed/mKZR-2hKfic?si=9L0ppHAoZk1GhOKX'
+      smallText
+      title='"Kid A" Full Album Set'
+      subtitle='2/3/2023 - Live at The Crystal Ballroom'
     />
     <Video
       src='https://www.youtube.com/embed/afKq4NmfHfs'
