@@ -15,8 +15,8 @@
         <div class='bg-phish-purple w-full h-1' />
         <span class='text-sm uppercase font-light tracking-wider'>Booking</span>
         <div class='bg-white w-full border-1 shadow-sm p-2.5'>
-          <p>Weird Phishes</p>
-          <p><a class='link' href='emailto:weirdphishesmusic@gmail.com'>weirdphishesmusic@gmail.com</a></p>
+          <p>Mike MacDonald @ High Gear Talent</p>
+          <p><a class='link' href='emailto:mike@highgeartalent.com?subject=Booking Weird Phishes'>mike@highgeartalent.com</a></p>
         </div>
       </div>
       <div>
