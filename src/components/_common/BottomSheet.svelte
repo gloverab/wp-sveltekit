@@ -42,7 +42,7 @@
   id='scrollable-bottom-sheet'
   class='flex flex-col pt-4.5 {bottomButtons.length === 0 ? 'pb-4.5' : 'pb-20'}'
   style={styleString}
-  out:fly={{ y: $windowHeight, duration: 200, opacity: 1, easing: cubicIn }}
+  out:fly|global={{ y: $windowHeight, duration: 200, opacity: 1, easing: cubicIn }}
 >
   <div class='scrollable-content'>
     <slot></slot>

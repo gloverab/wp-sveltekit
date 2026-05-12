@@ -20,7 +20,7 @@
   $: layoutWidth = useMax ? MAX_WIDTH : windowW
 
   $: logoHeight = layoutWidth / 2
-  $: textWidth = layoutWidth - 24
+  $: textWidth = layoutWidth - 24 > 0 ? layoutWidth - 24  : 0
   $: textHeight = textWidth * .0490797546
   $: detailsHeight = textWidth * .16049382716
   $: fromLeft = useMax ? windowW / 2 -  MAX_WIDTH / 2 : 0

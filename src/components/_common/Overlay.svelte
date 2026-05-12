@@ -25,7 +25,7 @@
 
 <LockScroll />
 <div
-  transition:fade="{{duration, easing: cubicOut}}"
+  transition:fade|global="{{duration, easing: cubicOut}}"
   on:introend="{() => applyBlur = true}"
   on:outrostart="{() => applyBlur = false}"
   class='overlay'

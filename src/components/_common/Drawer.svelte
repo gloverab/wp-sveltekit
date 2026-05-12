@@ -14,7 +14,7 @@
 </script>
 
 <div
-  transition:fly={{duration: 300, x: 500, y: 0, opacity: 1, easing: cubicOut }}
+  transition:fly|global={{duration: 300, x: 500, y: 0, opacity: 1, easing: cubicOut }}
   id='mobile-wrapper'
   class='wrapper'>
   <slot />

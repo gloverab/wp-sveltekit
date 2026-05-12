@@ -1,8 +1,8 @@
 import { baseUrl } from "$src/constants";
 
-const getPerformer = async () => {
+const getPerformer = async (_fetch) => {
   try {
-    const resp = await fetch(baseUrl + "performers/1");
+    const resp = await _fetch(baseUrl + "performers/1");
     if (resp.status === 200) {
       const data = await resp.json();
       return data;
@@ -14,9 +14,9 @@ const getPerformer = async () => {
   }
 };
 
-const getNews = async () => {
+const getNews = async (_fetch) => {
   try {
-    const resp = await fetch(baseUrl + "performers/1/news");
+    const resp = await _fetch(baseUrl + "performers/1/news");
     if (resp.status === 200) {
       const data = await resp.json();
       return data;
@@ -28,9 +28,9 @@ const getNews = async () => {
   }
 };
 
-export const load = async () => {
+export const load = async ({ fetch }) => {
   try {
-    const data = await Promise.all([getPerformer(), getNews()]);
+    const data = await Promise.all([getPerformer(fetch), getNews(fetch)]);
     return {
       performer: data[0],
       news: data[1]

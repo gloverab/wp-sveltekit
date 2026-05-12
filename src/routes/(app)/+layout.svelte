@@ -173,12 +173,12 @@
 
 {#if $initialLoad && !$page.url.pathname.includes("weird-phishes-release-full-kid-a-album-set-video-released")}
   <div
-    out:fly={{ y: $windowHeight, duration: 700, opacity: 1, easing: cubicIn }}
-    in:fade={{ duration: 500 }}
+    out:fly|global={{ y: $windowHeight, duration: 700, opacity: 1, easing: cubicIn }}
+    in:fade|global={{ duration: 500 }}
     style="top: {wrapperH}px"
     class="fixed left-0 z-900 w-screen h-screen flex items-center justify-center bg-white"
   >
-    <div transition:fade={{ duration: 900 }} class="w-30 h-30">
+    <div transition:fade|global={{ duration: 900 }} class="w-30 h-30">
       <div class="animate-pulse">
         <BearLogo fill="fill-phish-purple" />
       </div>
