@@ -2,7 +2,7 @@
   import Wptbm from "$src/components/Wptbm.svelte";
   import { onMount, onDestroy } from "svelte";
 
-  let maxHeightNeeded
+  let maxHeightNeeded = $state()
 
   function iOS() {
     return [
@@ -16,7 +16,7 @@
     // iPad on iOS 13 detection
     || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
   }
-  let isiOs
+  let isiOs = $state()
 
   onMount(() => {
     if (window) {

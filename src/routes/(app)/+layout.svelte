@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { run } from "svelte/legacy";
+
   import "virtual:windi.css";
   import BearLogo from "$src/components/BearLogo.svelte";
   import Overlay from "$components/_common/Overlay.svelte";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import {
     numDrawersOut,
     showMobileMenu,
@@ -18,26 +20,30 @@
   import { onDestroy, onMount } from "svelte";
   import { cubicIn, cubicOut, linear } from "svelte/easing";
   import { fade, fly } from "svelte/transition";
-  import { tweened } from "svelte/motion";
+  import { Tween, tweened } from "svelte/motion";
   import CrossIcon from "$src/icons/CrossIcon.svelte";
+  interface Props {
+    children?: import("svelte").Snippet;
+  }
+
+  let { children }: Props = $props();
 
   const animationTime = 800;
 
-  const initialFeaturedBackgroundHeight = tweened(0, {
+  let initialFeaturedBackgroundHeight = new Tween(0, {
     duration: animationTime,
     easing: linear,
   });
 
   let mounted = false;
-  let displayContent = false;
+  let displayContent = $state(false);
 
-  let initialAnimationTookPlace = false;
-  let useAnimatedValue = false; // change to true to use top part
+  let initialAnimationTookPlace = $state(false);
+  let useAnimatedValue = $state(false); // change to true to use top part
   let videoUrl = "https://www.youtube.com/embed/mKZR-2hKfic";
-  let wrapperW;
-  let wrapperH;
-  let videoWrapperW;
-  let promoHasBeenClosed = false;
+  let wrapperH = $state(0);
+  let videoWrapperW = $state(0);
+  let promoHasBeenClosed = $state(false);
 
   const handleShowMobileMenu = () => {
     if ($showMobileMenu) {
@@ -49,15 +55,17 @@
 
   const closeFeaturedTopPart = () => {
     useAnimatedValue = true;
-    initialFeaturedBackgroundHeight.set(0);
+    initialFeaturedBackgroundHeight.target = 0;
     setTimeout(() => (promoHasBeenClosed = true), animationTime);
   };
 
-  $: if (wrapperH > 0 && useAnimatedValue && !initialAnimationTookPlace) {
-    initialFeaturedBackgroundHeight.set(wrapperH);
-    setTimeout(() => (useAnimatedValue = false), animationTime);
-    setTimeout(() => (initialAnimationTookPlace = true), animationTime);
-  }
+  run(() => {
+    if (wrapperH > 0 && useAnimatedValue && !initialAnimationTookPlace) {
+      initialFeaturedBackgroundHeight.target = wrapperH;
+      setTimeout(() => (useAnimatedValue = false), animationTime);
+      setTimeout(() => (initialAnimationTookPlace = true), animationTime);
+    }
+  });
 
   onMount(() => {
     mounted = true;
@@ -84,12 +92,14 @@
 
 <div>
   <Header
-    wrapperH={useAnimatedValue ? $initialFeaturedBackgroundHeight : wrapperH}
+    wrapperH={useAnimatedValue
+      ? initialFeaturedBackgroundHeight.current
+      : wrapperH}
   />
 </div>
 
 <button
-  on:click={handleShowMobileMenu}
+  onclick={handleShowMobileMenu}
   class="fixed md:hidden h-15 flex items-center top-0 right-0 {$numDrawersOut >
     0 && !$hideMenuIcon
     ? 'z-2000'
@@ -107,7 +117,7 @@
       </a>
       {#each mainRoutes as route, i}
         <a
-          on:click={() => showMobileMenu.set(false)}
+          onclick={() => showMobileMenu.set(false)}
           class="flex flex-shrink-0 w-full py-3 {i + 1 !== mainRoutes.length
             ? 'border-b'
             : ''} text-xl font-medium items-center text-black"
@@ -127,20 +137,44 @@
   </Drawer>
 {/if}
 
-<div class="hidden" />
+<div class="hidden"></div>
 
-<!-- <div class:hidden={promoHasBeenClosed || $page.url.pathname.includes('weird-phishes-release-full-kid-a-album-set-video-released')} class='fixed top-0 left-0 w-full sm:p-2 md:p-4 lg:p-6 bg-gray-700' bind:clientHeight={wrapperH} bind:clientWidth={wrapperW}>
-  <button on:click={closeFeaturedTopPart} class='absolute top-0 right-0 p-4'>
+<!-- <div
+  class:hidden={promoHasBeenClosed ||
+    page.url.pathname.includes(
+      "weird-phishes-release-full-kid-a-album-set-video-released",
+    )}
+  class="fixed top-0 left-0 w-full sm:p-2 md:p-4 lg:p-6 bg-gray-700"
+  bind:clientHeight={wrapperH}
+>
+  <button onclick={closeFeaturedTopPart} class="absolute top-0 right-0 p-4">
     <CrossIcon size={24} />
   </button>
-  <div class='flex flex-col w-full items-center justify-center'>
-    <div class='mb-4 marginsAndPadding'>
-      <p class='hidden md:block md:text-3xl lg:text-4xl text-white let uppercase font-medium text-center'>The full album performance of "Kid A" is here.</p>
-      <p class='hidden md:block text-white font-light text-left'>Relive the entire show, from Everything In Its Right Place to Motion Picture Soundtrack, completely rearranged and mashed up in the style of Phish, while maintaining the intricacy and passion contained in the original. This is the first public release of a Weird Phishes set in its entirety, and we couldn't be more excited to share it with you.</p>
+  <div class="flex flex-col w-full items-center justify-center">
+    <div class="mb-4 marginsAndPadding">
+      <p
+        class="hidden md:block md:text-3xl lg:text-4xl text-white let uppercase font-medium text-center"
+      >
+        The full album performance of "Kid A" is here.
+      </p>
+      <p class="hidden md:block text-white font-light text-left">
+        Relive the entire show, from Everything In Its Right Place to Motion
+        Picture Soundtrack, completely rearranged and mashed up in the style of
+        Phish, while maintaining the intricacy and passion contained in the
+        original. This is the first public release of a Weird Phishes set in its
+        entirety, and we couldn't be more excited to share it with you.
+      </p>
     </div>
-    <div class='w-full max-w-300' bind:clientWidth={videoWrapperW}>
-      <div class='w-full relative' style="height:{videoWrapperW / 1.7777777}px">
-        <iframe style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" src={videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="w-full max-w-300" bind:clientWidth={videoWrapperW}>
+      <div class="w-full relative" style="height:{videoWrapperW / 1.7777777}px">
+        <iframe
+          style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px"
+          src={videoUrl}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </div>
@@ -148,7 +182,7 @@
 
 <div
   style="transform:translate3d(0, {useAnimatedValue
-    ? $initialFeaturedBackgroundHeight
+    ? initialFeaturedBackgroundHeight.current
     : wrapperH}px, 0)"
   class="min-h-[calc(100vh_-_8.75rem)] bg-blue-100 bg-phish-bg bg-center pt-15 pb-12 flex justify-center"
 >
@@ -156,10 +190,10 @@
     class="duration-150"
     class:opacity-0={!displayContent}
     class:opacity-100={displayContent}
-    class:removeMarginsAndPadding={$page.url.pathname.includes("library")}
-    class:marginsAndPadding={!$page.url.pathname.includes("library")}
+    class:removeMarginsAndPadding={page.url.pathname.includes("library")}
+    class:marginsAndPadding={!page.url.pathname.includes("library")}
   >
-    <slot />
+    {@render children?.()}
   </div>
 </div>
 
@@ -171,9 +205,14 @@
   >
 </footer>
 
-{#if $initialLoad && !$page.url.pathname.includes("weird-phishes-release-full-kid-a-album-set-video-released")}
+{#if $initialLoad && !page.url.pathname.includes("weird-phishes-release-full-kid-a-album-set-video-released")}
   <div
-    out:fly|global={{ y: $windowHeight, duration: 700, opacity: 1, easing: cubicIn }}
+    out:fly|global={{
+      y: $windowHeight,
+      duration: 700,
+      opacity: 1,
+      easing: cubicIn,
+    }}
     in:fade|global={{ duration: 500 }}
     style="top: {wrapperH}px"
     class="fixed left-0 z-900 w-screen h-screen flex items-center justify-center bg-white"

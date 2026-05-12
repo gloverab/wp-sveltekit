@@ -1,33 +1,35 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import NewsFeed from "$src/components/NewsFeed.svelte";
   import { baseUrl } from "$src/constants";
   import dayjs from "dayjs/esm";
   import { onMount } from "svelte";
 
-  export let data;
+  let { data } = $props();
 
-  let article = data.article;
+  let article = $derived(data.article);
 
-  let articleEl;
+  let articleEl = $state<HTMLDivElement>();
 
   const getArticle = async () => {
     try {
       const url = baseUrl;
-      const resp = await fetch(url + `news/${$page.params.id}`);
+      const resp = await fetch(url + `news/${page.params.id}`);
       article = await resp.json();
     } catch (err) {
       console.log("getArticle ERROR:", err);
     }
   };
 
-  $: if (articleEl) {
-    const articleLinks = articleEl.getElementsByTagName("a");
-    for (let i = 0; i < articleLinks.length; i++) {
-      articleLinks[i].classList.add("text-phish-orange");
-      articleLinks[i].classList.add("underline");
+  $effect(() => {
+    if (articleEl) {
+      const articleLinks = articleEl.getElementsByTagName("a");
+      for (let i = 0; i < articleLinks.length; i++) {
+        articleLinks[i].classList.add("text-phish-orange");
+        articleLinks[i].classList.add("underline");
+      }
     }
-  }
+  });
 
   onMount(() => {
     if (!article) {
@@ -53,7 +55,7 @@
       src="https://www.dropbox.com/s/pqte3wghbvsr4xz/circle-logo-texture.png?raw=1"
     />
   </div>
-  <div class="bg-phish-purple w-full h-1" />
+  <div class="bg-phish-purple w-full h-1"></div>
   <span class="text-sm uppercase font-light tracking-wider mb-2">News</span>
 </div>
 {#if article}

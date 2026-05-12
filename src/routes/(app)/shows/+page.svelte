@@ -44,7 +44,7 @@
 
 <div class="w-full">
   <div class="mb-6">
-    <div class="bg-phish-purple w-full h-1" />
+    <div class="bg-phish-purple w-full h-1"></div>
     <span class="text-sm uppercase font-light tracking-wider mb-2"
       >Upcoming Shows</span
     >

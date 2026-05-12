@@ -6,7 +6,7 @@
   import { cubicIn, cubicInOut, cubicOut } from 'svelte/easing';
   import { fade, fly } from 'svelte/transition';
 
-  let hideLoading = false
+  let hideLoading = $state(false)
   let showSpinner = false
 
   onMount(() => {

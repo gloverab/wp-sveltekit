@@ -1,6 +1,5 @@
 <script lang='ts'>
-  export let item
-  export let elH = undefined
+  let { item, elH = $bindable(undefined) } = $props();
 </script>
 
 <div bind:clientHeight={elH} class='flex-0 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>

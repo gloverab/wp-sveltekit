@@ -1,31 +1,38 @@
-<script lang='ts'>
-  import { page } from "$app/stores";
+<script lang="ts">
+  import { page } from "$app/state";
   import Logo from "$src/assets/Logo.svelte";
   import { mainRoutes } from "$src/constants";
   import NavLink from "./NavLink.svelte";
   import PublicLibrary from "./PublicLibrary.svelte";
 
-  export let wrapperH
-  $:libPage = $page.url.pathname.includes('library')
+  interface Props {
+    wrapperH?: number;
+  }
+
+  let { wrapperH }: Props = $props();
+
+  let libPage = $derived(page.url.pathname.includes("library"));
 </script>
 
-<header style="transform:translate3d(0, {wrapperH}px, 0)" class='absolute top-0 flex w-screen items-center justify-between h-15 px-4 {libPage ? 'bg-black' : 'bg-phish-purple'} shadow-md z-1000'>
-  <a class='h-full flex items-center' href='/'>
+<header
+  style="transform:translate3d(0, {wrapperH}px, 0)"
+  class="absolute top-0 flex w-screen items-center justify-between h-15 px-4 {libPage
+    ? 'bg-black'
+    : 'bg-phish-purple'} shadow-md z-1000"
+>
+  <a class="h-full flex items-center" href="/">
     {#if libPage}
-      <div class='h-3 md:h-7'>
+      <div class="h-3 md:h-7">
         <PublicLibrary />
       </div>
     {:else}
-      <Logo classes='h-full max-w-60' fill='fill-white' />
+      <Logo classes="h-full max-w-60" fill="fill-white" />
     {/if}
   </a>
 
-  <div class='md:flex h-full hidden'>
+  <div class="md:flex h-full hidden">
     {#each mainRoutes as route}
-      <NavLink
-        {route}
-        {libPage}
-      />
+      <NavLink {route} {libPage} />
     {/each}
   </div>
 </header>

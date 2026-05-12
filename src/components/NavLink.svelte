@@ -1,17 +1,30 @@
-<script lang='ts'>
-  import { page } from "$app/stores";
+<script lang="ts">
+  import { page } from "$app/state";
 
-  export let route
-  export let libPage = false
+  interface Props {
+    route: any;
+    libPage?: boolean;
+  }
+
+  let { route, libPage = false }: Props = $props();
 </script>
 
-<a class:active={$page.url.pathname.includes(route.href)} target={route.targetBlank ? '_blank' : ''} class='flex relative h-full px-5 items-center {libPage ? 'text-white' : 'text-white'} {!$page.url.pathname.includes(route.href) ? 'hover:text-phish-orange' : ''} group' href={route.href}>
+<a
+  class:active={page.url.pathname.includes(route.href)}
+  target={route.targetBlank ? "_blank" : ""}
+  class="flex relative h-full px-5 items-center {libPage
+    ? 'text-white'
+    : 'text-white'} {!page.url.pathname.includes(route.href)
+    ? 'hover:text-phish-orange'
+    : ''} group"
+  href={route.href}
+>
   <span>
     {route.name}
   </span>
   <div
-    class:scale-y-100={$page.url.pathname.includes(route.href)}
-    class='bottom-underline absolute
+    class:scale-y-100={page.url.pathname.includes(route.href)}
+    class="bottom-underline absolute
       bottom-0
       left-0
       w-full
@@ -21,8 +34,11 @@
       scale-y-0
       duration-200
       origin-bottom
-      {!$page.url.pathname.includes(route.href) ? 'group-hover:bg-phish-orange' : ''}
-      group-hover:scale-y-100' />
+      {!page.url.pathname.includes(route.href)
+      ? 'group-hover:bg-phish-orange'
+      : ''}
+      group-hover:scale-y-100"
+  ></div>
 </a>
 
 <style>

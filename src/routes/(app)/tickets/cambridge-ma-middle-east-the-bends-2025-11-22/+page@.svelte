@@ -3,7 +3,7 @@
   import dayjs from "dayjs/esm";
   import { onMount, onDestroy } from "svelte";
 
-  let maxHeightNeeded;
+  let maxHeightNeeded = $state();
 
   function iOS() {
     return (

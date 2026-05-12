@@ -7,7 +7,7 @@ import { videos } from "$src/constants";
 </script>
 
 <div>
-    <div class='bg-phish-purple w-full h-1' />
+    <div class='bg-phish-purple w-full h-1'></div>
     <span class='text-sm uppercase font-light tracking-wider mb-2'>Featured Videos</span>
     
     <div class='flex flex-col space-y-4'>

@@ -1,6 +1,6 @@
 <script lang='ts'>
 
-  let wrapperW
+  let wrapperW = $state()
 </script>
 
 <svelte:head>

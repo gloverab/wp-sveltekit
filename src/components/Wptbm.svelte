@@ -3,11 +3,12 @@
   import { onMount } from "svelte";
   import BearLogo from "$src/components/BearLogo.svelte";
 
-  export let isiOs;
-  export let countDownDate;
-  export let hideTicketmaster = false;
-  export let ticketSource: { name: string; link: string };
-  export let showInfo: {
+  interface Props {
+    isiOs: any;
+    countDownDate: any;
+    hideTicketmaster?: boolean;
+    ticketSource: { name: string; link: string };
+    showInfo: {
     date: any;
     venue: string;
     city: string;
@@ -18,19 +19,30 @@
     price: number;
     shopifyLink: string;
   };
-  export let ticketsRemaining: number;
-  export let remainingLastUpdatedAt: string | number;
+    ticketsRemaining: number;
+    remainingLastUpdatedAt: string | number;
+  }
+
+  let {
+    isiOs,
+    countDownDate,
+    hideTicketmaster = false,
+    ticketSource,
+    showInfo,
+    ticketsRemaining,
+    remainingLastUpdatedAt
+  }: Props = $props();
 
   let venmoText = "Buy Tickets via Venmo";
-  let showVenmo = false;
-  let animateVenmo = false;
-  let showSoldOut = false;
-  let animateSoldOut = false;
+  let showVenmo = $state(false);
+  let animateVenmo = $state(false);
+  let showSoldOut = $state(false);
+  let animateSoldOut = $state(false);
   let x;
 
   const initialDistance = countDownDate - new Date().getTime();
 
-  let expired = initialDistance <= 0;
+  let expired = $state(initialDistance <= 0);
 
   const handleDesktopVenmoClick = async () => {
     handleClick("venmo-desktop");
@@ -158,7 +170,7 @@
         below.
       </p>
       <a
-        on:click={() => handleClick("ticketmaster")}
+        onclick={() => handleClick("ticketmaster")}
         class="purchase-button mb-2 bg-blue-600 flex justify-center hover:bg-green-500"
         href={ticketSource.link}
         target="blank"
@@ -189,7 +201,7 @@
     {#if !expired && ticketsRemaining > 0}
       <div class="mb-4">
         <a
-          on:click={() => handleClick("shopify")}
+          onclick={() => handleClick("shopify")}
           class="purchase-button mb-2 bg-green-600 flex justify-center hover:bg-green-500"
           href={showInfo.shopifyLink}
           target="blank"
@@ -198,7 +210,7 @@
         </a>
         <div class="hidden sm:block">
           <button
-            on:click={handleDesktopVenmoClick}
+            onclick={handleDesktopVenmoClick}
             class="w-full purchase-button bg-blue-600 flex justify-center hover:bg-blue-500"
           >
             <span class="text-white">{venmoText}</span>
@@ -206,7 +218,7 @@
         </div>
         <div class="sm:hidden">
           <a
-            on:click={() => handleClick("venmo-mobile")}
+            onclick={() => handleClick("venmo-mobile")}
             class="flex purchase-button bg-blue-600 justify-center hover:bg-blue-500"
             href={isiOs
               ? "venmo://paycharge?txn=pay&recipients=weird-phishes&text=Your%20Address"
@@ -225,7 +237,7 @@
       {#if !hideTicketmaster && ticketSource?.link}
         <div class="mb-4">
           <a
-            on:click={() => handleClick("ticketmaster")}
+            onclick={() => handleClick("ticketmaster")}
             class="underline text-blue-800"
             href={ticketSource.link}
             target="blank"
@@ -253,11 +265,11 @@
     class="w-screen h-screen flex justify-center items-center z-2 fixed top-0 left-0"
   >
     <div
-      on:click={hideVenmo}
+      onclick={hideVenmo}
       class="absolute top-0 left-0 h-full w-full bg-black bg-opacity-40 {animateVenmo
         ? 'opacity-100'
         : 'opacity-0'} duration-300"
-    />
+></div>
 
     <div
       class="relative bg-white p-8 rounded-md max-w-100 transform {animateVenmo
@@ -289,11 +301,11 @@
     class="w-screen h-screen flex justify-center items-center z-2 fixed top-0 left-0"
   >
     <div
-      on:click={hideSoldOut}
+      onclick={hideSoldOut}
       class="absolute top-0 left-0 h-full w-full bg-black bg-opacity-40 {animateSoldOut
         ? 'opacity-100'
         : 'opacity-0'} duration-300"
-    />
+></div>
 
     <div
       class="relative bg-white p-4 rounded-md max-w-100 transform {animateSoldOut

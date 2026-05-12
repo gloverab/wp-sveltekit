@@ -1,8 +1,12 @@
 <script lang='ts'>
   import dayjs from 'dayjs/esm'
 
-  export let index
-  export let item: any
+  interface Props {
+    index: any;
+    item: any;
+  }
+
+  let { index, item }: Props = $props();
 </script>
 
 

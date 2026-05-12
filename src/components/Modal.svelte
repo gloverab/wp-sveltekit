@@ -2,11 +2,21 @@
   import { clickOutside } from "$src/actions/clickOutside";
 
 
-  export let classes = ''
-  export let onHide: () => void
-  export let show = false
+  interface Props {
+    classes?: string;
+    onHide: () => void;
+    show?: boolean;
+    children?: import('svelte').Snippet;
+  }
 
-  let animateHide = false
+  let {
+    classes = '',
+    onHide,
+    show = false,
+    children
+  }: Props = $props();
+
+  let animateHide = $state(false)
 
   const handleHide = () => {
     animateHide = true
@@ -35,7 +45,7 @@
     '>
     <div
       use:clickOutside
-      on:outclick={() => handleHide()}
+      onoutclick={() => handleHide()}
       class:translate-y-10={animateHide}
       class:duration-200={animateHide}
       class:opacity-0={animateHide}
@@ -51,10 +61,10 @@
         transform
         {classes}
       '>
-      <button on:click={handleHide} class='absolute right-0 top-0 bg-white w-8 h-8 rounded-full shadow-sm'>
+      <button onclick={handleHide} class='absolute right-0 top-0 bg-white w-8 h-8 rounded-full shadow-sm'>
         <p>X</p>
       </button>
-      <slot />
+      {@render children?.()}
     </div>
   </div>
 {/if}

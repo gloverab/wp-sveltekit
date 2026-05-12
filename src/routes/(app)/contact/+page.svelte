@@ -12,7 +12,7 @@
     </div>
     <div class='space-y-4 md:space-y-8'>
       <div>
-        <div class='bg-phish-purple w-full h-1' />
+        <div class='bg-phish-purple w-full h-1'></div>
         <span class='text-sm uppercase font-light tracking-wider'>Booking</span>
         <div class='bg-white w-full border-1 shadow-sm p-2.5'>
           <p>Mike MacDonald @ High Gear Talent</p>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div>
-        <div class='bg-phish-purple w-full h-1' />
+        <div class='bg-phish-purple w-full h-1'></div>
         <span class='text-sm uppercase font-light tracking-wider'>General Info/Management</span>
         <div class='bg-white w-full border-1 shadow-sm p-2.5'>
           <p>Alex Glover</p>
@@ -30,7 +30,7 @@
       </div>
       <div class='flex flex-col space-y-4 md:space-y-8 lg:space-y-0 lg:space-x-4 lg:flex-row'>
         <div class='flex-1'>
-          <div class='bg-phish-purple w-full h-1' />
+          <div class='bg-phish-purple w-full h-1'></div>
           <span class='text-sm uppercase font-light tracking-wider'>Follow us on Social Media</span>
         
           <div class='bg-white w-full border-1 shadow-sm p-2.5'>
@@ -42,7 +42,7 @@
         </div>
 
         <div class='flex-1'>
-          <div class='bg-phish-purple w-full h-1' />
+          <div class='bg-phish-purple w-full h-1'></div>
           <span class='text-sm uppercase font-light tracking-wider'>Everything Else</span>
           <div class='bg-white w-full border-1 shadow-sm p-2.5'>
             <p><i class="fas fa-drum text-teal-600 w-5"></i>&nbsp;<a class='link' href='https://www.bandsintown.com/a/14950026-weird-phishes'>Bandsintown</a></p>
@@ -52,7 +52,7 @@
       </div>
 
       <div>
-        <div class='bg-phish-purple w-full h-1' />
+        <div class='bg-phish-purple w-full h-1'></div>
         <span class='text-sm uppercase font-light tracking-wider'>Worth Noting</span>
         <div class='bg-white w-full border-1 shadow-sm p-2.5 space-y-2'>
           <p>Weird Phishes is available for all types of shows. While a typical headlining performance is a 2-set, 180+ minute performance, we are open to any and all offers including festival inquiries, opening slots, private parties, or any other events you can think of. Feel free to get in touch regardless - we look forward to hearing from you.</p>

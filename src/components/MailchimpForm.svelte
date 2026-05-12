@@ -55,7 +55,7 @@
             id="mce-EMAIL"
             required
           />
-          <span id="mce-EMAIL-HELPERTEXT" class="helper_text" />
+          <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
         </div>
         <div class="mc-field-group">
           <label for="mce-MMERGE1"
@@ -69,7 +69,7 @@
             id="mce-MMERGE1"
             required
           />
-          <span id="mce-MMERGE1-HELPERTEXT" class="helper_text" />
+          <span id="mce-MMERGE1-HELPERTEXT" class="helper_text"></span>
         </div>
         <div class="mc-field-group">
           <label for="mce-MMERGE2">First Name </label>
@@ -80,15 +80,15 @@
             class=""
             id="mce-MMERGE2"
           />
-          <span id="mce-MMERGE2-HELPERTEXT" class="helper_text" />
+          <span id="mce-MMERGE2-HELPERTEXT" class="helper_text"></span>
         </div>
         <div id="mce-responses" class="clear foot">
-          <div class="response" id="mce-error-response" style="display:none" />
+          <div class="response" id="mce-error-response" style="display:none"></div>
           <div
             class="response"
             id="mce-success-response"
             style="display:none"
-          />
+></div>
         </div>
         <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
         <div style="position: absolute; left: -5000px;" aria-hidden="true">

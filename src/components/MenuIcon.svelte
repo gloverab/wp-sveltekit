@@ -1,5 +1,9 @@
 <script lang='ts'>
-  export let isActive = false
+  interface Props {
+    isActive?: boolean;
+  }
+
+  let { isActive = false }: Props = $props();
 </script>
 
 <div class='menu-icon-wrapper h-15 px-4 flex justify-center items-center'>

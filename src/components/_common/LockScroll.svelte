@@ -4,7 +4,7 @@
   import { onDestroy, onMount } from "svelte";
   
   let scrollYState
-  let scrollY
+  let scrollY = $state()
 
   let interval
 

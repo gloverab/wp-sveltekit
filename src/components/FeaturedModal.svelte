@@ -1,15 +1,26 @@
 <script lang='ts'>
-  // import clickOutside from "$src/actions/clickOutside";
+  
 
 
-  export let onHide: () => void
-  export let show = false
-  export let subtitle: string
-  export let title: string
-  export let videoUrl: string
+  interface Props {
+    // import clickOutside from "$src/actions/clickOutside";
+    onHide: () => void;
+    show?: boolean;
+    subtitle: string;
+    title: string;
+    videoUrl: string;
+  }
 
-  let animateHide = false
-  let wrapperW
+  let {
+    onHide,
+    show = false,
+    subtitle,
+    title,
+    videoUrl
+  }: Props = $props();
+
+  let animateHide = $state(false)
+  let wrapperW = $state()
 
   const handleHide = () => {
     animateHide = true
@@ -67,7 +78,7 @@
       </div>
 
       <div class='flex justify-center'>
-        <button data-content="Continue to site" on:click={handleHide} class='p-1'>
+        <button data-content="Continue to site" onclick={handleHide} class='p-1'>
           <span class='uppercase italic tracking-0.2em'>Or Continue to site</span>
         </button>
       </div>

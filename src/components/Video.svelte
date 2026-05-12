@@ -1,10 +1,19 @@
 <script lang='ts'>
-  export let src
-  export let smallText
-  export let title: string
-  export let subtitle: string
+  interface Props {
+    src: any;
+    smallText: any;
+    title: string;
+    subtitle: string;
+  }
 
-  let wrapperW
+  let {
+    src,
+    smallText,
+    title,
+    subtitle
+  }: Props = $props();
+
+  let wrapperW = $state()
 </script>
 
 <div class='flex justify-center w-full pb-8 pt-4'>

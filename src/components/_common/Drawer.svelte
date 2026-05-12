@@ -3,6 +3,11 @@
   import { cubicOut } from 'svelte/easing';
   import { onDestroy, onMount } from 'svelte';
   import { numDrawersOut } from '$src/stores/main';
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
 
   onMount(() => {
     numDrawersOut.update(n => n + 1)
@@ -17,7 +22,7 @@
   transition:fly|global={{duration: 300, x: 500, y: 0, opacity: 1, easing: cubicOut }}
   id='mobile-wrapper'
   class='wrapper'>
-  <slot />
+  {@render children?.()}
 </div>
   
 <style>

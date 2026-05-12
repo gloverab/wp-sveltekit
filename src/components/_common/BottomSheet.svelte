@@ -6,11 +6,16 @@
   import Overlay from './Overlay.svelte';
   import LockScroll from './LockScroll.svelte';
 
-  export let bottomButtons = []
-  export let onHideSheet: () => void
+  interface Props {
+    bottomButtons?: any;
+    onHideSheet: () => void;
+    children?: import('svelte').Snippet;
+  }
 
-  let scrollableElement
-  let triggerAnimate = false
+  let { bottomButtons = [], onHideSheet, children }: Props = $props();
+
+  let scrollableElement = $state()
+  let triggerAnimate = $state(false)
 
   const onClose = (() => {
     onHideSheet()
@@ -27,7 +32,7 @@
     hideMenuIcon.set(false)
   })
 
-  $: styleString = `transform: translate3d(0,${triggerAnimate ? `0px` : 'calc(100% - 24px)'},0)`
+  let styleString = $derived(`transform: translate3d(0,${triggerAnimate ? `0px` : 'calc(100% - 24px)'},0)`)
 </script>
 
 <LockScroll />
@@ -45,7 +50,7 @@
   out:fly|global={{ y: $windowHeight, duration: 200, opacity: 1, easing: cubicIn }}
 >
   <div class='scrollable-content'>
-    <slot></slot>
+    {@render children?.()}
   </div>
 
   <div class='absolute bottom-0 w-full h-20 flex items-center px-4 space-x-2'>
@@ -53,7 +58,7 @@
       {#each bottomButtons as button}
         <button
           disabled={button.disabled}
-          on:click={button.onClick}
+          onclick={button.onClick}
           class='
             {button.type === 'secondary' ? 'bg-white' : 'bg-indigo-800'}
             {button.type === 'secondary' ? 'text-indigo-800' : 'text-white'}

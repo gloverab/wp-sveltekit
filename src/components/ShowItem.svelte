@@ -73,7 +73,11 @@
     festival_end_date: "",
   };
 
-  export let show: typeof bandcampResponse;
+  interface Props {
+    show: typeof bandcampResponse;
+  }
+
+  let { show }: Props = $props();
 
   const ticketLink = show.offers?.find((o) => o.type === "Tickets")?.url;
 </script>

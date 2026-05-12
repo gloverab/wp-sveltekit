@@ -1,47 +1,51 @@
-<script lang='ts'>
+<script lang="ts">
   import { baseUrl } from "$src/constants";
   import { onMount } from "svelte";
   import HeadlineItem from "./HeadlineItem.svelte";
 
-  export let news: any[]
+  interface Props {
+    news?: any[];
+  }
 
-  let loading = news && news.length > 0 ? false : true
+  let { news = $bindable() }: Props = $props();
+
+  let loading = $state(news && news.length > 0 ? false : true);
 
   const getNews = async () => {
     try {
-      const url = baseUrl
-      const resp = await fetch(url + 'performers/1/news')
+      const url = baseUrl;
+      const resp = await fetch(url + "performers/1/news");
       if (resp.status === 200) {
-        const data = await resp.json()
-        news = data
-        loading = false
+        const data = await resp.json();
+        news = data;
+        loading = false;
       } else {
-        
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   onMount(() => {
     if (!news || news.length == 0) {
-      getNews()
+      getNews();
     }
-  })
+  });
 </script>
 
 {#if !loading && news}
   <div>
-    <div class='bg-phish-purple w-full h-1' />
-    <span class='text-sm uppercase font-light tracking-wider mb-2'>Latest News</span>
-    
-    <div class='flex flex-col space-y-4'>
-      <div class='space-y-2 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col divide-y divide-y-gray-200'>
+    <div class="bg-phish-purple w-full h-1"></div>
+    <span class="text-sm uppercase font-light tracking-wider mb-2"
+      >Latest News</span
+    >
+
+    <div class="flex flex-col space-y-4">
+      <div
+        class="space-y-2 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col divide-y divide-y-gray-200"
+      >
         {#each news as item, i}
-          <HeadlineItem
-            index={i}
-            item={item}
-          />
+          <HeadlineItem index={i} {item} />
         {/each}
       </div>
       <!-- <div class='flex-1 bg-white w-full border-1 shadow-sm p-2.5 flex flex-col space-y-2 self-start'>

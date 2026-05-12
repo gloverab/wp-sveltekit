@@ -3,16 +3,27 @@
   import { cubicOut } from 'svelte/easing';
   import LockScroll from './LockScroll.svelte';
 
-  export let
+  interface Props {
+    all?: boolean;
+    allButHeader?: boolean;
+    onClick: () => void;
+    duration?: number;
+    noShade?: boolean;
+    withBlur?: boolean;
+    whiteFill?: boolean;
+  }
+
+  let {
     all = false,
     allButHeader = false,
-    onClick: () => void,
+    onClick,
     duration = 150,
     noShade = false,
     withBlur = false,
     whiteFill = false
+  }: Props = $props();
 
-  let applyBlur = false
+  let applyBlur = $state(false)
 
   const handleClick = () => {
     applyBlur = false
@@ -26,8 +37,8 @@
 <LockScroll />
 <div
   transition:fade|global="{{duration, easing: cubicOut}}"
-  on:introend="{() => applyBlur = true}"
-  on:outrostart="{() => applyBlur = false}"
+  onintroend={() => applyBlur = true}
+  onoutrostart={() => applyBlur = false}
   class='overlay'
   id='overlay'
   class:whiteFill
@@ -36,8 +47,8 @@
   class:all
   class:allButHeader
   class:noShade
-  on:click={handleClick}
-/>
+  onclick={handleClick}
+></div>
 
 <style>
   .overlay {

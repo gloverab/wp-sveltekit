@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import Carousel from "$src/components/Carousel.svelte";
   import NewsItem from "$src/components/NewsItem.svelte";
   import NewsFeed from "$src/components/NewsFeed.svelte";
@@ -10,12 +12,12 @@
   import dayjs from "dayjs/esm/index.js";
   import FeaturedVideos from "$src/components/FeaturedVideos.svelte";
 
-  export let data;
+  let { data } = $props();
 
   let attempts = 0;
   let showFeaturedVideo = true;
-  let news = data.news;
-  let performer = data.performer;
+  let news = $state(data.news);
+  let performer = $state(data.performer);
 
   const getPerformer = async () => {
     try {
@@ -45,7 +47,7 @@
     }
   };
 
-  let loading = !news || !performer;
+  let loading = $state(!news || !performer);
   let error = undefined;
 
   const getPerformerAndNews = async () => {
@@ -95,31 +97,33 @@
     }
   });
 
-  let featuredContent;
+  let featuredContent = $state();
 
-  $: if (news?.length > 0) {
-    featuredContent =
-      news.find((item) => performer.featured_news_id === item.id) || news[0];
-  }
+  run(() => {
+    if (news?.length > 0) {
+      featuredContent =
+        news.find((item) => performer.featured_news_id === item.id) || news[0];
+    }
+  });
 
-  $: featuredContent2 = news?.find(
+  let featuredContent2 = $derived(news?.find(
     (item) => performer.featured_news_2_id === item.id
-  );
+  ));
 
-  $: nonFeaturedNews = news?.filter(
+  let nonFeaturedNews = $derived(news?.filter(
     (item) =>
       item.id !== performer.featured_news_id &&
       item.id !== performer.featured_news_2_id
-  );
-  $: newsFeed = news?.filter(
+  ));
+  let newsFeed = $derived(news?.filter(
     (item) =>
       item.id !== performer.featured_news_id &&
       item.id !== performer.featured_news_2_id
-  );
-  $: sidebarNews = news?.slice(0, 5);
+  ));
+  let sidebarNews = $derived(news?.slice(0, 5));
 
-  let itemTwoHeight;
-  let itemThreeHeight;
+  let itemTwoHeight = $state();
+  let itemThreeHeight = $state();
 </script>
 
 <div class="relative space-y-4 mt-0 md:mt-6 z-1">
@@ -135,7 +139,7 @@
         <Carousel />
       </div>
       <div class="h-full flex md:hidden flex-col justify-between items-end">
-        <div />
+        <div></div>
         <p
           class="italic font-medium text-base md:text-2xl text-phish-grey-dark"
         >
@@ -155,7 +159,7 @@
 
   {#if !loading && !error && news?.length > 6}
     <div class="flex-1 md:hidden">
-      <div class="bg-phish-purple w-full h-1" />
+      <div class="bg-phish-purple w-full h-1"></div>
       <span class="text-sm uppercase font-light tracking-wider mb-2"
         >Latest Tourdates</span
       >
@@ -212,7 +216,7 @@
       </div>
 
       <div class="flex-1">
-        <div class="bg-phish-purple w-full h-1" />
+        <div class="bg-phish-purple w-full h-1"></div>
         <span class="text-sm uppercase font-light tracking-wider mb-2"
           >Latest Tourdates</span
         >
@@ -277,7 +281,7 @@
       <div class="md:w-57.5 text-phish-grey-light space-y-4">
         <FeaturedVideos />
         <div>
-          <div class="bg-phish-purple w-full h-1" />
+          <div class="bg-phish-purple w-full h-1"></div>
           <span class="text-sm uppercase font-light tracking-wider mb-2"
             >From the Road</span
           >

@@ -6,9 +6,9 @@
 
   const videoUrl = "https://www.youtube.com/embed/mKZR-2hKfic"
 
-  let videoWrapperW
-  let youtubeVideo
-  let showButton = true
+  let videoWrapperW = $state()
+  let youtubeVideo = $state()
+  let showButton = $state(true)
   let oneMinuteTimeout
   let fiveMinuteTimeout
 
@@ -40,13 +40,13 @@
 
 </script>
 
-<window on:mousedown={() => console.log('click!')} />
+<window onmousedown={() => console.log('click!')}></window>
 
 <div class='my-3 md:my-6'>
   <div class='h-25 md:w-57.5 md:h-53 mb-8 flex-shrink-0'>
     <img class='h-full' src='https://www.dropbox.com/s/pqte3wghbvsr4xz/circle-logo-texture.png?raw=1' />
   </div>
-  <div class='bg-phish-purple w-full h-1' />
+  <div class='bg-phish-purple w-full h-1'></div>
   <span class='text-sm uppercase font-light tracking-wider mb-2'>News</span>
 </div>
 <div class='mb-6'>
@@ -66,7 +66,7 @@
           class='w-full h-131.75 relative border-1 border-black'>
           <iframe bind:this={youtubeVideo} style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" src={videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;" allowfullscreen></iframe>
           {#if showButton}
-            <button class='block absolute top-0 left-0 w-full h-full' on:click={handleOverlayClick} />
+            <button class='block absolute top-0 left-0 w-full h-full' onclick={handleOverlayClick}></button>
           {/if}
         </div>
       </div>

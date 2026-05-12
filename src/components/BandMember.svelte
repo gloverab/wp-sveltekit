@@ -1,10 +1,19 @@
 <script lang='ts'>
-  export let name: string
-  export let img: string
-  export let instrument: string
-  export let description: string
+  interface Props {
+    name: string;
+    img: string;
+    instrument: string;
+    description: string;
+  }
 
-  let wrapperW
+  let {
+    name,
+    img,
+    instrument,
+    description
+  }: Props = $props();
+
+  let wrapperW = $state()
 </script>
 
 <div bind:clientWidth={wrapperW} class='flex flex-col justify-center items-center space-y-2 w-full md:w-70 lg:w-80'>

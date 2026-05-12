@@ -1,10 +1,11 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import path from 'path';
 import Windicss from 'vite-plugin-windicss';
+import { enhancedImages } from '@sveltejs/enhanced-img';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit(), Windicss({ transformCSS: 'pre' })],
+	plugins: [enhancedImages(), sveltekit(), Windicss({ transformCSS: 'pre' })],
   resolve: {
     alias: {
       $src: path.resolve('src'),
