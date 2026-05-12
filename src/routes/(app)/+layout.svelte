@@ -164,7 +164,7 @@
 </div>
 
 <footer class="flex items-center justify-between h-20 bg-white border-t px-4">
-  <span class="text-xs">COPYRIGHT © 2021 · WEIRD PHISHES</span>
+  <span class="text-xs">COPYRIGHT © 2026 · WEIRD PHISHES</span>
   <span class="text-xs"
     >DESIGNED & BUILT WITH ❤️ BY <a class="font-medium" href="#">ALEX GLOVER</a
     ></span
