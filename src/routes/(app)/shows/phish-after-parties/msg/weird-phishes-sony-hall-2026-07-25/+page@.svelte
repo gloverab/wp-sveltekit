@@ -110,7 +110,7 @@
         <p class='t-answer'>- Anything could happen. Just kidding, no.</p>
       </div>
       <div class='py-6'>
-        <button class='text-center flex justify-center items-center space-x-2 bg-indigo-300' on:click={null} style="width: 100%; height: {RECT_HEIGHT}px;">
+        <button disabled name='Tickets on Sale May 29' class='text-center flex justify-center items-center space-x-2 bg-indigo-300' on:click={null} style="width: 100%; height: {RECT_HEIGHT}px;">
           <p class='uppercase text-3xl font-bold'>Buy Tickets</p>
           <p class='uppercase text-2xl font-bold'>»</p>
         </button>
@@ -388,7 +388,7 @@
       </mask>
     </svg>
   
-    <button class:opacity-0={!show} class:opacity-100={show} class='absolute left-0 text-center flex justify-center items-center space-x-2 bg-black bg-opacity-0 hover:bg-opacity-20' on:click={null} style="width: 100%; height: {RECT_HEIGHT}px; top: {rectY}px;">
+    <button name='Tickets on Sale May 29' class:opacity-0={!show} class:opacity-100={show} class='absolute left-0 text-center flex justify-center items-center space-x-2 bg-black bg-opacity-0 disabled:cursor-auto not:disabled:hover:bg-opacity-20' on:click={null} style="width: 100%; height: {RECT_HEIGHT}px; top: {rectY}px;">
       <p class='uppercase text-3xl font-bold'>Buy Tickets</p>
       <p class='uppercase text-2xl font-bold'>»</p>
     </button>
