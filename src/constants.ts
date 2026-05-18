@@ -10,6 +10,10 @@ export const mainRoutes = [
     href: '/shows'
   },
   {
+    name: "Past Setlists",
+    href: '/setlists'
+  },
+  {
     name: "Videos",
     href: '/videos'
   },

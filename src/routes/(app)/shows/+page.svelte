@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ContentSection from "$src/components/ContentSection.svelte";
   import ShowItem from "$src/components/ShowItem.svelte";
   import { shows } from "$src/stores/main";
   import { onMount } from "svelte";
@@ -42,21 +43,15 @@
   />
 </div>
 
-<div class="w-full">
-  <div class="mb-6">
-    <div class="bg-phish-purple w-full h-1"></div>
-    <span class="text-sm uppercase font-light tracking-wider mb-2"
-      >Upcoming Shows</span
-    >
-  </div>
-  <div class="bg-white w-full border-1 shadow-sm">
+<ContentSection title="Upcoming Shows" spacing="md" applyPadding={false}>
+  {#snippet content()}
     {#if $shows?.length > 0}
       {#each $shows as show}
         <ShowItem {show} />
       {/each}
     {/if}
-  </div>
-</div>
+  {/snippet}
+</ContentSection>
 
 <style global>
   .bit-rsvp-container {

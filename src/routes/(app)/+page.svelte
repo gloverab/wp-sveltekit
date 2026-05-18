@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
+  import { run } from "svelte/legacy";
 
   import Carousel from "$src/components/Carousel.svelte";
   import NewsItem from "$src/components/NewsItem.svelte";
@@ -11,6 +11,9 @@
   import MailchimpForm from "$src/components/MailchimpForm.svelte";
   import dayjs from "dayjs/esm/index.js";
   import FeaturedVideos from "$src/components/FeaturedVideos.svelte";
+  import Setlist from "$src/components/Setlist.svelte";
+  import ContentSection from "$src/components/ContentSection.svelte";
+  import { middleEast, pastSetlists } from "$src/setlists.js";
 
   let { data } = $props();
 
@@ -106,20 +109,24 @@
     }
   });
 
-  let featuredContent2 = $derived(news?.find(
-    (item) => performer.featured_news_2_id === item.id
-  ));
+  let featuredContent2 = $derived(
+    news?.find((item) => performer.featured_news_2_id === item.id),
+  );
 
-  let nonFeaturedNews = $derived(news?.filter(
-    (item) =>
-      item.id !== performer.featured_news_id &&
-      item.id !== performer.featured_news_2_id
-  ));
-  let newsFeed = $derived(news?.filter(
-    (item) =>
-      item.id !== performer.featured_news_id &&
-      item.id !== performer.featured_news_2_id
-  ));
+  let nonFeaturedNews = $derived(
+    news?.filter(
+      (item) =>
+        item.id !== performer.featured_news_id &&
+        item.id !== performer.featured_news_2_id,
+    ),
+  );
+  let newsFeed = $derived(
+    news?.filter(
+      (item) =>
+        item.id !== performer.featured_news_id &&
+        item.id !== performer.featured_news_2_id,
+    ),
+  );
   let sidebarNews = $derived(news?.slice(0, 5));
 
   let itemTwoHeight = $state();
@@ -280,78 +287,11 @@
 
       <div class="md:w-57.5 text-phish-grey-light space-y-4">
         <FeaturedVideos />
-        <div>
-          <div class="bg-phish-purple w-full h-1"></div>
-          <span class="text-sm uppercase font-light tracking-wider mb-2"
-            >From the Road</span
-          >
-          <div class="bg-white w-full border-1 shadow-sm p-2.5 flex flex-col">
-            <p class="text-2xl tracking-wide">November 22nd 2025</p>
-            <p class="tracking-wide">The Middle East Downstairs</p>
-            <p class="tracking-wide">Cambridge, MA</p>
-            <span class="mt-6 mb-3 text-xs uppercase text-phish-green"
-              >Set One</span
-            >
-            <ul>
-              <li>Planet Telex/Wilson<sup>1</sup></li>
-              <li>The Bends/Free</li>
-              <li>High & Dry/Chalk Dust Torture</li>
-              <li>Fake Plastic Trees/Strange Design<sup>1</sup></li>
-              <li>Bones</li>
-            </ul>
-            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Two</span>
-            <ul>
-              <li>My Friend, My Friend<sup>1</sup> =></li>
-              <li>Nice Dream<sup>1</sup> =></li>
-              <li>My Friend, My Friend<sup>1</sup> =></li>
-              <li>Just<sup>1</sup> =></li>
-              <li>My Friend, My Friend<sup>1</sup></li>
-              <li>My Iron Lung<sup>1</sup></li>
-              <li>Bullet Proof...I Wish I Was<sup>1</sup> =></li>
-              <li>Black Star<sup>1,2</sup> =></li>
-              <li>Piper<sup>1</sup> =></li>
-              <li>Black Star<sup>1</sup></li>
-              <li>Sulk/Limb By Limb<sup>1</sup></li>
-              <li>Street Spirit<sup>1</sup> =></li>
-              <li>No Quarter<sup>1</sup> =></li>
-              <li>Street Spirit<sup>1</sup></li>
-            </ul>
-            <span class='mt-6 mb-3 text-xs uppercase text-phish-green'>Set Three</span>
-            <ul>
-              <li>Nude<sup>3</sup></li>
-              <li>How To Disappear Completely =></li>
-              <li>Mike's Song<sup>4</sup> =></li>
-              <li>How To Disappear Completely =></li>
-              <li>Paranoid Android =></li>
-              <li>Jigsaw Falling Into Place =></li>
-              <li>Birds of a Feather =></li>
-              <li>Jigsaw Falling Into Place =></li>
-              <li>Paranoid Android<sup>5</sup></li>
-              <li>Bodysnatchers =></li>
-              <li>Weekapaug Groove</li>
-              <li>OPTIMISTASH (Stash/Optimistic)</li>
-              <li>RECKARINI (Reckoner/Carini)<sup>6</sup></li>
-              <li>Creep/Farmhouse<sup>1,2</sup></li>
-              <li>Airbag =></li>
-              <li>Ghost<sup>2</sup> =></li>
-              <li>Airbag</li>
-              <li>Weird Fishes/Arpeggi</li>
-              <li>Let Down<sup>7</sup></li>
-              <li>National Anthem =></li>
-              <li>Tweezer Reprise</li>
-            </ul>
-
-            <ul class="mt-6 mb-3">
-              <li><sup>1</sup>First Time Played</li>
-              <li><sup>2</sup>Unfinished</li>
-              <li><sup>3</sup>Contained "Planet Telex" teases</li>
-              <li><sup>4</sup>Jam/Ending only</li>
-              <li><sup>5</sup>Contained "Say It To Me S.A.N.T.O.S." teases</li>
-              <li><sup>6</sup>Contained "Degausser" and "You Won't Know" teases</li>
-              <li><sup>7</sup>Contained "Plaese Haalp" teases</li>
-            </ul>
-          </div>
-        </div>
+        <ContentSection title="From The Road">
+          {#snippet content()}
+            <Setlist setlist={pastSetlists[0]} />
+          {/snippet}
+        </ContentSection>
         <NewsItem item={nonFeaturedNews[0]} />
       </div>
     </div>
