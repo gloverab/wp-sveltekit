@@ -1,8 +1,12 @@
 <script lang="ts">
   import ContentSection from "$src/components/ContentSection.svelte";
   import Setlist from "$src/components/Setlist.svelte";
-  import { dharmaBums, middleEast, pastSetlists } from "$src/setlists";
+  import { pastSetlists } from "$src/setlists";
 </script>
+
+<svelte:head>
+  <title>Weird Phishes | Past Setlists</title>
+</svelte:head>
 
 <div class="space-y-4 pt-6">
   <div class="space-y-2">

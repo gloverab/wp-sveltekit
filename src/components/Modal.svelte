@@ -1,27 +1,21 @@
-<script lang='ts'>
+<script lang="ts">
   import { clickOutside } from "$src/actions/clickOutside";
-
 
   interface Props {
     classes?: string;
     onHide: () => void;
     show?: boolean;
-    children?: import('svelte').Snippet;
+    children?: import("svelte").Snippet;
   }
 
-  let {
-    classes = '',
-    onHide,
-    show = false,
-    children
-  }: Props = $props();
+  let { classes = "", onHide, show = false, children }: Props = $props();
 
-  let animateHide = $state(false)
+  let animateHide = $state(false);
 
   const handleHide = () => {
-    animateHide = true
-    setTimeout(onHide, 400)
-  }
+    animateHide = true;
+    setTimeout(onHide, 400);
+  };
 </script>
 
 {#if show}
@@ -29,7 +23,7 @@
     class:bg-opacity-0={animateHide}
     class:bg-opacity-85={!animateHide}
     class:duration-200={animateHide}
-    class='
+    class="
       fixed
       z-1100
       cursor-default
@@ -42,7 +36,8 @@
       justify-center
       items-center
       p-5
-    '>
+    "
+  >
     <div
       use:clickOutside
       onoutclick={() => handleHide()}
@@ -50,7 +45,7 @@
       class:duration-200={animateHide}
       class:opacity-0={animateHide}
       class:opacity-100={!animateHide}
-      class='
+      class="
         border-3
         border-phish-orange
         rounded-xl
@@ -60,8 +55,12 @@
         max-w-full
         transform
         {classes}
-      '>
-      <button onclick={handleHide} class='absolute right-0 top-0 bg-white w-8 h-8 rounded-full shadow-sm'>
+      "
+    >
+      <button
+        onclick={handleHide}
+        class="absolute right-0 top-0 bg-white w-8 h-8 rounded-full shadow-sm"
+      >
         <p>X</p>
       </button>
       {@render children?.()}
