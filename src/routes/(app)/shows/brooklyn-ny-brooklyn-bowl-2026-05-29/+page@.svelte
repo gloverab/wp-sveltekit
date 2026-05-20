@@ -30,7 +30,7 @@
 <div class="flex justify-center bg-black">
   <div class="w-full max-w-160">
     <div
-      class="w-full min-h-screen max-h-screen bg-cover bg-center flex flex-col justify-center items-center px-2 pt-10 pb-10 bg-black space-y-4 overflow-x-hidden container"
+      class="w-full min-h-screen max-h-screen bg-cover bg-center flex flex-col justify-start items-center px-2 pt-4 pb-10 bg-black space-y-4 overflow-x-hidden container"
       style="background-image: url({bgSwirl});"
     >
       <enhanced:img
