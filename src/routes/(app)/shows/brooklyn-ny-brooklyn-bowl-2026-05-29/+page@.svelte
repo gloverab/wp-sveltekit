@@ -9,9 +9,9 @@
   import bearClutter from "$assets/brooklyn-bowl/07-bear-clutter.png?enhanced";
   import bearHeads from "$assets/brooklyn-bowl/08-bear-heads.png?enhanced";
   import centerDot from "$assets/brooklyn-bowl/09-center-dot.png?enhanced";
-  import heroText from "$assets/brooklyn-bowl/hero-text.svg?enhanced";
-  import bowlLogo from "$assets/brooklyn-bowl/bowl-logo.svg?enhanced";
-  import dateSign from "$assets/brooklyn-bowl/date-sign.svg?enhanced";
+  import heroText from "$assets/brooklyn-bowl/hero-text.svg";
+  import bowlLogo from "$assets/brooklyn-bowl/bowl-logo.svg";
+  import dateSign from "$assets/brooklyn-bowl/date-sign.svg";
   import { onMount } from "svelte";
 
   let showContent = $state(false);
@@ -30,7 +30,7 @@
 <div class="flex justify-center bg-black">
   <div class="w-full max-w-160">
     <div
-      class="w-full min-h-screen max-h-screen bg-cover bg-center flex flex-col justify-start items-center px-2 pt-4 pb-10 bg-black space-y-4 overflow-x-hidden container"
+      class="w-full min-h-screen max-h-screen bg-cover bg-center flex flex-col justify-start items-center px-2 pt-10 pb-10 bg-black space-y-4 overflow-x-hidden container"
       style="background-image: url({bgSwirl});"
     >
       <enhanced:img
