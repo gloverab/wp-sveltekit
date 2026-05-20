@@ -92,7 +92,7 @@
       <div class="w-full relative -top-6">
         <div class="absolute top-0 left-0 w-full date-sign">
           <div
-            class="absolute -bottom-16 w-full transform -rotate-0 flex justify-center"
+            class="absolute -bottom-14 w-full transform -rotate-0 flex justify-center"
           >
             <div class="w-40">
               <img alt="May 29, 2026" src={dateSign} />
