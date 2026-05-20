@@ -1,17 +1,17 @@
 <script lang="ts">
   import bgSwirl from "$assets/brooklyn-bowl/bg-swirl.svg";
-  import skyCircle from "$assets/brooklyn-bowl/01-sky-circle.png";
-  import centerMosaicBlue from "$assets/brooklyn-bowl/02-center-mosaic-blue.png";
-  import centerMosaicRed from "$assets/brooklyn-bowl/03-center-mosaic-red.png";
-  import centerMosaicBlueSm from "$assets/brooklyn-bowl/04-center-mosaic-blue-sm.png";
-  import leaves1 from "$assets/brooklyn-bowl/05-leaves-1.png";
-  import leaves2 from "$assets/brooklyn-bowl/06-leaves-2.png";
-  import bearClutter from "$assets/brooklyn-bowl/07-bear-clutter.png";
-  import bearHeads from "$assets/brooklyn-bowl/08-bear-heads.png";
-  import centerDot from "$assets/brooklyn-bowl/09-center-dot.png";
-  import heroText from "$assets/brooklyn-bowl/hero-text.svg";
-  import bowlLogo from "$assets/brooklyn-bowl/bowl-logo.svg";
-  import dateSign from "$assets/brooklyn-bowl/date-sign.svg";
+  import skyCircle from "$assets/brooklyn-bowl/01-sky-circle.png?enhanced";
+  import centerMosaicBlue from "$assets/brooklyn-bowl/02-center-mosaic-blue.png?enhanced";
+  import centerMosaicRed from "$assets/brooklyn-bowl/03-center-mosaic-red.png?enhanced";
+  import centerMosaicBlueSm from "$assets/brooklyn-bowl/04-center-mosaic-blue-sm.png?enhanced";
+  import leaves1 from "$assets/brooklyn-bowl/05-leaves-1.png?enhanced";
+  import leaves2 from "$assets/brooklyn-bowl/06-leaves-2.png?enhanced";
+  import bearClutter from "$assets/brooklyn-bowl/07-bear-clutter.png?enhanced";
+  import bearHeads from "$assets/brooklyn-bowl/08-bear-heads.png?enhanced";
+  import centerDot from "$assets/brooklyn-bowl/09-center-dot.png?enhanced";
+  import heroText from "$assets/brooklyn-bowl/hero-text.svg?enhanced";
+  import bowlLogo from "$assets/brooklyn-bowl/bowl-logo.svg?enhanced";
+  import dateSign from "$assets/brooklyn-bowl/date-sign.svg?enhanced";
   import { onMount } from "svelte";
 
   let showContent = $state(false);
@@ -33,7 +33,7 @@
       class="w-full min-h-screen max-h-screen bg-cover bg-center flex flex-col justify-center items-center px-2 pt-10 pb-10 bg-black space-y-4 overflow-x-hidden container"
       style="background-image: url({bgSwirl});"
     >
-      <img
+      <enhanced:img
         class="z-1"
         alt="Weird Phishes - A Mashup of Radiohead and Phish"
         src={heroText}
@@ -44,45 +44,49 @@
         class="relative w-full flex-shrink-1 flex justify-center items-center -top-6 duration-200"
       >
         <div class="mandala-wrapper">
-          <img alt="sky-circle" class="mandala-component" src={skyCircle} />
-          <img
+          <enhanced:img
+            alt="sky-circle"
+            class="mandala-component"
+            src={skyCircle}
+          />
+          <enhanced:img
             alt="mosaic-blue-lg"
             class="mandala-component mosaic-blue-lg"
             src={centerMosaicBlue}
           />
-          <img
+          <enhanced:img
             alt="mosaic-red"
             class="mandala-component mosaic-red"
             src={centerMosaicRed}
           />
-          <img
+          <enhanced:img
             alt="mosaic-blue-sm"
             class="mandala-component mosaic-blue-sm"
             src={centerMosaicBlueSm}
           />
           <div class="mandala-component leaves">
-            <img
+            <enhanced:img
               alt="leaves-1"
               class="absolute top-0 left-0 w-full h-full"
               src={leaves1}
             />
-            <img
+            <enhanced:img
               alt="leavse-2"
               class="absolute top-0 left-0 w-full h-full"
               src={leaves2}
             />
           </div>
-          <img
+          <enhanced:img
             alt="bear-clutter"
             class="mandala-component bear-clutter"
             src={bearClutter}
           />
-          <img
+          <enhanced:img
             alt="bear-heads"
             class="mandala-component bear-heads"
             src={bearHeads}
           />
-          <img
+          <enhanced:img
             alt="center-dot"
             class="mandala-component center-dot"
             src={centerDot}
@@ -95,12 +99,12 @@
             class="absolute -bottom-14 w-full transform -rotate-0 flex justify-center"
           >
             <div class="w-40">
-              <img alt="May 29, 2026" src={dateSign} />
+              <enhanced:img alt="May 29, 2026" src={dateSign} />
             </div>
           </div>
         </div>
         <div class="relative w-full flex justify-center -bottom-4">
-          <img
+          <enhanced:img
             alt="Brooklyn Bowl"
             class="w-3/5 min-w-80 max-w-100 animte float"
             src={bowlLogo}
