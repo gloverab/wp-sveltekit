@@ -33,7 +33,7 @@
       class="w-full min-h-screen max-h-screen bg-cover bg-center flex flex-col justify-start items-center px-2 pt-10 pb-10 bg-black space-y-4 overflow-x-hidden container"
       style="background-image: url({bgSwirl});"
     >
-      <enhanced:img
+      <img
         class="z-1"
         alt="Weird Phishes - A Mashup of Radiohead and Phish"
         src={heroText}
@@ -99,12 +99,12 @@
             class="absolute -bottom-14 w-full transform -rotate-0 flex justify-center"
           >
             <div class="w-40">
-              <enhanced:img alt="May 29, 2026" src={dateSign} />
+              <img alt="May 29, 2026" src={dateSign} />
             </div>
           </div>
         </div>
         <div class="relative w-full flex justify-center -bottom-4">
-          <enhanced:img
+          <img
             alt="Brooklyn Bowl"
             class="w-3/5 min-w-80 max-w-100 animte float"
             src={bowlLogo}
