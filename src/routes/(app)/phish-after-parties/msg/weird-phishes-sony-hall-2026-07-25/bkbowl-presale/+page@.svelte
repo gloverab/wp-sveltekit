@@ -1,18 +1,18 @@
 <script lang="ts">
   import BearLogo from "$src/components/BearLogo.svelte";
   import TypewriterText from "$src/components/TypewriterText.svelte";
-  import { onMount } from "svelte";
+  import dayjs from "dayjs/esm";
 
-  let destination: HTMLElement | undefined = $state();
+  const wentOrGoes = dayjs().isBefore(dayjs("2026-05-29T20:00:00-04:00"))
+    ? "goes"
+    : "went";
 
   const aText = new Array(
-    "We are thankful to have you, and we have some exciting news.",
-    "",
-    "Truth be told, we couldn't say anything about it until tonight, but since you're here we thought you should be the first to know.",
+    "We are thankful to have you, and we have some exciting news that we weren't allowed to share until tonight. Since you're here, we thought you should be the first to know.",
     "",
     "On Saturday, July 25th, Weird Phishes will be playing a Phish afterparty at SONY HALL in Manhattan. This will be the band's largest headlining performance to date.",
     "",
-    "Public tickets go on sale this Monday, but we have secured an early discount link to share with you. It went live at 8:01pm EST. Here is the link:",
+    `Public tickets go on sale this Monday, but we have secured an early discount link to share with you. It ${wentOrGoes} live at 8:01pm EST tonight. Here is the link:`,
     "",
   );
   let showLink = $state(false);
@@ -46,9 +46,12 @@
       {#if showLink}
         <a
           class="underline"
+          disabled={wentOrGoes === "goes"}
           target="_blank"
           href="https://www.ticketmaster.com/event/000064B6FB988C5C?brand=sonyhall&CFC_SONYHALL_260725artist"
-          >SONY HALL TICKETS →</a
+          >SONY HALL TICKETS {wentOrGoes === "goes"
+            ? "(Live at 8:01pm)"
+            : "→"}</a
         >
         <TypewriterText
           aText={bText}
@@ -57,7 +60,6 @@
         />
       {/if}
 
-      <!-- {#if showMailingList} -->
       <div class="min-w-full {showMailingList ? 'opacity-100' : 'opacity-0'}">
         <script
           async
@@ -65,7 +67,6 @@
           data-beehiiv-form="bd3623e1-1a7c-439b-8da7-5d6cd95b9aa3"
         ></script>
       </div>
-      <!-- {/if} -->
     </div>
   </div>
 </main>
