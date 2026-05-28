@@ -5,12 +5,19 @@
     aText: string[];
     onComplete?: () => void;
     timeout?: number;
+    speed?: number;
+    lineSpeed?: number;
   }
-  let { aText, onComplete, timeout }: Props = $props();
+  let {
+    aText,
+    onComplete,
+    timeout,
+    speed = 50,
+    lineSpeed = 200,
+  }: Props = $props();
 
   let destination: HTMLElement | undefined = $state();
 
-  let iSpeed = 50; // time delay of print out
   let iIndex = $state(0); // start printing array at this posision
   let iArrLength = $derived(aText[0].length); // the length of the text array
   let iScrollAt = 20; // start scrolling up at this many lines
@@ -21,7 +28,7 @@
 
   let currentRow = $state(0);
 
-  function typewriter() {
+  const typewriter = () => {
     sContents = " ";
     iRow = Math.max(0, iIndex - iScrollAt);
 
@@ -42,13 +49,13 @@
         if (iIndex != aText.length) {
           currentRow++;
           iArrLength = aText[iIndex].length;
-          setTimeout(typewriter, 200);
+          setTimeout(typewriter, lineSpeed);
         }
       } else {
-        setTimeout(typewriter, iSpeed);
+        setTimeout(typewriter, speed);
       }
     }
-  }
+  };
 
   onMount(() => {
     setTimeout(() => {

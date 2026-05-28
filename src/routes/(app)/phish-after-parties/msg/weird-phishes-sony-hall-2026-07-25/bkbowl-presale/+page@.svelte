@@ -2,6 +2,14 @@
   import BearLogo from "$src/components/BearLogo.svelte";
   import TypewriterText from "$src/components/TypewriterText.svelte";
   import dayjs from "dayjs/esm";
+  import { onMount } from "svelte";
+
+  let showLink = $state(false);
+  let showMailingList = $state(false);
+  let hasCompletedPreviously = $state(false);
+
+  let speed = $state(50);
+  let lineSpeed = $state(200);
 
   const wentOrGoes = dayjs().isBefore(dayjs("2026-05-29T20:00:00-04:00"))
     ? "goes"
@@ -10,13 +18,11 @@
   const aText = new Array(
     "We are thankful to have you, and we have some exciting news that we weren't allowed to share until tonight. Since you're here, we thought you should be the first to know.",
     "",
-    "On Saturday, July 25th, Weird Phishes will be playing a Phish afterparty at SONY HALL in Manhattan. This will be the band's largest headlining performance to date.",
+    "On Saturday, JULY 25th, Weird Phishes will play a Phish afterparty at SONY HALL in Manhattan. This will be the largest venue the band has ever headlined.",
     "",
-    `Public tickets go on sale this Monday, but we have secured an early discount link to share with you. It ${wentOrGoes} live at 8:01pm EST tonight. Here is the link:`,
+    `The show won't be announced until Monday, but we have an early discount link to share with everyone here. The link ${wentOrGoes} live at 8:01pm EST tonight:`,
     "",
   );
-  let showLink = $state(false);
-  let showMailingList = $state(false);
 
   const bText = [
     "One more thing...It's increasingly difficult to get word out about smaller events like this one without paying Zuck for ads or bombarding you at the door like we're doing right now.",
@@ -25,11 +31,32 @@
     "",
     "If you enjoy Weird Phishes more than you enjoy doomscrolling, please sign up for our mailing list below. We will never send more than 1 or 2 emails a month. Usually less.",
     "",
+    "Have a great show.",
+    "",
   ];
+
+  const handleComplete = () => {
+    showMailingList = true;
+    localStorage.setItem("has-completed-bkbowl-animation", "true");
+  };
+
+  const handleClickSkip = () => {
+    speed = 0;
+    lineSpeed = 0;
+    hasCompletedPreviously = false;
+  };
+
+  onMount(() => {
+    const lsHasCompleted =
+      localStorage.getItem("has-completed-bkbowl-animation") === "true";
+    if (lsHasCompleted) {
+      hasCompletedPreviously = true;
+    }
+  });
 </script>
 
 <main>
-  <div class="flex justify-center px-4 pt-4 w-full">
+  <div class="flex justify-center px-4 pt-4 w-full pb-40">
     <div class="flex flex-col items-center w-full space-y-3">
       <div class="w-12">
         <BearLogo />
@@ -42,6 +69,8 @@
         {aText}
         onComplete={() => (showLink = true)}
         timeout={2500}
+        {speed}
+        {lineSpeed}
       />
       {#if showLink}
         <a
@@ -55,8 +84,10 @@
         >
         <TypewriterText
           aText={bText}
-          onComplete={() => (showMailingList = true)}
+          onComplete={handleComplete}
           timeout={150}
+          {speed}
+          {lineSpeed}
         />
       {/if}
 
@@ -69,6 +100,13 @@
       </div>
     </div>
   </div>
+  {#if hasCompletedPreviously}
+    <div class="fixed top-4 right-4">
+      <button class="bg-black text-white px-4 py-2" onclick={handleClickSkip}>
+        <p>Skip Animation</p>
+      </button>
+    </div>
+  {/if}
 </main>
 
 <style>
