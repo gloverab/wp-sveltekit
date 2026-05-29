@@ -8,7 +8,7 @@
   let showMailingList = $state(false);
   let hasCompletedPreviously = $state(false);
 
-  let speed = $state(50);
+  let speed = $state(35);
   let lineSpeed = $state(200);
 
   const wentOrGoes = dayjs().isBefore(dayjs("2026-05-29T20:00:00-04:00"))
@@ -54,6 +54,11 @@
     }
   });
 </script>
+
+<svelte:head>
+  <title>MSG Afterparty Announcement</title>
+  <meta property="og:title" content="MSG Afterparty Announcement" />
+</svelte:head>
 
 <main>
   <div class="flex justify-center px-4 pt-4 w-full pb-40">
