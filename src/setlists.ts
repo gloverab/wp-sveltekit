@@ -975,7 +975,149 @@ const brighton = {
   ]
 }
 
+export const brokenGoblet = {
+  venue: 'Broken Goblet',
+  date: 'May 22, 2026',
+  location: 'Bensalem, PA',
+  showNotes: 'Setlist coming soon'
+}
+
+export const bkbowl2026 = {
+  venue: 'Brooklyn Bowl',
+  date: 'May 29, 2026',
+  location: 'Brooklyn, NY',
+  showNotes: 'Opening set by Owls By Day. This set was dedicated to Mr. Jibbers.',
+  footnotes: {
+    [1]: 'Alex teased "Black Holes"',
+    [2]: `Contained teases from Bethel '24 'AC/DC Bag' jam, which several band members were in attendance for.`,
+    [3]: 'Composed instrumental section only.',
+    [4]: 'Final chorus only. Lyrics changed to match "15 Step" lyrics.',
+    [5]: `Josh and Derek teased "Hedwig's Theme"`,
+    [6]: 'Played in a fast, uptempo funk style',
+    [7]: `LTP 8/23/2024. First time played in full since it's debut on 2/3/2023.`,
+    [8]: 'Contained "Motion Picture Soundtrack" quotes and ending',
+    [9]: `Contained "Giorgio by Moroder" Teases`
+  },
+  sets: [
+    {
+      name: 'Setlist',
+      songlist: [
+        {
+          song: 'My Iron Lung'
+        },
+        {
+          song: 'Faust Arp <=> Down With Disease',
+          footnotes: [1, 2]
+        },
+        {
+          song: '15 Step',
+          segue: true
+        },
+        {
+          song: 'Golgi Apparatus',
+          segue: true,
+          footnotes: [3]
+        },
+        {
+          song: 'Morning Bell',
+          segue: true
+        },
+        {
+          song: 'Golgi Apparatus',
+          segue: true,
+          footnotes: [4]
+        },
+        {
+          song: '15 Step'
+        },
+        {
+          song: 'My Friend, My Friend',
+          segue: true,
+        },
+        {
+          song: 'Nice Dream',
+          segue: true,
+        },
+        {
+          song: 'My Friend, My Friend',
+          segue: true,
+        },
+        {
+          song: 'Just',
+          segue: true,
+        },
+        {
+          song: 'My Friend, My Friend',
+        },
+        {
+          song: 'Bones'
+        },
+        {
+          song: 'Stash <=> Optimistic',
+          segue: true,
+          footnotes: [5]
+        },
+        {
+          song: 'Bodysnatchers',
+          segue: true,
+          footnotes: [6]
+        },
+        {
+          song: 'Stash'
+        },
+        {
+          song: "Motion Picture Soundtrack",
+          segue: true,
+          footnotes: [7]
+        },
+        {
+          song: "Wading in the Velvet Sea",
+          footnotes: [7, 8]
+        },
+        {
+          song: 'National Anthem',
+          segue: true
+        },
+        {
+          song: 'Tweezer Reprise'
+        }
+      ]
+    },
+    {
+      name: 'Encore',
+      songlist: [
+        {
+          song: 'Paranoid Android',
+          segue: true,
+          footnotes: [9]
+        },
+        {
+          song: 'Jigsaw Falling Into Place',
+          segue: true,
+          footnotes: []
+        },
+        {
+          song: 'Birds of a Feather',
+          segue: true,
+          footnotes: []
+        },
+        {
+          song: 'Jigsaw Falling Into Place',
+          segue: true,
+          footnotes: []
+        },
+        {
+          song: 'Paranoid Android',
+          footnotes: []
+        },
+      ]
+    }
+  ]
+}
+
 export const pastSetlists = [
+  bkbowl2026,
+  brokenGoblet,
   brighton,
   putnam,
   arch,
