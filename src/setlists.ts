@@ -1115,7 +1115,229 @@ export const bkbowl2026 = {
   ]
 }
 
+export const marigold = {
+  venue: 'Marigold Theater',
+  date: 'June 5, 2026',
+  location: 'Easthampton, MA',
+  showNotes: 'This show was played as a 4-piece without Derek.',
+  footnotes: {
+    [1]: 'Unfinished',
+    [2]: 'Josh and Alex teased "First Tube"',
+    [3]: `Alex teased "Portal to an Empty Head"`
+  },
+  sets: [
+    {
+      name: 'Set 1',
+      songlist: [
+        {
+          song: 'Jam',
+          segue: true
+        },
+        {
+          song: 'Climbing Up The Walls',
+          segue: true,
+          footnotes: [1]
+        },
+        {
+          song: 'Exit Music (For A Film)'
+        },
+        {
+          song: 'Subterranean Homesick Alien <=> Twist',
+          footnotes: [3]
+        },
+        {
+          song: 'My Friend, My Friend',
+          segue: true,
+        },
+        {
+          song: 'Nice Dream',
+          segue: true,
+        },
+        {
+          song: 'My Friend, My Friend',
+          segue: true,
+        },
+        {
+          song: 'Just',
+          segue: true,
+        },
+        {
+          song: 'My Friend, My Friend',
+        },
+        {
+          song: 'National Anthem',
+          segue: true
+        },
+        {
+          song: 'Tweezer Reprise'
+        }
+      ]
+    },
+    {
+      name: 'Set 2',
+      songlist: [
+        {
+          song: 'High And Dry <=> Chalk Dust Torture',
+          segue: true
+        },
+        {
+          song: 'Bodysnatchers',
+          segue: true
+        },
+        {
+          song: 'Electioneering',
+          segue: true,
+          footnotes: [1]
+        },
+        {
+          song: 'Bodysnatchers',
+          segue: true
+        },
+        {
+          song: 'High And Dry <=> Chalk Dust Torture'
+        },
+        {
+          song: 'Reckoner',
+          segue: true
+        },
+        {
+          song: 'Carini',
+          footnotes: [3]
+        },
+        {
+          song: 'Nude',
+          segue: true
+        },
+        {
+          song: 'No Surprises <=> Simple',
+          segue: true
+        },
+        {
+          song: 'House of Cards',
+          segue: true
+        },
+        {
+          song: 'No Surprises <=> Simple'
+        },
+        {
+          song: 'OPTIMISTASH (Optimistic/Stash)',
+        }
+      ]
+    }
+  ]
+}
+
+export const phome = {
+  venue: 'Portland House of Music and Events (PHOME)',
+  date: 'June 6, 2026',
+  location: 'Portland, ME',
+  showNotes: 'This show was played as a 4-piece without Derek.',
+  footnotes: {
+    [1]: 'Contained "Dirrty" teases',
+    [2]: `Contained "Bad Buy" teases`,
+    [3]: 'Contained "Fuego" teases',
+    [4]: 'Ending only',
+    [5]: 'Contained "Optimistic" teases',
+    [6]: 'Intro only. Played at a very fast tempo'
+  },
+  sets: [
+    {
+      name: 'Set 1',
+      songlist: [
+        {
+          song: 'Airbag'
+        },
+        {
+          song: 'Paranoid Android',
+          segue: true,
+          footnotes: [1]
+        },
+        {
+          song: 'Tweezer',
+          segue: true
+        },
+        {
+          song: 'Paranoid Android'
+        },
+        {
+          song: 'Subterranean Homesick Alien <=> Twist',
+          footnotes: [2]
+        },
+        {
+          song: 'Exit Music (For a Film)'
+        },
+        {
+          song: "Let Down"
+        },
+        {
+          song: 'Fluffhead',
+          segue: true
+        },
+        {
+          song: 'Karma Police',
+          segue: true,
+          footnoes: [3]
+        },
+        {
+          song: 'Fitter Happier <=> Yem Jam',
+          segue: true
+        },
+        {
+          song: 'Fluffhead'
+        }
+      ]
+    },
+    {
+      name: 'Set 2',
+      songlist: [
+        {
+          song: 'How To Disappear Completely',
+          segue: true
+        },
+        {
+          song: 'Packt Like Sardines in a Crushd Tin Box',
+          segue: true
+        },
+        {
+          song: "Mike's Song",
+          footnotes: [4]
+        },
+        {
+          song: 'Bones'
+        },
+        {
+          song: 'Nude',
+          segue: true,
+          footnoes: [5]
+        },
+        {
+          song: 'Stash',
+          segue: true,
+          footnotes: [6]
+        },
+        {
+          song: 'Optimistic',
+          segue: true
+        },
+        {
+          song: 'Stash',
+          segue: true
+        },
+        {
+          song: 'Nude',
+          footnotes: [4]
+        },
+        {
+          song: 'The Tourist'
+        }
+      ]
+    }
+  ]
+}
+
 export const pastSetlists = [
+  phome,
+  marigold,
   bkbowl2026,
   brokenGoblet,
   brighton,
