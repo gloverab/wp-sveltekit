@@ -9,16 +9,16 @@
     hideTicketmaster?: boolean;
     ticketSource: { name: string; link: string };
     showInfo: {
-    date: any;
-    venue: string;
-    city: string;
-    state: string;
-    doorTime: string;
-    showTime: string;
-    titleHTML: string;
-    price: number;
-    shopifyLink: string;
-  };
+      date: any;
+      venue: string;
+      city: string;
+      state: string;
+      doorTime: string;
+      showTime: string;
+      titleHTML: string;
+      price: number;
+      shopifyLink: string;
+    };
     ticketsRemaining: number;
     remainingLastUpdatedAt: string | number;
   }
@@ -30,7 +30,7 @@
     ticketSource,
     showInfo,
     ticketsRemaining,
-    remainingLastUpdatedAt
+    remainingLastUpdatedAt,
   }: Props = $props();
 
   let venmoText = "Buy Tickets via Venmo";
@@ -72,7 +72,7 @@
   const humanizeTime = (distance) => {
     // Time calculations for days, hours, minutes and seconds
     var hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
     );
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -123,7 +123,9 @@
         >
       </h3>
       <h3 class="text-2xl font-semibold uppercase sm:hidden">No-fee Tickets</h3>
-      {@html showInfo.titleHTML}
+      {#if showInfo?.titleHTML}
+        {@html showInfo.titleHTML}
+      {/if}
       <p class="text-white text-base mb-2 text-indigo-200">
         It's been far too long since we played Boston, and even longer since we
         debuted a new album's worth of arrangements.
@@ -164,7 +166,7 @@
       Presale: ${convertToCurrency(showInfo.price)}/ea + $1.00 Shipped
     </p>
     <!-- <p class='text-red-600 font-semibold text'>Ending Tonight (11/9) at 6:00pm</p> -->
-    {#if expired || ticketsRemaining === 0}
+    {#if (expired || ticketsRemaining === 0) && ticketSource?.link}
       <p class="text-red-600 mb-6">
         WPTBM tickets are sold out. Please purchase your tickets from the link
         below.
@@ -185,13 +187,13 @@
           class="{ticketsRemaining > 50
             ? 'text-green-500'
             : ticketsRemaining > 10
-            ? 'text-orange-500'
-            : 'text-red-400'} text-lg leading-5"
+              ? 'text-orange-500'
+              : 'text-red-400'} text-lg leading-5"
         >
           {ticketsRemaining} Remaining
           <span class="text-gray-400 text-sm"
             >as of {dayjs(remainingLastUpdatedAt).format(
-              "MM/DD/YYYY @ h:mm a"
+              "MM/DD/YYYY @ h:mm a",
             )}</span
           >
         </p>
@@ -269,7 +271,7 @@
       class="absolute top-0 left-0 h-full w-full bg-black bg-opacity-40 {animateVenmo
         ? 'opacity-100'
         : 'opacity-0'} duration-300"
-></div>
+    ></div>
 
     <div
       class="relative bg-white p-8 rounded-md max-w-100 transform {animateVenmo
@@ -305,7 +307,7 @@
       class="absolute top-0 left-0 h-full w-full bg-black bg-opacity-40 {animateSoldOut
         ? 'opacity-100'
         : 'opacity-0'} duration-300"
-></div>
+    ></div>
 
     <div
       class="relative bg-white p-4 rounded-md max-w-100 transform {animateSoldOut
