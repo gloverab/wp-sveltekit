@@ -13,6 +13,14 @@
   import dateTime from "$assets/animated-mask/date-time.png";
 
   import { onMount, tick } from "svelte";
+  import { windowHeight } from "$src/stores/main";
+  import { fade, fly } from "svelte/transition";
+  import BearLogo from "$src/components/BearLogo.svelte";
+  import { cubicOut } from "svelte/easing";
+
+  const handleClick = () => {
+    fbq("trackCustom", "WPTBMClick", { type: "ticketmaster" });
+  };
 
   const RECT_HEIGHT = 60;
   const TOP_SPACING = 110;
@@ -25,10 +33,14 @@
   let descriptionH = $state(0);
 
   let show = $state(false);
+  let hideLoading = $state(false);
 
   onMount(async () => {
     await tick();
     show = true;
+    setTimeout(() => {
+      hideLoading = true;
+    }, 600);
   });
 
   let useMax = $derived(windowW > MAX_WIDTH);
@@ -82,6 +94,12 @@
         alt="Background Wash"
         width="100%"
       />
+      <enhanced:img
+        class="max-w-full"
+        src={backgroundWash}
+        alt="Background Wash"
+        width="100%"
+      />
     </div>
   </div>
   <svg width="100%" height="0">
@@ -90,6 +108,8 @@
     </mask>
   </svg>
   <div
+    class:opacity-0={!hideLoading}
+    class:opacity-100={hideLoading}
     style="
       height: {heroHeight}px;
       mask-image:
@@ -105,7 +125,7 @@
         url({dateTime}),
         url(#fake-mask)
       ;"
-    class="absolute w-screen top-0 left-0 logo-text-mask overflow-hidden"
+    class="absolute duration-500 w-screen top-0 left-0 logo-text-mask overflow-hidden"
   >
     <div style="transform: translate3d(0,{scrollY * 0.5}px,0)">
       <enhanced:img
@@ -153,17 +173,18 @@
   </div>
 
   <div class="overflow-hidden">
-    <button
-      name="Tickets on Sale May 29"
+    <a
+      href="https://www.ticketmaster.com/weird-phishes-a-synergistic-mashup-of-new-york-new-york-07-25-2026/event/000064B6FB988C5C"
       class:opacity-0={!show}
       class:opacity-100={show}
-      class="absolute left-0 text-center flex justify-center items-center space-x-2 bg-black bg-opacity-0 disabled:cursor-auto not:disabled:hover:bg-opacity-20"
-      onclick={null}
+      class="absolute left-0 text-center flex justify-center items-center space-x-2 bg-white disabled:cursor-auto not:disabled:hover:bg-opacity-20"
+      onclick={handleClick}
+      target="blank"
       style="width: 100%; height: {RECT_HEIGHT}px; top: {buttonY}px;"
     >
       <p class="uppercase text-3xl font-bold">Buy Tickets</p>
       <p class="uppercase text-2xl font-bold">»</p>
-    </button>
+    </a>
   </div>
 
   <div
@@ -180,9 +201,14 @@
         July 25, 2026 @ Sony Hall | 11:59 PM - Late
       </h2>
       <div class="flex justify-center">
-        <button onclick={null} class="rounded-full px-4 py-1 bg-orange-300">
-          <p class="font-semibold">Tickets on Sale May 29</p>
-        </button>
+        <a
+          onclick={handleClick}
+          target="blank"
+          href="https://www.ticketmaster.com/weird-phishes-a-synergistic-mashup-of-new-york-new-york-07-25-2026/event/000064B6FB988C5C"
+          class="rounded-full px-4 py-1 bg-orange-300"
+        >
+          <p class="font-semibold">Tickets on Sale Now</p>
+        </a>
       </div>
     </div>
 
@@ -247,16 +273,16 @@
         <p class="t-answer">- Anything could happen. Just kidding, no.</p>
       </div>
       <div class="py-6">
-        <button
-          disabled
-          name="Tickets on Sale May 29"
+        <a
+          href="https://www.ticketmaster.com/weird-phishes-a-synergistic-mashup-of-new-york-new-york-07-25-2026/event/000064B6FB988C5C"
           class="text-center flex justify-center items-center space-x-2 bg-indigo-300"
-          onclick={null}
+          onclick={handleClick}
+          target="blank"
           style="width: 100%; height: {RECT_HEIGHT}px;"
         >
           <p class="uppercase text-3xl font-bold">Buy Tickets</p>
           <p class="uppercase text-2xl font-bold">»</p>
-        </button>
+        </a>
       </div>
       <div class="label-wrapper">
         <p class="t-question">Will you start at 11:59 on the dot?</p>
@@ -303,14 +329,16 @@
         <p class="t-answer">- Only if they're birthday balloons.</p>
       </div>
       <div class="py-6">
-        <button
+        <a
+          href="https://www.ticketmaster.com/weird-phishes-a-synergistic-mashup-of-new-york-new-york-07-25-2026/event/000064B6FB988C5C"
           class="text-center flex justify-center items-center space-x-2 bg-teal-300"
-          onclick={null}
+          onclick={handleClick}
+          target="blank"
           style="width: 100%; height: {RECT_HEIGHT}px;"
         >
           <p class="uppercase text-3xl font-bold">Ok, NOW Buy Tickets</p>
           <p class="uppercase text-2xl font-bold">»</p>
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -322,6 +350,25 @@
     <p class="text-xs">SEE YOU ON THE 25th!</p>
   </footer>
 </main>
+
+{#if !hideLoading}
+  <div
+    in:fly|global={{
+      y: windowH,
+      duration: 700,
+      opacity: 1,
+      easing: cubicOut,
+    }}
+    out:fade|global={{ duration: 500 }}
+    class="fixed top-0 left-0 z-900 w-screen h-screen flex items-center justify-center bg-gray-900"
+  >
+    <div transition:fade|global={{ duration: 300 }} class="w-30 h-30">
+      <div class="animate-pulse">
+        <BearLogo fill="white" />
+      </div>
+    </div>
+  </div>
+{/if}
 
 <style global>
   #bg-wrapper {
