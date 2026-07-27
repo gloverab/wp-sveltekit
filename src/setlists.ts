@@ -1335,7 +1335,117 @@ export const phome = {
   ]
 }
 
+export const sonyHall = {
+  venue: 'Sony Hall - Phish Afterparty',
+  date: 'July 25, 2026',
+  location: 'New York, NY',
+  // showNotes: 'Jordan Fairless played bass guitar.',
+  footnotes: {
+    [1]: 'Contained "Packt Like Sardines in a Crushd Tin Box" teases',
+    [2]: 'Contained "Birdland" teases',
+    [3]: 'Contained "Red Clay" teases',
+  },
+  sets: [
+    {
+      name: 'Setlist',
+      songlist: [
+        {
+          song: 'Jam',
+          segue: true,
+          footnotes: [1]
+        },
+        {
+          song: 'Subterranean Homesick Alien <=> Twist',
+          footnotes: [2, 3]
+        },
+        {
+          song: 'My Iron Lung'
+        },
+        {
+          song: 'Paranoid Android',
+          segue: true,
+          footnotes: []
+        },
+        {
+          song: 'Jigsaw Falling Into Place',
+          segue: true,
+          footnotes: []
+        },
+        {
+          song: 'Birds of a Feather',
+          segue: true,
+          footnotes: []
+        },
+        {
+          song: 'Jigsaw Falling Into Place',
+          segue: true,
+          footnotes: []
+        },
+        {
+          song: 'Paranoid Android'
+        },
+        {
+          song: 'Bones'
+        },
+        {
+          song: 'My Friend, My Friend',
+          segue: true,
+        },
+        {
+          song: 'Nice Dream',
+          segue: true,
+        },
+        {
+          song: 'My Friend, My Friend',
+          segue: true,
+        },
+        {
+          song: 'Just',
+          segue: true,
+        },
+        {
+          song: 'My Friend, My Friend',
+        },
+        {
+          song: 'How To Disappear Completely',
+          segue: true,
+          footnotes: []
+        },
+        {
+          song: "Mike's Song",
+          segue: true,
+          footnotes: []
+        },
+        {
+          song: 'How To Disappear Completely',
+          footnotes: []
+        },
+        {
+          song: 'OPTIMISTASH (Stash/Optimistic)',
+          footnotes: []
+        },
+        {
+          song: 'High And Dry <=> Chalk Dust Torture'
+        }
+      ]
+    },
+    {
+      name: 'Encore',
+      songlist: [
+        {
+          song: 'National Anthem',
+          segue: true
+        },
+        {
+          song: 'Tweezer Reprise'
+        }
+      ]
+    }
+  ]
+}
+
 export const pastSetlists = [
+  sonyHall,
   phome,
   marigold,
   bkbowl2026,
