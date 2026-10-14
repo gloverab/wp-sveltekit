@@ -126,7 +126,7 @@
       {#if showInfo?.titleHTML}
         {@html showInfo.titleHTML}
       {/if}
-      <p class="text-white text-base mb-2 text-indigo-200">
+      <!-- <p class="text-white text-base mb-2 text-indigo-200">
         It's been far too long since we played Boston, and even longer since we
         debuted a new album's worth of arrangements.
       </p>
@@ -135,7 +135,7 @@
         other special album performances, we will be completely rearranging it,
         mashing it up with Phish, jamming it out, and performing the whole album
         front to back.
-      </p>
+      </p> -->
       <p class="text-gray-100 font-semibold">
         {showInfo.date.format("ddd, MMMM DD, YYYY")} - {showInfo.city}, {showInfo.state}
       </p>
@@ -147,8 +147,8 @@
       convenient.
     </p>
     <p class="text-white text-sm mb-2">
-      To combat that, we went down to the box office over at {showInfo.venue} in
-      {showInfo.city}, secured some barcodes, and put them onto
+      As has become tradition for our hometown shows, we've worked with {showInfo.venue}
+      to secure some special tickets
       <span class="text-yellow-300"
         >physical tickets with exclusive artwork</span
       > for this show only.
@@ -181,8 +181,10 @@
       </a>
     {:else}
       <div class="mb-6">
-        <p class="text-sm text-white">Presale ends October 1st, 2025</p>
-        <p class="text-sm text-white">Limited to 75</p>
+        <p class="text-sm text-white">
+          Presale ends {dayjs(countDownDate).format("MMM D, YYYY")}
+        </p>
+        <p class="text-sm text-white">Limited to 80</p>
         <p
           class="{ticketsRemaining > 50
             ? 'text-green-500'
