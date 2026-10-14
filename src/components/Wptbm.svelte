@@ -224,9 +224,7 @@
           <a
             onclick={() => handleClick("venmo-mobile")}
             class="flex purchase-button bg-blue-600 justify-center hover:bg-blue-500"
-            href={isiOs
-              ? "venmo://paycharge?txn=pay&recipients=weird-phishes&text=Your%20Address"
-              : "intent://paycharge?txn=pay&recipients=weird-phishes#Intent;package=com.venmo;scheme=venmo;end"}
+            href="https://venmo.com/weird-phishes?txn=pay&note=Your%20Address"
             target="blank"
           >
             <span class="text-white">Buy Tickets via Venmo</span>
