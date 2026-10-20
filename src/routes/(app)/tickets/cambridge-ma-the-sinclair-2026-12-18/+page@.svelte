@@ -47,8 +47,8 @@
     countDownDate: new Date("Nov 13, 2026 18:00:00").getTime(),
     showInfo,
     ticketSource,
-    ticketsRemaining: 67,
-    remainingLastUpdatedAt: new Date("Oct 16, 2026 09:32:00").getTime(),
+    ticketsRemaining: 58,
+    remainingLastUpdatedAt: new Date("Oct 20, 2026 11:04:00").getTime(),
   };
 
   onMount(() => {
