@@ -38,6 +38,7 @@
   let animateVenmo = $state(false);
   let showSoldOut = $state(false);
   let animateSoldOut = $state(false);
+  let x = $state();
 
   const initialDistance = countDownDate - new Date().getTime();
 
