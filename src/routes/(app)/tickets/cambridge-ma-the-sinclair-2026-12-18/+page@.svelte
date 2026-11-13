@@ -44,10 +44,10 @@
 
   const wptbmProps = {
     isiOs,
-    countDownDate: new Date("Nov 13, 2026 18:00:00").getTime(),
+    countDownDate: new Date("Nov 15, 2026 18:00:00").getTime(),
     showInfo,
     ticketSource,
-    ticketsRemaining: 19,
+    ticketsRemaining: 17,
     remainingLastUpdatedAt: new Date("Nov 12, 2026 12:13:00").getTime(),
   };
 
